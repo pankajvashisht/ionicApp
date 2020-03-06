@@ -1,0 +1,45 @@
+{
+  "project_info": {
+    "project_number": "685802022989",
+    "firebase_url": "https://ahmapp-1e0a4.firebaseio.com",
+    "project_id": "ahmapp-1e0a4",
+    "storage_bucket": "ahmapp-1e0a4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:685802022989:android:ecbb35901e9c3cfe",
+        "android_client_info": {
+          "package_name": "com.agrohyperMarket"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "685802022989-6ctdq3arghclnsjt9dilud9na9psn9c9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD7Jiu6sk4mfgcFUFbRwl5l6pWSR-UR8zM"
+        },
+        {
+          "current_key": "AIzaSyD7Jiu6sk4mfgcFUFbRwl5l6pWSR-UR8zM"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

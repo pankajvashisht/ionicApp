@@ -1,0 +1,29 @@
+<ion-content class="forgot_bg">
+    <div class="nav_header nav_white_header">
+        <button class="nav_btn floatLeft" (click)="dismiss()">
+            <ion-icon name="ios-arrow-back-outline"></ion-icon>
+        </button>
+        <div class="nav_header_title floatLeft">
+            <h5>Forgot Password</h5>
+          </div>
+        <button class="nav_btn floatRight" (click)="dismiss()">
+            <ion-icon name="close"></ion-icon>
+        </button>
+        <div class="clear"></div>
+    </div>
+    <div class="forgot_wrapper">
+      <img src="assets/imgs/forgot.png">
+      <h5>Forgot Password?</h5>
+      <p>We will be send a password reset link<br>
+          to your gmail account</p>
+          <form [formGroup]="ForGot" (ngSubmit)="submitforgot()">
+          <ion-item>
+            <ion-input [(ngModel)]="ForGot.email"  formControlName="email" placeholder="Enter your email id"></ion-input>
+          </ion-item>
+          <button [disabled]="!ForGot.valid" ion-button class="login_btn">Reset</button>
+        </form>
+    </div>
+</ion-content>
+<ion-footer padding>
+  <h6>Back to <a (click)="login()">Login</a></h6>
+</ion-footer>

@@ -1,0 +1,40 @@
+<!--
+  Generated template for the ShopPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header class="theme_background">
+  <div class="nav_header" [ngClass]="(step!=0)?'nav_white_header':''">
+      <button *ngIf="step==0" ion-button class="nav_btn floatLeft nav_menu" menuToggle></button>
+      <button *ngIf="step!=0" class="nav_btn nav_back floatLeft" (click)="back()"></button>
+      <div class="nav_header_title floatLeft">
+            <b> {{text}}  </b> 
+        </div>
+  </div>
+  
+</ion-header>
+
+
+<ion-content padding>
+  <ion-list *ngIf="step==0">
+    <button ion-item inset  *ngFor="let ten_cat of main_category" (click)="product(ten_cat.id,4,ten_cat.name.substring(20,-1))">
+      <ion-avatar item-start>
+        <img src="{{ten_cat.image}}">
+      </ion-avatar>
+      <h2>{{(ten_cat.name.length>40)?ten_cat.name.substring(40,-1)+'..':ten_cat.name}}</h2> 
+    </button>
+  </ion-list>
+  <ion-list *ngIf="step==1">
+      <button ion-item inset  *ngFor="let ten_cat of sub_category" (click)="product(ten_cat.id,4,ten_cat.name.substring(20,-1))">
+        
+        <h2>{{(ten_cat.name.length>70)?ten_cat.name.substring(70,-1)+'..':ten_cat.name}}</h2> 
+      </button>
+    </ion-list>
+    <ion-list *ngIf="step==2">
+        <button ion-item inset  *ngFor="let ten_cat of third_category" (click)="product(ten_cat.id,4,ten_cat.name.substring(20,-1))">
+          
+          <h2>{{(ten_cat.name.length>70)?ten_cat.name.substring(70,-1)+'..':ten_cat.name}}</h2> 
+        </button>
+      </ion-list>
+</ion-content>

@@ -1,0 +1,451 @@
+page-home {
+  .nav_header_title {
+          width: calc(100% - 130px) !important;
+          text-align: center;
+      }
+      .fashion_store_wrapper {
+          width: 100%;
+          padding: 5px;
+          padding-top: 0px;
+          .fashion_banner_slider {
+              width: 100%;
+              .slides {
+                  .swiper-container {
+                      height: 220px;
+                      .swiper-wrapper {
+                          .swiper-slide {
+                              background: #a8a8a8;
+                              height: 200px;
+                              border-radius: 10px;
+                              .slide-zoom {
+                                  width: 100%;
+                                  height: 100%;
+                                  img {
+                                      width: 100%;
+                                      height: 100%;
+                                      object-fit: fill;
+                                      object-position: center;
+                                    //   border-radius: 10px;
+                                  }
+                              }
+                          }
+                      }
+                      .swiper-pagination {
+                          bottom: 0px;
+                          .swiper-pagination-bullet {}
+                          .swiper-pagination-bullet-active {
+                              background: #b40131;
+                          }
+                      }
+                  }
+              }
+          }
+          .fashion_header {
+              width: 100%;
+              padding-top: 10px;
+              padding-bottom: 10px;
+              h6 {
+                  padding: 0px;
+                  margin: 0px;
+                  float: left;
+                  color: #646464;
+                  text-transform: uppercase;
+                  padding: 8px;
+              }
+              .seeall {
+                  float: right;
+                  color: #fff;
+                  height: 25px;
+                  border-radius: 20px;
+                  padding-left: 15px;
+                  padding-right: 15px;
+                  text-transform: capitalize;
+                  font-weight: 400;
+              }
+              .seeall_pink {
+                  background: #da1c5c;
+              }
+              .seeall_blue {
+                  background: #1f5282;
+              }
+          }
+          .top_brand_slider {
+              width: 100%;
+              padding-top: 15px;
+              padding-bottom: 15px;
+              .slides {
+                  .swiper-container {
+                      .swiper-wrapper {
+                          .swiper-slide {
+                              .slide-zoom {
+                                  .top_brand_circle {
+                                      width: 100px;
+                                      height: 100px;
+                                      border-radius: 50%;
+                                      background: #ededed;
+                                      margin: 0 auto;
+                                      img {
+                                          //top: 5px;
+                                          border-radius: 50%;
+                                          position: relative;
+                                          width: 100px;
+                                      }
+                                  }
+                                  h5 {
+                                      text-align: center;
+                                      margin: 0px;
+                                      padding: 0px;
+                                      color: #575757;
+                                      padding-top: 10px;
+                                      font-weight: 400;
+                                      
+                                      text-orientation: initial !important;
+                                  }
+                                  p {
+                                      text-align: center;
+                                      margin: 0px;
+                                      padding: 0px;
+                                      color: #a3a3a3;
+                                      font-weight: 300;
+                                      font-size: 10px;
+                                  }
+                              }
+                          }
+                      }
+                      .swiper-pagination {
+                          .swiper-pagination-bullet {}
+                          .swiper-pagination-bullet-active {}
+                      }
+                  }
+              }
+          }
+          .fashion_store_slider {
+              width: 100%;
+              .slides {
+                  .swiper-container {
+                      height: 205px;
+                      .swiper-wrapper {
+                          .swiper-slide {
+                              background: #a8a8a8;
+                              height: 200px;
+                              border-radius: 10px;
+                              .slide-zoom {
+                                  width: 100%;
+                                  height: 100%;
+                                  img {
+                                      width: 100%;
+                                      height: 100%;
+                                      object-fit: cover;
+                                      object-position: center;
+                                      border-radius: 10px;
+                                  }
+                              }
+                          }
+                      }
+                  }
+              }
+          }
+          .fashion_most_viewed_slider {
+              width: 100%;
+              .slides {
+                  .swiper-container {
+                      height: 130px;
+                      .swiper-wrapper {
+                          .swiper-slide {
+                              .slide-zoom {
+                                  width: 100%;
+                                  height: 100%;
+                                  position: relative;
+                                  .fav_circle {
+                                      width: 25px;
+                                      height: 25px;
+                                      border-radius: 50%;
+                                      position: absolute;
+                                      top: 0px;
+                                      left: 0px;
+                                      background: url("../assets/imgs/heart.png");
+                                      background-position: center;
+                                      background-repeat: no-repeat;
+                                      background-size: 12px;
+                                  }
+                                  .fav {
+                                      background-color: #da1c5c;
+                                  }
+                                  .not_fav {
+                                      background-color: #dcdcdc;
+                                  }
+                                  img {
+                                      width: auto;
+                                      height: 95px;
+                                      object-fit: cover;
+                                      object-position: center;
+                                      border-radius: 10px;
+                                  }
+                                  h5 {
+                                      text-align: center;
+                                      margin: 0px;
+                                      padding: 0px;
+                                      color: #575757;
+                                      padding-top: 15px;
+                                      font-weight: 400;
+                                  }
+                                  p {
+                                      text-align: center;
+                                      margin: 0px;
+                                      padding: 0px;
+                                      color: #a3a3a3;
+                                      font-weight: 300;
+                                      font-size: 12px;
+                                      strong {
+                                          color: #575757;
+                                          font-weight: 400;
+                                          padding-left: 5px;
+                                      }
+                                  }
+                              }
+                          }
+                      }
+                  }
+              }
+          }
+      }
+      .home_search_bar {
+        padding: 0 15px;
+        padding-bottom: 15px;
+        background: none;
+        .searchbar-input-container {
+            .searchbar-search-icon {
+                display: none !important;
+            }
+            .searchbar-input {
+                padding: 0px;
+                height: 35px;
+                background-color: rgba(101, 91, 133, 0.5) !important;
+                box-shadow: none;
+                border-radius: 10px;
+                background: url('../assets/imgs/search.png');
+                background-position: right 15px top 10px !important;
+                background-size: 15px !important;
+                background-repeat: no-repeat !important;
+                color: #fff;
+                font-size: 18px;
+                padding-left: 20px;
+                font-weight: 500;
+                padding-right: 50px;
+            }
+             ::-webkit-input-placeholder {
+                color: #675b85;
+            }
+        }
+    }
+    .home_content {
+        width: 100%;
+        .home_menu_banner {
+            width: 100%;
+            ul {
+                margin: 0px;
+                padding: 0px;
+                padding-top: 10px;
+                padding-bottom: 10px;
+                li {
+                    list-style: none;
+                    display: inline-block;
+                    text-align: center;
+                    width: calc(100% - 80%);
+                    height: 80px;
+                    float: left;
+                    padding: 10px;
+                    padding-left: 0px;
+                    padding-right: 0px;
+                    img {
+                        width: 24px;
+                    }
+                    p {
+                        padding: 0px;
+                        margin: 0px;
+                        color: #797979;
+                        text-align: center;
+                        padding-top: 7px;
+                        font-size: 9px;
+                    }
+                }
+            }
+        }
+        .home_detail_contents {
+            .scroll_section {
+                .scroll-x {
+                    .scroll-content {
+                        margin: 0px !important;
+                        .scroll-zoom-wrapper {
+                            .row {
+                                .list {
+                                    margin: 0px;
+                                    display: inherit;
+                                    border-bottom: 1px solid #d6d6d6;
+                                    .item {
+                                        display: inline-block;
+                                        .item-inner {
+                                            .input-wrapper {
+                                                .label {
+                                                    margin: 0px;
+                                                    .card {
+                                                        width: 300px;
+                                                        height: 240px;
+                                                        padding: 0px;
+                                                        border-radius: 0px;
+                                                        box-shadow: none !important;
+                                                        .card-content {
+                                                            padding: 0px;
+                                                            widows: 100px;
+                                                            height: 100%;
+                                                            .item_image {
+                                                                width: 100%;
+                                                                height: 240px;
+                                                                background-color: #eaeaea;
+                                                                border-radius: 0px;
+                                                                position: relative;
+                                                                padding: 10px;
+                                                                background-position: center !important;
+                                                                background-repeat: no-repeat !important;
+                                                                background-size: 120px !important;
+                                                                h3 {
+                                                                    font-size: 18px;
+                                                                    strong {
+                                                                        font-size: 32px;
+                                                                        margin-right: 5px;
+                                                                    }
+                                                                }
+                                                                button {
+                                                                    height: 35px;
+                                                                    color: #fff;
+                                                                    border-radius: 20px;
+                                                                    position: absolute;
+                                                                    bottom: 15px;
+                                                                    left: 15px;
+                                                                    padding-left: 20px;
+                                                                    padding-right: 20px;
+                                                                    letter-spacing: 1px;
+                                                                    text-transform: capitalize !important;
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            .blue_card {
+                background-color: #e7f3fd;
+                h3 {
+                    color: #586a7a !important;
+                }
+                button {
+                    background: #1f5282;
+                }
+                .item_image {
+                    background: url('../assets/imgs/ad1.png');
+                }
+            }
+            .pink_card {
+                background-color: #f7e8f5;
+                h3 {
+                    color: #a84e6c !important;
+                }
+                button {
+                    background: #cd2e63;
+                }
+                .item_image {
+                    background: url('../assets/imgs/ad2.png') !important;
+                }
+            }
+        }
+
+        .offer_slider{
+          width:100%;
+          height:150px;
+          padding: 10px;
+          img{
+            width:100%;
+            height:100%;
+            object-fit: cover;
+            object-position: center;
+          }
+        }
+    }  .result_wrapper {
+        width: 100%;
+        ul {
+            margin: 0px;
+            padding: 0px;
+            li {
+                list-style: none;
+                width: calc(100% - 54%);
+                display: inline-block;
+                box-shadow: 0 0 40px -3px rgba(0,0,0,.15);
+                margin: 6px;
+                .inner_result {
+                    position: relative;
+                    height: 160px;
+                    background: #ffffff;
+                    padding: 5px;
+                    text-align: center;
+                    img {
+                        // height: 130px;
+                        height: -webkit-fill-available;
+                        width: auto;
+                    }
+                    .fav_circle {
+                        width: 30px;
+                        height: 30px;
+                        border-radius: 50%;
+                        position: absolute;
+                        top: 10px;
+                        left: 10px;
+                        background: url("../assets/imgs/heart.png");
+                        background-position: center;
+                        background-repeat: no-repeat;
+                        background-size: 12px;
+                    }
+                    .fav {
+                        background-color: #da1c5c;
+                    }
+                    .not_fav {
+                        background-color: #dcdcdc;
+                    }
+                }
+                h5 {
+                    text-align: center;
+                    margin: 0px;
+                    padding: 10px 0px 0px 5px;
+                    color: #575757;
+                    font-weight: 400;
+                    text-align: left;
+                    font-size: 11px;
+                }
+                p {
+                    text-align: center;
+                    margin: 0px;
+                    // color: #575757;
+                    color: #a3a3a3;
+                    font-weight: 400;
+                    font-size: 13px;
+                    text-align: left;
+                    padding: 5px 5px;
+                    
+                    strong {
+                        color: #000;
+                        font-weight: 400;
+                        padding-left: 5px;
+                        // text-decoration: line-through;
+                        margin-right: 5px;
+                    }
+                }
+            }
+        }
+    }
+  }

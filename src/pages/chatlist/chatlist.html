@@ -1,0 +1,33 @@
+
+<ion-header>
+  <div class="nav_header nav_white_header">
+      <button class="nav_btn nav_back_dark floatLeft" (click)="back()">
+    </button>
+      <div class="nav_header_title floatLeft">
+          <h5>Chat List</h5>
+      </div>
+      
+      <div class="clear"></div>
+  </div>
+
+  <ion-toolbar color="white">
+    <ion-searchbar (input)="saerch_name($event.target.value)" placeholder="Search User"></ion-searchbar>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content #content>
+
+  <ion-list>
+      <ion-item *ngFor="let message of all_message" (click)="chat(message.product_id,message.user_info.id,message.all_chat, message.product_name.name)" >
+        <ion-avatar item-left>
+          <img (load)="loaded = true" [src]="(!loaded)?'assets/imgs/loading.gif':message.user_info.image">
+        </ion-avatar>
+        <h2>{{message.user_info.first_name}} {{message.user_info.last_name}} ({{(message.product_name.name.length>10)?message.product_name.name.substring(1,10)+'...': message.product_name.name}})</h2>
+        <p>{{(message.message.length>15)?message.message.substring(0,15)+'....':message.message}} </p>
+      </ion-item>
+    </ion-list>
+    <ion-infinite-scroll *ngIf="total_record>9" (ionInfinite)="pagination($event)">
+      <ion-infinite-scroll-content></ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+  </ion-content>

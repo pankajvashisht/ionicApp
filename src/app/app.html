@@ -1,0 +1,58 @@
+<ion-menu [content]="content">
+    <ion-content class="theme_background" padding>
+        <div class="sidemenu_wrapper">
+            <div class="profile_banner">
+                <img  *ngIf="is_login" class="profie_circle floatLeft" src="{{Users.image}}" />
+               
+                <h5 *ngIf="is_login" class="floatRight">{{Users.first_name}} {{Users.last_name}}</h5>
+                <!-- <hr> -->
+            </div>
+            <ul>
+                <li menuClose  (click)="openPage('HomePage')">
+                    <ion-icon ios="ios-home" md="md-home"></ion-icon>Home
+                </li>
+                <li menuClose  (click)="openPage('ShopPage')">
+                    <ion-icon ios="ios-cart" md="md-cart"></ion-icon>Shop
+                </li>
+                <li menuClose  (click)="openPage('ShopPage',1)">
+                    <ion-icon ios="ios-add" md="md-flag"></ion-icon>Demand
+                </li>
+                <li menuClose *ngIf="is_login" (click)="openPage('GetDemondPage')">
+                    <ion-icon name="ios-list-box-outline"></ion-icon>My Demands
+                </li>
+                <li menuClose *ngIf="is_login" (click)="openPage('FavListPage')">
+                    <ion-icon name="ios-heart-outline"></ion-icon>Favourites
+                </li>
+                <li menuClose *ngIf="is_login" (click)="openPage('ChatlistPage')">
+                    <ion-icon  ios="ios-send" md="md-send"></ion-icon>Chat
+                </li>
+                <li menuClose *ngIf="is_login" (click)="openPage('ProfilePage')">
+                    <ion-icon name="ios-book-outline"></ion-icon>Profile
+                </li>
+                <li menuClose *ngIf="!is_login" (click)="openPage('LoginPage')">
+                    <ion-icon ios="ios-log-in" md="md-log-in"></ion-icon>Login
+                </li>                    
+                <li menuClose *ngIf="!is_login" (click)="openPage('SignupPage')">
+                    <ion-icon ios="ios-log-in" md="md-log-in"></ion-icon>Signup
+                </li>
+                <li menuClose *ngIf="is_login" (click)="logout()">
+                    <ion-icon ios="ios-log-in" md="md-log-in" ></ion-icon>Logout
+                </li>
+            </ul>
+        <div class="stat_link">
+            <ul>
+                <li menuClose  (click)="term('http://www.agrohypermarket.net/agro/help_center')">
+                    <ion-icon ios="ios-mail" md="md-mail"></ion-icon>Contact Us
+                </li>
+                <li menuClose  (click)="term('http://www.agrohypermarket.net/agro/privacy_policy')">
+                    <ion-icon ios="ios-finger-print" md="md-finger-print"></ion-icon>Privacy & Polices
+                </li>
+                <li menuClose  (click)="term('http://www.agrohypermarket.net/agro/Terms_&_Conditions')">
+                    <ion-icon ios="ios-construct" md="md-construct"></ion-icon>T&C
+                </li>  
+            </ul>
+        </div>
+        </div>
+    </ion-content>
+</ion-menu>
+<ion-nav [root]=" rootPage " #content swipeBackEnabled="false "></ion-nav>

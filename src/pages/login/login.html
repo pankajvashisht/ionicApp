@@ -1,0 +1,31 @@
+
+<ion-content padding class="login_bg">
+    <div class="login_logo">
+        <img src="assets/imgs/logo.png">
+    </div>
+    <div class="login_content">
+      <h5>Login</h5>
+      <hr>
+      <form [formGroup]="loginForm" (ngSubmit)="submitLogin()">
+      <ion-list>
+          <ion-item>
+              <ion-input [(ngModel)]="loginForm.email"  formControlName="email" autocomplete="off" type="email" required placeholder="Email"></ion-input>
+          </ion-item>
+          <ion-item>
+              <ion-input [(ngModel)]="loginForm.password" formControlName="password"  required autocomplete="off" placeholder="Password" type="password"></ion-input>
+          </ion-item>
+      </ion-list>
+      <button  [disabled]="!loginForm.valid"  ion-button class="login_btn" >
+        Login Now
+      </button>
+    </form>
+      <p (click)="forgot()">Forgot Password?</p>
+      <p class="pt0">New user? Simply create a new account by<br>
+        <br>
+        <strong (click)="signup()">Register</strong> 
+        <strong style="float:right;" (click)="skip()">Skip</strong> 
+      </p>
+     
+    </div>
+
+</ion-content>

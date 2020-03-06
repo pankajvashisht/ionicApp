@@ -1,0 +1,23 @@
+<ion-content>
+  <div class="nav_header nav_white_header">
+      <button class="nav_btn nav_back_dark floatLeft" (click)="dismiss()">
+      </button>
+      <div class="nav_header_title floatLeft">
+          <h5>Send Query</h5>
+      </div>
+      <div class="clear"></div>
+  </div>
+  <div class="edit_profile_wrapper" padding>
+      <h4>What You want to know?<br></h4><h6>Write Your Query</h6>
+      
+              
+              <ion-list>
+                  
+              </ion-list>
+          <textarea name="" id="myInput" [(ngModel)]="query"  required cols="35" rows="5"></textarea>
+     
+  </div>
+</ion-content>
+<ion-footer padding>
+  <button ion-button class="login_btn" (click)="change_password()" >Send Query</button>
+</ion-footer>

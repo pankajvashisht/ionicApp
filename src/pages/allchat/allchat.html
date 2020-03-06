@@ -1,0 +1,72 @@
+
+<ion-header>
+  <div class="nav_header nav_white_header">
+      <button class="nav_btn nav_back_dark floatLeft" (click)="back()">
+    </button>
+      <div class="nav_header_title floatLeft">
+          <h5>{{(displaychat.length>15)?displaychat.substring(0,15)+'....':displaychat}}</h5>
+      </div>
+      
+      <div class="clear"></div>
+  </div>
+</ion-header>
+
+
+<ion-content>
+  <ion-infinite-scroll *ngIf="total_record>8" (ionInfinite)="pagination($event)" position="top">
+    <ion-infinite-scroll-content></ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+    <div class="wrapper text-center h-full" layout vertical center center-center *ngIf="all_message.length == 0">
+      <div>
+        <div class="m-b">
+
+          <div class="text-lg no-product">  <ion-icon class="nochaticon" name="chatbubbles"></ion-icon> <br><p>No Chat Yet</p></div>
+          
+        </div>
+      
+       
+      </div>
+    </div>
+  
+    <div class="chat-list" *ngIf="all_message.length">
+      <div class="chat-item" *ngFor="let singel of all_message" [ngClass]="{'me': singel.sender_id==user_info.id}">
+        <div class="chat-timestamp">
+          {{time_ago(singel.created)}}
+        </div>
+  
+        <div class="chat-item-content">
+        
+          
+          
+          <div class="chat-item-bubble" [ngClass]="{'bubble-image': singel.type == '1'}">
+            <i class="icon-tail"></i>
+            <div class="chat-body" *ngIf="singel.type == '0'" [innerHtml]="singel.message "></div>
+             <img [src]="singel.message" *ngIf="singel.type == '1'"> 
+          </div>
+        
+        </div>
+  
+        
+      </div>
+    </div>
+    
+</ion-content>
+
+<ion-footer no-border >
+  
+
+  <ion-toolbar class="has-elastic-input giphy-input" >
+    <ion-buttons left align-self-bottom class="stick-bottom">
+      <!-- <button ion-button small class="button-gif" (click)="toggleGiphy()">
+        <ion-icon ios="ios-attach" md="md-attach"></ion-icon>
+      </button> -->
+    </ion-buttons>
+    <ion-textarea  fz-elastic [(ngModel)]="message" placeholder="Type a message.." style="border-color: black !important;"></ion-textarea>
+    <ion-buttons right align-self-bottom class="stick-bottom">
+      
+      <button ion-button small class="" style="font-size: 30px;"  (tap)="send_message()">
+        <ion-icon  class=""  name="send" color="primary"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer>

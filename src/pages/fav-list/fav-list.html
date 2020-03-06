@@ -1,0 +1,33 @@
+<ion-header>
+    <div class="nav_header nav_white_header">
+        <button class="nav_btn nav_back_dark floatLeft" (click)="back()">
+      </button>
+        <div class="nav_header_title floatLeft">
+            <h5>Favourite List</h5>
+        </div>
+        <button class="nav_btn floatRight nav_filter_dark">
+          </button>
+        <div class="clear"></div>
+    </div>
+  </ion-header>
+  
+  
+  <ion-content padding>
+    <div class="result_wrapper">
+        <ul>
+            <li *ngFor="let product of products" >
+              <div class="inner_result">
+                <div (click)="do_fav(product)"  [class]="(is_login==true && product[0].is_fav==1)? 'fav_circle fav': 'fav_circle not_fav'"></div>
+                <img (click)="details(product)" [src]="(product.media.length>0)?product.media[0].file:app_statics.defult_product_image">
+            </div>
+            <h5>{{(product.name.length>15)?product.name.substring(15,-1)+'..':product.name}}</h5>
+            <p> ${{product.price}}</p>
+            </li>
+            
+        </ul>
+        <ion-infinite-scroll *ngIf="total_record>9" (ionInfinite)="pagination($event)">
+          <ion-infinite-scroll-content></ion-infinite-scroll-content>
+        </ion-infinite-scroll>
+    </div>
+  </ion-content>
+  

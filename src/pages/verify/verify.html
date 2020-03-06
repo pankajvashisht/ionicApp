@@ -1,0 +1,27 @@
+
+<ion-content padding class="login_bg">
+  <div class="login_content">
+    <div class="textCenter arrow_back">
+      <button ion-button class="" (click)="back()">
+          <ion-icon name="ios-arrow-back"></ion-icon>
+      </button>
+    </div>
+    <h5>Verify</h5>
+    <h4>Sit back and relax! </h4>
+    <h6>while we verify your mobile number</h6>
+    <hr>
+    <form [formGroup]="verifiyForm" (ngSubmit)="success()">
+    <ion-list>
+        <ion-item>
+            <ion-input [(ngModel)]="verifiyForm.otp" formControlName="otp"   required autocomplete="off" type="nuumber" placeholder="code here"></ion-input>
+        </ion-item>
+    </ion-list>
+    <button [disabled]="!verifiyForm.valid" ion-button class="login_btn" >
+      Verify Now
+    </button>
+  </form>
+    <p   class="textCenter">haven't received a code yet?<br>
+      <strong  (click)="resend()">Resend</strong>
+    </p>
+  </div>
+</ion-content>

@@ -1,0 +1,42 @@
+<ion-content>
+    <div class="nav_header nav_white_header">
+        <button class="nav_btn nav_back_dark floatLeft" (click)="dismiss()">
+        </button>
+        <div class="nav_header_title floatLeft">
+            <h5>Edit Profile</h5>
+        </div>
+        <div class="clear"></div>
+    </div>
+    <div class="edit_profile_wrapper" padding>
+        <div class="editprofile_banner">
+            <ion-img [src]="user_info.image" class="edit_profile_circle">
+            
+           
+        </ion-img>
+        <div class="edit_overlay"></div>    
+        <input type="file" accept="image/*" capture  id="image" (change)="onSelectFile($event)">
+        </div>
+        <div class="edit_profile_content">
+            <ion-item>
+                <ion-input [(ngModel)]="user_info.first_name" placeholder="First Name">
+                </ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-input [(ngModel)]="user_info.last_name" placeholder="Last Name">
+                </ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-input readonly [(ngModel)] ="user_info.email" placeholder="dummy@gmail.com">
+                </ion-input>
+            </ion-item>
+         
+            <ion-item>
+                <ion-input [(ngModel)] ="user_info.phone" readonly placeholder="Phone number">
+                </ion-input>
+            </ion-item>
+        </div>
+    </div>
+</ion-content>
+<ion-footer padding>
+    <button ion-button class="login_btn" (click)="save()">SAVE</button>
+</ion-footer>

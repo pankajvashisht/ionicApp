@@ -1,0 +1,37 @@
+
+<ion-content class="landing_bg">
+    <div class="landing_logo">
+        <img src="assets/imgs/logo.png">
+    </div>
+    <ion-slides (ionSlideDidChange)="slideChanged()" pager="true">
+        <ion-slide>
+          <div class="landing_wrapper">
+            <div class="landing_content">
+                <img src="assets/imgs/landing1.png">
+                <p><strong>AHM</strong> for All Agricultural Need Like Machinery, Agro Raw & refined Products, Seeds, Services and Packaging.</p>
+            </div>
+          </div>
+        </ion-slide>
+        <ion-slide>
+            <div class="landing_wrapper">
+                <div class="landing_content">
+                    <img src="assets/imgs/landing2.png">
+                    <p><strong>AHM</strong> give great services and product from worldwide vendor. All at one Platform and offers to our users on Raise There Demands. :)</p>
+                </div>
+              </div>
+        </ion-slide>
+        <ion-slide>
+            <div class="landing_wrapper">
+                <div class="landing_content">
+                    <img src="assets/imgs/landing3.png">
+                    <p><strong>AHM</strong> bring every services provider and there all product in Agriculture on this Platform. So you got all product at AHM without wating time in search anywhere else. </p>
+                </div>
+              </div>
+        </ion-slide>
+      </ion-slides>
+      <div class="landing_bottom">
+        <button ion-button class="skip bottom_btn" [hidden] = "currentIndex == 2"  (click)="goToNextSlide()">Skip Tour</button>
+        <button ion-button class="continue bottom_btn" [hidden] = "currentIndex != 2" (click)="login()">Continue</button>
+       </div>
+</ion-content>
+

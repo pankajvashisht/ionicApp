@@ -1,0 +1,67 @@
+<ion-header class="theme_background header header-md">
+    <div class="nav_header">
+        <button class="nav_btn nav_back floatLeft" (click)="back()">
+      </button>
+        <div class="nav_header_title floatLeft">
+            <h5>Add Your Demand</h5>
+        </div>
+        <div class="clear"></div>
+    </div>
+  </ion-header>
+<ion-content padding>
+        <div class="edit_profile_wrapper" padding>
+        <div class="edit_overlay"></div>  
+        <form [formGroup]="DemondForm" (ngSubmit)="submitSignup()">  
+                <div class="editprofile_banner">
+                        <ion-img [src]="img" class="edit_profile_circle">
+                    </ion-img>
+                    <div class="edit_overlay"></div>    
+                    <input type="file" accept="image/*" capture  id="image" (change)="onSelectFile($event)">
+                    </div>
+       
+        <div class="edit_profile_content">
+            <ion-item>
+                <ion-input [(ngModel)]="DemondForm.name" formControlName="name" required  placeholder="Title">
+                </ion-input>
+            </ion-item>
+            <ion-item>
+                
+
+                <ion-select [(ngModel)]="DemondForm.category_id" formControlName="category_id" required (ionChange)="getsub($event)" >
+                    
+                    <ion-option *ngFor="let a of main_category" value="{{a.id}}">{{a.name}}</ion-option>
+                  
+        </ion-select>
+            </ion-item>
+            <ion-item>
+                 
+               
+                <ion-select [(ngModel)]="DemondForm.sub_category_id" formControlName="sub_category_id" required (ionChange)="getthird($event)">
+                       
+                    <ion-option *ngFor="let a of sub_catgeory" value="{{a.id}}">{{a.name}}</ion-option>
+        </ion-select>
+            </ion-item> 
+             <ion-item>
+           
+            <ion-select  [(ngModel)]="DemondForm.third_category_id" formControlName="third_category_id" required>
+                    <ion-option *ngFor="let a of third_category" value="{{a.id}}">{{a.name}}</ion-option> 
+    </ion-select>
+</ion-item>
+<ion-item>
+        <ion-input type="number" min="1" [(ngModel)]="DemondForm.qty" formControlName="qty" required placeholder="Quanity">
+        </ion-input>
+    </ion-item>
+            <ion-item>
+                <ion-input type="number" [(ngModel)]="DemondForm.min" formControlName="min" required placeholder="Min Price">
+                </ion-input>
+                <ion-input type="number" [(ngModel)]="DemondForm.max" formControlName="max" required  placeholder="Max Price">
+                    </ion-input>
+            </ion-item>
+           
+                    <textarea name="" id="myInput" [(ngModel)]="DemondForm.discription" formControlName="discription" required cols="35" rows="5"></textarea>
+              
+        </div>
+         <button ion-button class="login_btn"  [disabled]="!DemondForm.valid" >SAVE</button>
+        </form>
+        </div>
+</ion-content>

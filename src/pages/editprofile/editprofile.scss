@@ -1,0 +1,87 @@
+page-editprofile {
+  .header {
+    background: transparent !important;
+  }
+  .edit_profile_wrapper{
+    .editprofile_banner{
+      width: 100%;
+      .edit_profile_circle{
+        width:110px;
+        height:110px;
+        border-radius: 50%;
+        background: #a8a8a8;
+        position: relative;
+        .edit_overlay{
+          position: absolute;
+          top:0px;
+          left:0px;
+          right:0px;
+          bottom:0px;
+          background-color: rgba(0,0,0,0.5) !important;
+          background:url("../assets/imgs/edit.png");
+          background-position: center;
+          background-repeat: no-repeat;
+          background-size: 20px;
+          border-radius: 50%;
+        }
+        img{
+          width:100%;
+          height:100%;
+          border-radius: 50%;
+          object-fit: cover;
+          object-position: center;
+        }
+      }
+    }
+    .edit_profile_content{
+      width: 100%;
+      padding-top: 30px;
+      .item{
+        margin-bottom:15px;
+        .item-inner{
+          border-bottom: 1px solid #dedede !important;
+          .input-wrapper{
+            .input {
+              .text-input{
+                height:100%;
+                font-size: 20px;
+                font-weight:400;
+                color: #282828;
+                &::placeholder{
+                  color: #282828;
+                }
+              }
+            }
+          }
+        }
+      }
+      .radio_div{
+        padding-bottom: 15px;
+        .label {
+          margin:0px;
+          color: #666666;
+          font-size: 18px;
+          font-weight: 400;
+          padding-left: 30px;
+        }
+        .radio-icon{
+          border:2px solid #dc2b67;
+          .radio-inner{
+            background: #1c1e60;
+          }
+        }
+      }
+    }
+  }
+  .login_btn{
+    width: 100%;
+    height:40px;
+    border-radius: 20px;
+    background: #da1c5c;
+    color: #fff;
+    font-size: 16px;
+}
+
+
+
+}
