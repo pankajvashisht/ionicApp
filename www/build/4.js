@@ -1,6 +1,6 @@
 webpackJsonp([4],{
 
-/***/ 300:
+/***/ 301:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -8,7 +8,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ShopPageModule", function() { return ShopPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(51);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__shop__ = __webpack_require__(320);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__shop__ = __webpack_require__(321);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -38,7 +38,7 @@ var ShopPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 320:
+/***/ 321:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -156,7 +156,7 @@ var ShopPage = /** @class */ (function () {
     };
     ShopPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-shop',template:/*ion-inline-start:"C:\xampp\htdocs\agrohyperMarket\src\pages\shop\shop.html"*/'<!--\n  Generated template for the ShopPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header class="theme_background">\n  <div class="nav_header" [ngClass]="(step!=0)?\'nav_white_header\':\'\'">\n      <button *ngIf="step==0" ion-button class="nav_btn floatLeft nav_menu" menuToggle></button>\n      <button *ngIf="step!=0" class="nav_btn nav_back floatLeft" (click)="back()"></button>\n      <div class="nav_header_title floatLeft">\n            <b> {{text}}  </b> \n        </div>\n  </div>\n  \n</ion-header>\n\n\n<ion-content padding>\n  <ion-list *ngIf="step==0">\n    <button ion-item inset  *ngFor="let ten_cat of main_category" (click)="product(ten_cat.id,4,ten_cat.name.substring(20,-1))">\n      <ion-avatar item-start>\n        <img src="{{ten_cat.image}}">\n      </ion-avatar>\n      <h2>{{(ten_cat.name.length>40)?ten_cat.name.substring(40,-1)+\'..\':ten_cat.name}}</h2> \n    </button>\n  </ion-list>\n  <ion-list *ngIf="step==1">\n      <button ion-item inset  *ngFor="let ten_cat of sub_category" (click)="product(ten_cat.id,4,ten_cat.name.substring(20,-1))">\n        \n        <h2>{{(ten_cat.name.length>70)?ten_cat.name.substring(70,-1)+\'..\':ten_cat.name}}</h2> \n      </button>\n    </ion-list>\n    <ion-list *ngIf="step==2">\n        <button ion-item inset  *ngFor="let ten_cat of third_category" (click)="product(ten_cat.id,4,ten_cat.name.substring(20,-1))">\n          \n          <h2>{{(ten_cat.name.length>70)?ten_cat.name.substring(70,-1)+\'..\':ten_cat.name}}</h2> \n        </button>\n      </ion-list>\n</ion-content>\n'/*ion-inline-end:"C:\xampp\htdocs\agrohyperMarket\src\pages\shop\shop.html"*/,
+            selector: 'page-shop',template:/*ion-inline-start:"/Users/pankajvashisht/Documents/Projects/ionicApp/src/pages/shop/shop.html"*/'<!--\n  Generated template for the ShopPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header class="theme_background">\n  <div class="nav_header" [ngClass]="(step!=0)?\'nav_white_header\':\'\'">\n      <button *ngIf="step==0" ion-button class="nav_btn floatLeft nav_menu" menuToggle></button>\n      <button *ngIf="step!=0" class="nav_btn nav_back floatLeft" (click)="back()"></button>\n      <div class="nav_header_title floatLeft">\n            <b> {{text}}  </b> \n        </div>\n  </div>\n  \n</ion-header>\n\n\n<ion-content padding>\n  <ion-list *ngIf="step==0">\n    <button ion-item inset  *ngFor="let ten_cat of main_category" (click)="product(ten_cat.id,4,ten_cat.name.substring(20,-1))">\n      <ion-avatar item-start>\n        <img src="{{ten_cat.image}}">\n      </ion-avatar>\n      <h2>{{(ten_cat.name.length>40)?ten_cat.name.substring(40,-1)+\'..\':ten_cat.name}}</h2> \n    </button>\n  </ion-list>\n  <ion-list *ngIf="step==1">\n      <button ion-item inset  *ngFor="let ten_cat of sub_category" (click)="product(ten_cat.id,4,ten_cat.name.substring(20,-1))">\n        \n        <h2>{{(ten_cat.name.length>70)?ten_cat.name.substring(70,-1)+\'..\':ten_cat.name}}</h2> \n      </button>\n    </ion-list>\n    <ion-list *ngIf="step==2">\n        <button ion-item inset  *ngFor="let ten_cat of third_category" (click)="product(ten_cat.id,4,ten_cat.name.substring(20,-1))">\n          \n          <h2>{{(ten_cat.name.length>70)?ten_cat.name.substring(70,-1)+\'..\':ten_cat.name}}</h2> \n        </button>\n      </ion-list>\n</ion-content>\n'/*ion-inline-end:"/Users/pankajvashisht/Documents/Projects/ionicApp/src/pages/shop/shop.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["p" /* ToastController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* LoadingController */], __WEBPACK_IMPORTED_MODULE_2__providers_providers__["a" /* ApisProvider */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavParams */]])
     ], ShopPage);

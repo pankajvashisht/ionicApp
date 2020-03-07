@@ -4883,7 +4883,7 @@ textarea::-webkit-input-placeholder {
   padding-left: 2px;
 }
 
-textarea:-ms-input-placeholder {
+textarea::-moz-placeholder {
   padding-left: 2px;
 }
 
@@ -25795,7 +25795,7 @@ a {
 
 --------------------------------*/
 .theme_background {
-  background: url("../assets/imgs/header.png");
+  background-image: linear-gradient(-60deg, #6cbe03 0%, #f4d03f 100%);
   background-size: cover !important;
   background-position: center !important;
 }
@@ -25821,7 +25821,7 @@ a {
 }
 
 .theme_light {
-  background-color: #da1c5c !important;
+  background-color: #f68020 !important;
 }
 
 /*-------------------------------
@@ -26168,7 +26168,7 @@ button {
 }
 
 .alert-wrapper {
-  background: url("../assets/imgs/header.png");
+  background-color: #6cbe03 !important;
   background-size: cover !important;
   background-position: center !important;
 }
@@ -26259,7 +26259,7 @@ button {
   height: 50px;
   margin-top: 5px;
   border-radius: 50%;
-  background: #da1c5c;
+  background: #f68020;
 }
 
 .sidemenu_wrapper .profile_banner .profie_circle img {
@@ -26443,7 +26443,7 @@ page-add-demond .edit_profile_wrapper .edit_profile_content .item .item-inner .i
   color: #282828;
 }
 
-page-add-demond .edit_profile_wrapper .edit_profile_content .item .item-inner .input-wrapper .input .text-input:-ms-input-placeholder {
+page-add-demond .edit_profile_wrapper .edit_profile_content .item .item-inner .input-wrapper .input .text-input::-moz-placeholder {
   color: #282828;
 }
 
@@ -26479,7 +26479,7 @@ page-add-demond .login_btn {
   width: 100%;
   height: 40px;
   border-radius: 20px;
-  background: #da1c5c;
+  background: #f68020;
   color: #fff;
   font-size: 16px;
 }
@@ -26536,7 +26536,7 @@ page-all-products .result_wrapper ul li .inner_result .fav_circle {
 }
 
 page-all-products .result_wrapper ul li .inner_result .fav {
-  background-color: #da1c5c;
+  background-color: #f68020;
 }
 
 page-all-products .result_wrapper ul li .inner_result .not_fav {
@@ -26827,7 +26827,7 @@ page-changepassword .login_btn {
   width: 100%;
   height: 40px;
   border-radius: 20px;
-  background: #da1c5c;
+  background: #f68020;
   color: #fff;
   font-size: 16px;
 }
@@ -26905,7 +26905,7 @@ page-editprofile .edit_profile_wrapper .edit_profile_content .item .item-inner .
   color: #282828;
 }
 
-page-editprofile .edit_profile_wrapper .edit_profile_content .item .item-inner .input-wrapper .input .text-input:-ms-input-placeholder {
+page-editprofile .edit_profile_wrapper .edit_profile_content .item .item-inner .input-wrapper .input .text-input::-moz-placeholder {
   color: #282828;
 }
 
@@ -26941,7 +26941,7 @@ page-editprofile .login_btn {
   width: 100%;
   height: 40px;
   border-radius: 20px;
-  background: #da1c5c;
+  background: #f68020;
   color: #fff;
   font-size: 16px;
 }
@@ -26991,7 +26991,7 @@ page-fav-list .result_wrapper ul li .inner_result .fav_circle {
 }
 
 page-fav-list .result_wrapper ul li .inner_result .fav {
-  background-color: #da1c5c;
+  background-color: #f68020;
 }
 
 page-fav-list .result_wrapper ul li .inner_result .not_fav {
@@ -27098,7 +27098,7 @@ page-forgot .forgot_wrapper .item .item-inner .input-wrapper .input .text-input:
   font-weight: 300;
 }
 
-page-forgot .forgot_wrapper .item .item-inner .input-wrapper .input .text-input:-ms-input-placeholder {
+page-forgot .forgot_wrapper .item .item-inner .input-wrapper .input .text-input::-moz-placeholder {
   color: #9d9d9d;
   font-weight: 300;
 }
@@ -27117,7 +27117,7 @@ page-forgot .forgot_wrapper .login_btn {
   width: 100%;
   height: 40px;
   border-radius: 20px;
-  background: #da1c5c;
+  background: #f68020;
   color: #fff;
   font-size: 16px;
   text-transform: capitalize;
@@ -27223,7 +27223,7 @@ page-home .fashion_store_wrapper .fashion_header .seeall {
 }
 
 page-home .fashion_store_wrapper .fashion_header .seeall_pink {
-  background: #da1c5c;
+  background: #f68020;
 }
 
 page-home .fashion_store_wrapper .fashion_header .seeall_blue {
@@ -27326,7 +27326,7 @@ page-home .fashion_store_wrapper .fashion_most_viewed_slider .slides .swiper-con
 }
 
 page-home .fashion_store_wrapper .fashion_most_viewed_slider .slides .swiper-container .swiper-wrapper .swiper-slide .slide-zoom .fav {
-  background-color: #da1c5c;
+  background-color: #f68020;
 }
 
 page-home .fashion_store_wrapper .fashion_most_viewed_slider .slides .swiper-container .swiper-wrapper .swiper-slide .slide-zoom .not_fav {
@@ -27380,7 +27380,7 @@ page-home .home_search_bar .searchbar-input-container .searchbar-search-icon {
 page-home .home_search_bar .searchbar-input-container .searchbar-input {
   padding: 0px;
   height: 35px;
-  background-color: rgba(101, 91, 133, 0.5) !important;
+  background-color: rgba(255, 255, 255, 0.48) !important;
   -webkit-box-shadow: none;
   box-shadow: none;
   border-radius: 10px;
@@ -27598,7 +27598,7 @@ page-home .result_wrapper ul li .inner_result .fav_circle {
 }
 
 page-home .result_wrapper ul li .inner_result .fav {
-  background-color: #da1c5c;
+  background-color: #f68020;
 }
 
 page-home .result_wrapper ul li .inner_result .not_fav {
@@ -27693,7 +27693,7 @@ page-landing .landing_bottom .skip {
 }
 
 page-landing .landing_bottom .continue {
-  background: #da1c5c;
+  background: #f68020;
   color: #fff;
 }
 
@@ -27805,7 +27805,7 @@ page-login .login_content .login_btn {
   width: 100%;
   height: 40px;
   border-radius: 20px;
-  background: #da1c5c;
+  background: #f68020;
   color: #fff;
   font-size: 16px;
   text-transform: capitalize;
@@ -27864,7 +27864,7 @@ page-productdetails .product_wrapper .product_top_display .not_fav {
 }
 
 page-productdetails .product_wrapper .product_top_display .fav {
-  background-color: #da1c5c;
+  background-color: #f68020;
 }
 
 page-productdetails .product_wrapper .product_image_list {
@@ -28168,7 +28168,7 @@ page-productdetails .login_btn {
   width: 100%;
   height: 40px;
   border-radius: 20px;
-  background: #da1c5c;
+  background: #f68020;
   color: #fff;
   font-size: 16px;
 }
@@ -28232,7 +28232,7 @@ page-profile .profile_wrapper .profile_banner .profie_circle {
   width: 100px;
   height: 100px;
   border-radius: 50%;
-  background: #da1c5c;
+  background: #f68020;
   border-radius: 50%;
 }
 
@@ -28369,7 +28369,7 @@ page-sendquery .login_btn {
   width: 100%;
   height: 40px;
   border-radius: 20px;
-  background: #da1c5c;
+  background: #f68020;
   color: #fff;
   font-size: 16px;
 }
@@ -28472,7 +28472,7 @@ page-signup .login_content .login_btn {
   width: 100%;
   height: 40px;
   border-radius: 20px;
-  background: #da1c5c;
+  background: #f68020;
   color: #fff;
   font-size: 16px;
   text-transform: capitalize;
@@ -28556,7 +28556,7 @@ page-vendor-profile .profile_wrapper .profile_banner .profie_circle {
   width: 100px;
   height: 100px;
   border-radius: 50%;
-  background: #da1c5c;
+  background: #f68020;
   border-radius: 50%;
 }
 
@@ -28738,7 +28738,7 @@ page-vendor-profile .result_wrapper ul li .inner_result .fav_circle {
 }
 
 page-vendor-profile .result_wrapper ul li .inner_result .fav {
-  background-color: #da1c5c;
+  background-color: #f68020;
 }
 
 page-vendor-profile .result_wrapper ul li .inner_result .not_fav {
@@ -28891,7 +28891,7 @@ page-verified .login_content .login_btn {
   width: 60%;
   height: 40px;
   border-radius: 20px;
-  background: #da1c5c;
+  background: #f68020;
   color: #fff;
   font-size: 16px;
   text-transform: capitalize;
@@ -29027,7 +29027,7 @@ page-verify .login_content .login_btn {
   width: 100%;
   height: 40px;
   border-radius: 20px;
-  background: #da1c5c;
+  background: #f68020;
   color: #fff;
   font-size: 16px;
   text-transform: capitalize;

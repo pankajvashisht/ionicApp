@@ -40,11 +40,11 @@ webpackEmptyAsyncContext.id = 114;
 
 var map = {
 	"../pages/add-demond/add-demond.module": [
-		287,
+		286,
 		19
 	],
 	"../pages/all-products/all-products.module": [
-		286,
+		287,
 		18
 	],
 	"../pages/allchat/allchat.module": [
@@ -52,11 +52,11 @@ var map = {
 		17
 	],
 	"../pages/changepassword/changepassword.module": [
-		290,
+		289,
 		16
 	],
 	"../pages/chatlist/chatlist.module": [
-		292,
+		290,
 		15
 	],
 	"../pages/editprofile/editprofile.module": [
@@ -64,7 +64,7 @@ var map = {
 		14
 	],
 	"../pages/fav-list/fav-list.module": [
-		289,
+		292,
 		13
 	],
 	"../pages/forgot/forgot.module": [
@@ -76,11 +76,11 @@ var map = {
 		11
 	],
 	"../pages/home/home.module": [
-		296,
+		295,
 		10
 	],
 	"../pages/landing/landing.module": [
-		295,
+		296,
 		9
 	],
 	"../pages/login/login.module": [
@@ -88,7 +88,7 @@ var map = {
 		8
 	],
 	"../pages/productdetails/productdetails.module": [
-		301,
+		298,
 		7
 	],
 	"../pages/profile/profile.module": [
@@ -96,11 +96,11 @@ var map = {
 		6
 	],
 	"../pages/sendquery/sendquery.module": [
-		298,
+		300,
 		5
 	],
 	"../pages/shop/shop.module": [
-		300,
+		301,
 		4
 	],
 	"../pages/signup/signup.module": [
@@ -108,7 +108,7 @@ var map = {
 		3
 	],
 	"../pages/vendor-profile/vendor-profile.module": [
-		305,
+		303,
 		2
 	],
 	"../pages/verified/verified.module": [
@@ -116,7 +116,7 @@ var map = {
 		1
 	],
 	"../pages/verify/verify.module": [
-		303,
+		305,
 		0
 	]
 };
@@ -255,26 +255,26 @@ var AppModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_7__angular_common_http__["b" /* HttpClientModule */],
                 __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["g" /* IonicModule */].forRoot(__WEBPACK_IMPORTED_MODULE_3__app_component__["a" /* MyApp */], {}, {
                     links: [
-                        { loadChildren: '../pages/all-products/all-products.module#AllProductsPageModule', name: 'AllProductsPage', segment: 'all-products', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/add-demond/add-demond.module#AddDemondPageModule', name: 'AddDemondPage', segment: 'add-demond', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/all-products/all-products.module#AllProductsPageModule', name: 'AllProductsPage', segment: 'all-products', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/allchat/allchat.module#AllchatPageModule', name: 'AllchatPage', segment: 'allchat', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/fav-list/fav-list.module#FavListPageModule', name: 'FavListPage', segment: 'fav-list', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/changepassword/changepassword.module#ChangepasswordPageModule', name: 'ChangepasswordPage', segment: 'changepassword', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/editprofile/editprofile.module#EditprofilePageModule', name: 'EditprofilePage', segment: 'editprofile', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/chatlist/chatlist.module#ChatlistPageModule', name: 'ChatlistPage', segment: 'chatlist', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/editprofile/editprofile.module#EditprofilePageModule', name: 'EditprofilePage', segment: 'editprofile', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/fav-list/fav-list.module#FavListPageModule', name: 'FavListPage', segment: 'fav-list', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/forgot/forgot.module#ForgotPageModule', name: 'ForgotPage', segment: 'forgot', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/get-demond/get-demond.module#GetDemondPageModule', name: 'GetDemondPage', segment: 'get-demond', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/landing/landing.module#LandingPageModule', name: 'LandingPage', segment: 'landing', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/home/home.module#HomePageModule', name: 'HomePage', segment: 'home', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/landing/landing.module#LandingPageModule', name: 'LandingPage', segment: 'landing', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/login/login.module#LoginPageModule', name: 'LoginPage', segment: 'login', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/sendquery/sendquery.module#SendqueryPageModule', name: 'SendqueryPage', segment: 'sendquery', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/profile/profile.module#ProfilePageModule', name: 'ProfilePage', segment: 'profile', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/shop/shop.module#ShopPageModule', name: 'ShopPage', segment: 'shop', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/productdetails/productdetails.module#ProductdetailsPageModule', name: 'ProductdetailsPage', segment: 'productdetails', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/profile/profile.module#ProfilePageModule', name: 'ProfilePage', segment: 'profile', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/sendquery/sendquery.module#SendqueryPageModule', name: 'SendqueryPage', segment: 'sendquery', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/shop/shop.module#ShopPageModule', name: 'ShopPage', segment: 'shop', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/signup/signup.module#SignupPageModule', name: 'SignupPage', segment: 'signup', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/verify/verify.module#VerifyPageModule', name: 'VerifyPage', segment: 'verify', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/vendor-profile/vendor-profile.module#VendorProfilePageModule', name: 'VendorProfilePage', segment: 'vendor-profile', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/verified/verified.module#VerifiedPageModule', name: 'VerifiedPage', segment: 'verified', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/vendor-profile/vendor-profile.module#VendorProfilePageModule', name: 'VendorProfilePage', segment: 'vendor-profile', priority: 'low', defaultHistory: [] }
+                        { loadChildren: '../pages/verify/verify.module#VerifyPageModule', name: 'VerifyPage', segment: 'verify', priority: 'low', defaultHistory: [] }
                     ]
                 }),
             ],
@@ -941,7 +941,7 @@ var MyApp = /** @class */ (function () {
         __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* Nav */])
     ], MyApp.prototype, "nav", void 0);
     MyApp = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({template:/*ion-inline-start:"C:\xampp\htdocs\agrohyperMarket\src\app\app.html"*/'<ion-menu [content]="content">\n    <ion-content class="theme_background" padding>\n        <div class="sidemenu_wrapper">\n            <div class="profile_banner">\n                <img  *ngIf="is_login" class="profie_circle floatLeft" src="{{Users.image}}" />\n               \n                <h5 *ngIf="is_login" class="floatRight">{{Users.first_name}} {{Users.last_name}}</h5>\n                <!-- <hr> -->\n            </div>\n            <ul>\n                <li menuClose  (click)="openPage(\'HomePage\')">\n                    <ion-icon ios="ios-home" md="md-home"></ion-icon>Home\n                </li>\n                <li menuClose  (click)="openPage(\'ShopPage\')">\n                    <ion-icon ios="ios-cart" md="md-cart"></ion-icon>Shop\n                </li>\n                <li menuClose  (click)="openPage(\'ShopPage\',1)">\n                    <ion-icon ios="ios-add" md="md-flag"></ion-icon>Demand\n                </li>\n                <li menuClose *ngIf="is_login" (click)="openPage(\'GetDemondPage\')">\n                    <ion-icon name="ios-list-box-outline"></ion-icon>My Demands\n                </li>\n                <li menuClose *ngIf="is_login" (click)="openPage(\'FavListPage\')">\n                    <ion-icon name="ios-heart-outline"></ion-icon>Favourites\n                </li>\n                <li menuClose *ngIf="is_login" (click)="openPage(\'ChatlistPage\')">\n                    <ion-icon  ios="ios-send" md="md-send"></ion-icon>Chat\n                </li>\n                <li menuClose *ngIf="is_login" (click)="openPage(\'ProfilePage\')">\n                    <ion-icon name="ios-book-outline"></ion-icon>Profile\n                </li>\n                <li menuClose *ngIf="!is_login" (click)="openPage(\'LoginPage\')">\n                    <ion-icon ios="ios-log-in" md="md-log-in"></ion-icon>Login\n                </li>                    \n                <li menuClose *ngIf="!is_login" (click)="openPage(\'SignupPage\')">\n                    <ion-icon ios="ios-log-in" md="md-log-in"></ion-icon>Signup\n                </li>\n                <li menuClose *ngIf="is_login" (click)="logout()">\n                    <ion-icon ios="ios-log-in" md="md-log-in" ></ion-icon>Logout\n                </li>\n            </ul>\n        <div class="stat_link">\n            <ul>\n                <li menuClose  (click)="term(\'http://www.agrohypermarket.net/agro/help_center\')">\n                    <ion-icon ios="ios-mail" md="md-mail"></ion-icon>Contact Us\n                </li>\n                <li menuClose  (click)="term(\'http://www.agrohypermarket.net/agro/privacy_policy\')">\n                    <ion-icon ios="ios-finger-print" md="md-finger-print"></ion-icon>Privacy & Polices\n                </li>\n                <li menuClose  (click)="term(\'http://www.agrohypermarket.net/agro/Terms_&_Conditions\')">\n                    <ion-icon ios="ios-construct" md="md-construct"></ion-icon>T&C\n                </li>  \n            </ul>\n        </div>\n        </div>\n    </ion-content>\n</ion-menu>\n<ion-nav [root]=" rootPage " #content swipeBackEnabled="false "></ion-nav>\n'/*ion-inline-end:"C:\xampp\htdocs\agrohyperMarket\src\app\app.html"*/
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({template:/*ion-inline-start:"/Users/pankajvashisht/Documents/Projects/ionicApp/src/app/app.html"*/'<ion-menu [content]="content">\n    <ion-content class="theme_background" padding>\n        <div class="sidemenu_wrapper">\n            <div class="profile_banner">\n                <img  *ngIf="is_login" class="profie_circle floatLeft" src="{{Users.image}}" />\n               \n                <h5 *ngIf="is_login" class="floatRight">{{Users.first_name}} {{Users.last_name}}</h5>\n                <!-- <hr> -->\n            </div>\n            <ul>\n                <li menuClose  (click)="openPage(\'HomePage\')">\n                    <ion-icon ios="ios-home" md="md-home"></ion-icon>Home\n                </li>\n                <li menuClose  (click)="openPage(\'ShopPage\')">\n                    <ion-icon ios="ios-cart" md="md-cart"></ion-icon>Shop\n                </li>\n                <li menuClose  (click)="openPage(\'ShopPage\',1)">\n                    <ion-icon ios="ios-add" md="md-flag"></ion-icon>Demand\n                </li>\n                <li menuClose *ngIf="is_login" (click)="openPage(\'GetDemondPage\')">\n                    <ion-icon name="ios-list-box-outline"></ion-icon>My Demands\n                </li>\n                <li menuClose *ngIf="is_login" (click)="openPage(\'FavListPage\')">\n                    <ion-icon name="ios-heart-outline"></ion-icon>Favourites\n                </li>\n                <li menuClose *ngIf="is_login" (click)="openPage(\'ChatlistPage\')">\n                    <ion-icon  ios="ios-send" md="md-send"></ion-icon>Chat\n                </li>\n                <li menuClose *ngIf="is_login" (click)="openPage(\'ProfilePage\')">\n                    <ion-icon name="ios-book-outline"></ion-icon>Profile\n                </li>\n                <li menuClose *ngIf="!is_login" (click)="openPage(\'LoginPage\')">\n                    <ion-icon ios="ios-log-in" md="md-log-in"></ion-icon>Login\n                </li>                    \n                <li menuClose *ngIf="!is_login" (click)="openPage(\'SignupPage\')">\n                    <ion-icon ios="ios-log-in" md="md-log-in"></ion-icon>Signup\n                </li>\n                <li menuClose *ngIf="is_login" (click)="logout()">\n                    <ion-icon ios="ios-log-in" md="md-log-in" ></ion-icon>Logout\n                </li>\n            </ul>\n        <div class="stat_link">\n            <ul>\n                <li menuClose  (click)="term(\'https://www.agrohypermarket.com/agro/help_center\')">\n                    <ion-icon ios="ios-mail" md="md-mail"></ion-icon>Contact Us\n                </li>\n                <li menuClose  (click)="term(\'https://www.agrohypermarket.com/agro/privacy_policy\')">\n                    <ion-icon ios="ios-finger-print" md="md-finger-print"></ion-icon>Privacy & Polices\n                </li>\n                <li menuClose  (click)="term(\'https://www.agrohypermarket.com/agro/Terms_&_Conditions\')">\n                    <ion-icon ios="ios-construct" md="md-construct"></ion-icon>T&C\n                </li>  \n            </ul>\n        </div>\n        </div>\n    </ion-content>\n</ion-menu>\n<ion-nav [root]=" rootPage " #content swipeBackEnabled="false "></ion-nav>\n'/*ion-inline-end:"/Users/pankajvashisht/Documents/Projects/ionicApp/src/app/app.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_5__ionic_native_in_app_browser__["a" /* InAppBrowser */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["p" /* ToastController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* App */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* Events */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */], __WEBPACK_IMPORTED_MODULE_4__providers_providers__["b" /* SessionProvider */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* Platform */], __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */], __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */]])
     ], MyApp);
@@ -1160,12 +1160,12 @@ var ImagesDirective = /** @class */ (function () {
 var AppCon = {
     store: 'AHM',
     ContactEmail: 'sharmapankaj688@gmail.com',
-    url: 'https://www.agrohypermarket.net/apis/',
+    url: 'https://www.agrohypermarket.com/apis/',
     OneSignalAppID: 'e6ff67f5-ec5b-444c-b3e6-c7e1a939f3d0',
     GCM: '586724370404',
     consumerKey: 'ck_757033d97d8c2596009a235c737e9a3be5c65e9a',
     consumerSecret: 'cs_4b903a9259ea3e31ced46e3e82a98b8737b0d565',
-    defult_product_image: 'http://www.agrohypermarket.net/placeholders/product_white.jpg',
+    defult_product_image: 'https://www.agrohypermarket.com/placeholders/product_white.jpg',
     paypalSandboxClientID: '',
     paypalLiveClientID: '',
     paypalState: '',

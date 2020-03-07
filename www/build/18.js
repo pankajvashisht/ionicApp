@@ -1,6 +1,6 @@
 webpackJsonp([18],{
 
-/***/ 286:
+/***/ 287:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -8,7 +8,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AllProductsPageModule", function() { return AllProductsPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(51);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__all_products__ = __webpack_require__(306);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__all_products__ = __webpack_require__(307);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -38,7 +38,7 @@ var AllProductsPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 306:
+/***/ 307:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -186,7 +186,7 @@ var AllProductsPage = /** @class */ (function () {
     };
     AllProductsPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-all-products',template:/*ion-inline-start:"C:\xampp\htdocs\agrohyperMarket\src\pages\all-products\all-products.html"*/'<ion-header>\n  <div class="nav_header nav_white_header">\n      <button class="nav_btn nav_back_dark floatLeft" (click)="back()">\n    </button>\n      <div class="nav_header_title floatLeft">\n          <h5>More Results</h5>\n      </div>\n      <button class="nav_btn floatRight nav_filter_dark">\n        </button>\n      <div class="clear"></div>\n  </div>\n</ion-header>\n\n\n<ion-content padding>\n  <div class="result_wrapper">\n\n      <div *ngIf="products.length==0" class="no-product">\n            No Product found \n      </div>\n      <ul>\n          <li *ngFor="let product of products" >\n            <div class="inner_result">\n              <div *ngIf="!product.hasOwnProperty(\'min\')" (click)="do_fav(product)"  [class]="(is_login==true && product[0].is_fav==1)? \'fav_circle fav\': \'fav_circle not_fav\'"></div>\n              <img (click)="details(product)"  (load)="loaded = true" [src]="(!loaded)?\'assets/imgs/loading.gif\':(product.media.length>0)?product.media[0].file:app_statics.defult_product_image">\n          </div>\n          <h5>{{(product.name.length>15)?product.name.substring(15,-1)+\'..\':product.name}}</h5>\n          <p> ${{product.price}}</p>\n          </li>\n          \n      </ul>\n      <ion-infinite-scroll *ngIf="total_record>9" (ionInfinite)="pagination($event)">\n        <ion-infinite-scroll-content></ion-infinite-scroll-content>\n      </ion-infinite-scroll>\n  </div>\n</ion-content>\n'/*ion-inline-end:"C:\xampp\htdocs\agrohyperMarket\src\pages\all-products\all-products.html"*/,
+            selector: 'page-all-products',template:/*ion-inline-start:"/Users/pankajvashisht/Documents/Projects/ionicApp/src/pages/all-products/all-products.html"*/'<ion-header>\n  <div class="nav_header nav_white_header">\n      <button class="nav_btn nav_back_dark floatLeft" (click)="back()">\n    </button>\n      <div class="nav_header_title floatLeft">\n          <h5>More Results</h5>\n      </div>\n      <button class="nav_btn floatRight nav_filter_dark">\n        </button>\n      <div class="clear"></div>\n  </div>\n</ion-header>\n\n\n<ion-content padding>\n  <div class="result_wrapper">\n\n      <div *ngIf="products.length==0" class="no-product">\n            No Product found \n      </div>\n      <ul>\n          <li *ngFor="let product of products" >\n            <div class="inner_result">\n              <div *ngIf="!product.hasOwnProperty(\'min\')" (click)="do_fav(product)"  [class]="(is_login==true && product[0].is_fav==1)? \'fav_circle fav\': \'fav_circle not_fav\'"></div>\n              <img (click)="details(product)"  (load)="loaded = true" [src]="(!loaded)?\'assets/imgs/loading.gif\':(product.media.length>0)?product.media[0].file:app_statics.defult_product_image">\n          </div>\n          <h5>{{(product.name.length>15)?product.name.substring(15,-1)+\'..\':product.name}}</h5>\n          <p> ${{product.price}}</p>\n          </li>\n          \n      </ul>\n      <ion-infinite-scroll *ngIf="total_record>9" (ionInfinite)="pagination($event)">\n        <ion-infinite-scroll-content></ion-infinite-scroll-content>\n      </ion-infinite-scroll>\n  </div>\n</ion-content>\n'/*ion-inline-end:"/Users/pankajvashisht/Documents/Projects/ionicApp/src/pages/all-products/all-products.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__providers_providers__["b" /* SessionProvider */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["p" /* ToastController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavController */], __WEBPACK_IMPORTED_MODULE_2__providers_providers__["a" /* ApisProvider */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* LoadingController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavParams */]])
     ], AllProductsPage);

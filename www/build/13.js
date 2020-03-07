@@ -1,6 +1,6 @@
 webpackJsonp([13],{
 
-/***/ 289:
+/***/ 292:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -8,7 +8,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FavListPageModule", function() { return FavListPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(51);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__fav_list__ = __webpack_require__(309);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__fav_list__ = __webpack_require__(312);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -38,7 +38,7 @@ var FavListPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 309:
+/***/ 312:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -149,7 +149,7 @@ var FavListPage = /** @class */ (function () {
     };
     FavListPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-fav-list',template:/*ion-inline-start:"C:\xampp\htdocs\agrohyperMarket\src\pages\fav-list\fav-list.html"*/'<ion-header>\n    <div class="nav_header nav_white_header">\n        <button class="nav_btn nav_back_dark floatLeft" (click)="back()">\n      </button>\n        <div class="nav_header_title floatLeft">\n            <h5>Favourite List</h5>\n        </div>\n        <button class="nav_btn floatRight nav_filter_dark">\n          </button>\n        <div class="clear"></div>\n    </div>\n  </ion-header>\n  \n  \n  <ion-content padding>\n    <div class="result_wrapper">\n        <ul>\n            <li *ngFor="let product of products" >\n              <div class="inner_result">\n                <div (click)="do_fav(product)"  [class]="(is_login==true && product[0].is_fav==1)? \'fav_circle fav\': \'fav_circle not_fav\'"></div>\n                <img (click)="details(product)" [src]="(product.media.length>0)?product.media[0].file:app_statics.defult_product_image">\n            </div>\n            <h5>{{(product.name.length>15)?product.name.substring(15,-1)+\'..\':product.name}}</h5>\n            <p> ${{product.price}}</p>\n            </li>\n            \n        </ul>\n        <ion-infinite-scroll *ngIf="total_record>9" (ionInfinite)="pagination($event)">\n          <ion-infinite-scroll-content></ion-infinite-scroll-content>\n        </ion-infinite-scroll>\n    </div>\n  </ion-content>\n  '/*ion-inline-end:"C:\xampp\htdocs\agrohyperMarket\src\pages\fav-list\fav-list.html"*/,
+            selector: 'page-fav-list',template:/*ion-inline-start:"/Users/pankajvashisht/Documents/Projects/ionicApp/src/pages/fav-list/fav-list.html"*/'<ion-header>\n    <div class="nav_header nav_white_header">\n        <button class="nav_btn nav_back_dark floatLeft" (click)="back()">\n      </button>\n        <div class="nav_header_title floatLeft">\n            <h5>Favourite List</h5>\n        </div>\n        <button class="nav_btn floatRight nav_filter_dark">\n          </button>\n        <div class="clear"></div>\n    </div>\n  </ion-header>\n  \n  \n  <ion-content padding>\n    <div class="result_wrapper">\n        <ul>\n            <li *ngFor="let product of products" >\n              <div class="inner_result">\n                <div (click)="do_fav(product)"  [class]="(is_login==true && product[0].is_fav==1)? \'fav_circle fav\': \'fav_circle not_fav\'"></div>\n                <img (click)="details(product)" [src]="(product.media.length>0)?product.media[0].file:app_statics.defult_product_image">\n            </div>\n            <h5>{{(product.name.length>15)?product.name.substring(15,-1)+\'..\':product.name}}</h5>\n            <p> ${{product.price}}</p>\n            </li>\n            \n        </ul>\n        <ion-infinite-scroll *ngIf="total_record>9" (ionInfinite)="pagination($event)">\n          <ion-infinite-scroll-content></ion-infinite-scroll-content>\n        </ion-infinite-scroll>\n    </div>\n  </ion-content>\n  '/*ion-inline-end:"/Users/pankajvashisht/Documents/Projects/ionicApp/src/pages/fav-list/fav-list.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__providers_providers__["b" /* SessionProvider */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["p" /* ToastController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavController */], __WEBPACK_IMPORTED_MODULE_2__providers_providers__["a" /* ApisProvider */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* LoadingController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavParams */]])
     ], FavListPage);

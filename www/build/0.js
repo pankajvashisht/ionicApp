@@ -1,6 +1,6 @@
 webpackJsonp([0],{
 
-/***/ 303:
+/***/ 305:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -8,7 +8,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "VerifyPageModule", function() { return VerifyPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(51);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__verify__ = __webpack_require__(323);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__verify__ = __webpack_require__(325);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -38,7 +38,7 @@ var VerifyPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 323:
+/***/ 325:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -149,7 +149,7 @@ var VerifyPage = /** @class */ (function () {
     };
     VerifyPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-verify',template:/*ion-inline-start:"C:\xampp\htdocs\agrohyperMarket\src\pages\verify\verify.html"*/'\n<ion-content padding class="login_bg">\n  <div class="login_content">\n    <div class="textCenter arrow_back">\n      <button ion-button class="" (click)="back()">\n          <ion-icon name="ios-arrow-back"></ion-icon>\n      </button>\n    </div>\n    <h5>Verify</h5>\n    <h4>Sit back and relax! </h4>\n    <h6>while we verify your mobile number</h6>\n    <hr>\n    <form [formGroup]="verifiyForm" (ngSubmit)="success()">\n    <ion-list>\n        <ion-item>\n            <ion-input [(ngModel)]="verifiyForm.otp" formControlName="otp"   required autocomplete="off" type="nuumber" placeholder="code here"></ion-input>\n        </ion-item>\n    </ion-list>\n    <button [disabled]="!verifiyForm.valid" ion-button class="login_btn" >\n      Verify Now\n    </button>\n  </form>\n    <p   class="textCenter">haven\'t received a code yet?<br>\n      <strong  (click)="resend()">Resend</strong>\n    </p>\n  </div>\n</ion-content>\n'/*ion-inline-end:"C:\xampp\htdocs\agrohyperMarket\src\pages\verify\verify.html"*/,
+            selector: 'page-verify',template:/*ion-inline-start:"/Users/pankajvashisht/Documents/Projects/ionicApp/src/pages/verify/verify.html"*/'\n<ion-content padding class="login_bg">\n  <div class="login_content">\n    <div class="textCenter arrow_back">\n      <button ion-button class="" (click)="back()">\n          <ion-icon name="ios-arrow-back"></ion-icon>\n      </button>\n    </div>\n    <h5>Verify</h5>\n    <h4>Sit back and relax! </h4>\n    <h6>while we verify your mobile number</h6>\n    <hr>\n    <form [formGroup]="verifiyForm" (ngSubmit)="success()">\n    <ion-list>\n        <ion-item>\n            <ion-input [(ngModel)]="verifiyForm.otp" formControlName="otp"   required autocomplete="off" type="nuumber" placeholder="code here"></ion-input>\n        </ion-item>\n    </ion-list>\n    <button [disabled]="!verifiyForm.valid" ion-button class="login_btn" >\n      Verify Now\n    </button>\n  </form>\n    <p   class="textCenter">haven\'t received a code yet?<br>\n      <strong  (click)="resend()">Resend</strong>\n    </p>\n  </div>\n</ion-content>\n'/*ion-inline-end:"/Users/pankajvashisht/Documents/Projects/ionicApp/src/pages/verify/verify.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_4__ionic_native_push__["a" /* Push */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* Platform */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* Events */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["p" /* ToastController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* LoadingController */], __WEBPACK_IMPORTED_MODULE_3__providers_providers__["b" /* SessionProvider */], __WEBPACK_IMPORTED_MODULE_3__providers_providers__["c" /* UserProvider */], __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormBuilder */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* ModalController */]])
     ], VerifyPage);

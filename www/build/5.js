@@ -1,6 +1,6 @@
 webpackJsonp([5],{
 
-/***/ 298:
+/***/ 300:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -8,7 +8,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SendqueryPageModule", function() { return SendqueryPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(51);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__sendquery__ = __webpack_require__(318);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__sendquery__ = __webpack_require__(320);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -38,7 +38,7 @@ var SendqueryPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 318:
+/***/ 320:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -136,7 +136,7 @@ var SendqueryPage = /** @class */ (function () {
     };
     SendqueryPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-sendquery',template:/*ion-inline-start:"C:\xampp\htdocs\agrohyperMarket\src\pages\sendquery\sendquery.html"*/'<ion-content>\n  <div class="nav_header nav_white_header">\n      <button class="nav_btn nav_back_dark floatLeft" (click)="dismiss()">\n      </button>\n      <div class="nav_header_title floatLeft">\n          <h5>Send Query</h5>\n      </div>\n      <div class="clear"></div>\n  </div>\n  <div class="edit_profile_wrapper" padding>\n      <h4>What You want to know?<br></h4><h6>Write Your Query</h6>\n      \n              \n              <ion-list>\n                  \n              </ion-list>\n          <textarea name="" id="myInput" [(ngModel)]="query"  required cols="35" rows="5"></textarea>\n     \n  </div>\n</ion-content>\n<ion-footer padding>\n  <button ion-button class="login_btn" (click)="change_password()" >Send Query</button>\n</ion-footer>'/*ion-inline-end:"C:\xampp\htdocs\agrohyperMarket\src\pages\sendquery\sendquery.html"*/,
+            selector: 'page-sendquery',template:/*ion-inline-start:"/Users/pankajvashisht/Documents/Projects/ionicApp/src/pages/sendquery/sendquery.html"*/'<ion-content>\n  <div class="nav_header nav_white_header">\n      <button class="nav_btn nav_back_dark floatLeft" (click)="dismiss()">\n      </button>\n      <div class="nav_header_title floatLeft">\n          <h5>Send Query</h5>\n      </div>\n      <div class="clear"></div>\n  </div>\n  <div class="edit_profile_wrapper" padding>\n      <h4>What You want to know?<br></h4><h6>Write Your Query</h6>\n      \n              \n              <ion-list>\n                  \n              </ion-list>\n          <textarea name="" id="myInput" [(ngModel)]="query"  required cols="35" rows="5"></textarea>\n     \n  </div>\n</ion-content>\n<ion-footer padding>\n  <button ion-button class="login_btn" (click)="change_password()" >Send Query</button>\n</ion-footer>'/*ion-inline-end:"/Users/pankajvashisht/Documents/Projects/ionicApp/src/pages/sendquery/sendquery.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* LoadingController */], __WEBPACK_IMPORTED_MODULE_2__providers_providers__["b" /* SessionProvider */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["p" /* ToastController */], __WEBPACK_IMPORTED_MODULE_2__providers_providers__["c" /* UserProvider */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["q" /* ViewController */]])
     ], SendqueryPage);
