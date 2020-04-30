@@ -56,11 +56,11 @@ var map = {
 		16
 	],
 	"../pages/chatlist/chatlist.module": [
-		290,
+		291,
 		15
 	],
 	"../pages/editprofile/editprofile.module": [
-		291,
+		290,
 		14
 	],
 	"../pages/fav-list/fav-list.module": [
@@ -72,15 +72,15 @@ var map = {
 		12
 	],
 	"../pages/get-demond/get-demond.module": [
-		294,
+		296,
 		11
 	],
 	"../pages/home/home.module": [
-		295,
+		294,
 		10
 	],
 	"../pages/landing/landing.module": [
-		296,
+		295,
 		9
 	],
 	"../pages/login/login.module": [
@@ -88,11 +88,11 @@ var map = {
 		8
 	],
 	"../pages/productdetails/productdetails.module": [
-		298,
+		299,
 		7
 	],
 	"../pages/profile/profile.module": [
-		299,
+		298,
 		6
 	],
 	"../pages/sendquery/sendquery.module": [
@@ -259,16 +259,16 @@ var AppModule = /** @class */ (function () {
                         { loadChildren: '../pages/all-products/all-products.module#AllProductsPageModule', name: 'AllProductsPage', segment: 'all-products', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/allchat/allchat.module#AllchatPageModule', name: 'AllchatPage', segment: 'allchat', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/changepassword/changepassword.module#ChangepasswordPageModule', name: 'ChangepasswordPage', segment: 'changepassword', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/chatlist/chatlist.module#ChatlistPageModule', name: 'ChatlistPage', segment: 'chatlist', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/editprofile/editprofile.module#EditprofilePageModule', name: 'EditprofilePage', segment: 'editprofile', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/chatlist/chatlist.module#ChatlistPageModule', name: 'ChatlistPage', segment: 'chatlist', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/fav-list/fav-list.module#FavListPageModule', name: 'FavListPage', segment: 'fav-list', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/forgot/forgot.module#ForgotPageModule', name: 'ForgotPage', segment: 'forgot', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/get-demond/get-demond.module#GetDemondPageModule', name: 'GetDemondPage', segment: 'get-demond', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/home/home.module#HomePageModule', name: 'HomePage', segment: 'home', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/landing/landing.module#LandingPageModule', name: 'LandingPage', segment: 'landing', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/get-demond/get-demond.module#GetDemondPageModule', name: 'GetDemondPage', segment: 'get-demond', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/login/login.module#LoginPageModule', name: 'LoginPage', segment: 'login', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/productdetails/productdetails.module#ProductdetailsPageModule', name: 'ProductdetailsPage', segment: 'productdetails', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/profile/profile.module#ProfilePageModule', name: 'ProfilePage', segment: 'profile', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/productdetails/productdetails.module#ProductdetailsPageModule', name: 'ProductdetailsPage', segment: 'productdetails', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/sendquery/sendquery.module#SendqueryPageModule', name: 'SendqueryPage', segment: 'sendquery', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/shop/shop.module#ShopPageModule', name: 'ShopPage', segment: 'shop', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/signup/signup.module#SignupPageModule', name: 'SignupPage', segment: 'signup', priority: 'low', defaultHistory: [] },

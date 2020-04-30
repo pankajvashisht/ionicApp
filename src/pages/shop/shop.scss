@@ -1,9 +1,17 @@
 page-shop {
-    .nav_header_title {
-        margin-top: 6px;
-    }
-    b, strong {
-        font-weight: 400;
-        font-size: 18px;
-    }
+	.nav_header_title {
+		margin-top: 6px;
+	}
+	b,
+	strong {
+		font-weight: 400;
+		font-size: 18px;
+	}
+	.dot-green {
+		padding: 5px;
+		background-color: #6cbe03;
+		border-radius: 50%;
+		color: white;
+		display: inline-block;
+	}
 }
