@@ -1,4 +1,7 @@
 page-home {
+	.home-page-header {
+		background: #69c242;
+	}
 	.nav_header_title {
 		width: calc(100% - 130px) !important;
 		text-align: center;
@@ -89,7 +92,8 @@ page-home {
 										//top: 5px;
 										border-radius: 50%;
 										position: relative;
-										width: 100px;
+										width: 100%;
+										height: -webkit-fill-available !important;
 									}
 								}
 								h5 {
@@ -223,15 +227,16 @@ page-home {
 			.searchbar-input {
 				padding: 0px;
 				height: 35px;
-				background-color: rgba(255, 255, 255, 0.48) !important;
+				// background-color: rgba(255, 255, 255, 0.48) !important;
+				background-color: #ffffff !important;
 				box-shadow: none;
 				border-radius: 10px;
-				background: url('../assets/imgs/search.png');
+				background: url('../assets/imgs/nav_search_dark.png');
 				background-position: right 15px top 10px !important;
 				background-size: 15px !important;
 				background-repeat: no-repeat !important;
-				color: #fff;
-				font-size: 18px;
+				color: #777676;
+				font-size: 14px;
 				padding-left: 20px;
 				font-weight: 500;
 				padding-right: 50px;
@@ -243,12 +248,13 @@ page-home {
 	}
 	.home_content {
 		width: 100%;
+		margin-top: 5px !important;
 		.home_menu_banner {
 			width: 100%;
 			ul {
 				margin: 0px;
 				padding: 0px;
-				padding-top: 10px;
+				padding-top: 5px;
 				padding-bottom: 10px;
 				li {
 					list-style: none;
@@ -257,19 +263,23 @@ page-home {
 					width: calc(100% - 75%);
 					height: 80px;
 					float: left;
-					padding: 10px;
+					// padding: 10px;
+					padding-top: 10px;
 					padding-left: 0px;
 					padding-right: 0px;
+					margin-bottom: 2%;
 					img {
-						width: 24px;
+						width: 40px;
 					}
 					p {
 						padding: 0px;
 						margin: 0px;
-						color: #797979;
+						// color: #797979;
+						color: #737272;
 						text-align: center;
-						padding-top: 7px;
-						font-size: 9px;
+						padding-top: 3px;
+						font-size: 11px;
+						font-weight: 600;
 					}
 				}
 			}
@@ -279,6 +289,7 @@ page-home {
 				.scroll-x {
 					.scroll-content {
 						margin: 0px !important;
+
 						.scroll-zoom-wrapper {
 							.row {
 								.list {

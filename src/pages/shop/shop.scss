@@ -7,11 +7,14 @@ page-shop {
 		font-weight: 400;
 		font-size: 18px;
 	}
-	.dot-green {
-		padding: 5px;
-		background-color: #6cbe03;
-		border-radius: 50%;
-		color: white;
-		display: inline-block;
-	}
+   .dot-green {
+            padding: 5%;
+            background-color: #6cbe03;
+            /* border-radius: 50%; */
+            color: white;
+            display: inline-block;
+            height: auto;
+            width: 60px !important;
+            text-align: center;
+    }
 }

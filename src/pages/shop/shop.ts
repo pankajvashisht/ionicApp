@@ -95,7 +95,7 @@ export class ShopPage implements OnInit {
   back(){
     this.step--;
     if(this.step<1){
-      this.text=(this.type==0)?"Categories":"Demond Categories";
+      this.text=(this.type==0)?"Categories":"Demand Categories";
     }else{
       this.text=this.last_name;
     }

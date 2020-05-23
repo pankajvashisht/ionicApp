@@ -5,7 +5,7 @@ page-landing {
         background-size:cover !important;
     }
     .slides{
-        height: calc(100% - 75px) !important;
+        height: calc(100% - 20%) !important;
     }
     .landing_logo{
         text-align: left;
@@ -13,7 +13,7 @@ page-landing {
         position: relative;
         top: 20px;
         img{
-            width:100px;
+            width:65%;
         }
     }
     .landing_wrapper{

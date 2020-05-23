@@ -1,202 +1,205 @@
 page-vendor-profile {
-	.nav_header_title {
-		width: calc(100% - 60px) !important;
-	}
 
-	.profile_wrapper {
-		width: 100%;
-		.profile_banner {
-			width: 100%;
-			height: 200px;
-			background: #8dc235;
-			background-size: cover !important;
-			background-position: center !important;
-			padding: 20px;
-			.profie_circle {
-				width: 100px;
-				height: 100px;
-				border-radius: 50%;
-				background: #f68020;
-				border-radius: 50%;
-				img {
-					width: 100%;
-					height: 100%;
-					object-fit: cover;
-					object-position: center;
-				}
-			}
-			h5 {
-				margin: 0px;
-				color: #fff;
-				padding-top: 15px;
-				font-size: 18px;
-			}
-			p {
-				margin: 0px;
-				color: #fff;
-				font-size: 14px;
-				font-weight: 300;
-			}
-			hr {
-				margin: 0px;
-				padding: 0px;
-				border: 2px solid #ffd200;
-				width: 30px;
-				position: relative;
-				height: 0px;
-				top: 27px;
-			}
-		}
-		.profile_content {
-			width: 100%;
-			ul {
-				margin: 0px;
-				padding: 0px;
-				padding-top: 30px;
-				li {
-					list-style: none;
-					width: 100%;
-					color: #8b8b8b;
-					font-size: 18px;
-					padding: 10px;
-					padding-left: 65px;
-					background-repeat: no-repeat !important;
-					background-position: 20px !important;
-					background-size: 30px !important;
-				}
-				.menu1 {
-					background: url('../assets/imgs/op1.png');
-				}
-				.menu2 {
-					background: url('../assets/imgs/op2.png');
-				}
-				.menu3 {
-					background: url('../assets/imgs/op3.png');
-				}
-				.menu4 {
-					background: url('../assets/imgs/op4.png');
-				}
-				.menu5 {
-					background: url('../assets/imgs/op5.png');
-				}
-				.menu6 {
-					background: url('../assets/imgs/op6.png');
-				}
-				.menu7 {
-					background: url('../assets/imgs/op7.png');
-				}
-			}
-		}
-	}
-	.no-product {
-		color: red;
-		margin-top: 201px;
-		font-size: 28px;
-		text-align: center;
-	}
-	.wallet_tab_bay {
-		width: 100%;
-		padding-top: 10px;
-		padding-bottom: 10px;
-		ul {
-			margin: 0px;
-			padding: 0px;
-			text-align: center;
-			li {
-				list-style: none;
-				display: inline-block;
-				color: #949494;
-				font-size: 18px;
-				padding-left: 20px;
-				padding-right: 20px;
-				text-align: left;
-				hr {
-					border: 2px solid #fff;
-					width: 30%;
-					height: 0px;
-					border-radius: 20px;
-					margin-left: 0px;
-				}
-			}
-			.active {
-				color: #431e5f;
-				font-weight: 600;
-				hr {
-					border: 2px solid #3df6ef;
-					width: 30%;
-					height: 0px;
-					border-radius: 20px;
-					margin-left: 0px;
-				}
-			}
-		}
-	}
-	.result_wrapper {
-		width: 100%;
-		ul {
-			margin: 0px;
-			padding: 0px;
-			li {
-				list-style: none;
-				width: calc(100% - 54%);
-				display: inline-block;
-				box-shadow: 0 0 40px -3px rgba(0, 0, 0, 0.15);
-				margin: 6px;
-				.inner_result {
-					position: relative;
-					height: 160px;
-					background: #ffffff;
-					padding: 15px;
-					text-align: center;
-					img {
-						height: 130px;
-						width: auto;
-					}
-					.fav_circle {
-						width: 30px;
-						height: 30px;
-						border-radius: 50%;
-						position: absolute;
-						top: 10px;
-						left: 10px;
-						background: url('../assets/imgs/heart.png');
-						background-position: center;
-						background-repeat: no-repeat;
-						background-size: 12px;
-					}
-					.fav {
-						background-color: #f68020;
-					}
-					.not_fav {
-						background-color: #dcdcdc;
-					}
-				}
-				h5 {
-					// text-align: center;
-					margin: 0px;
-					padding: 10px 0px 0px 10px;
-					color: #575757;
-					font-size: 15px;
-					font-weight: 500;
-					text-align: left;
-				}
-				p {
-					text-align: center;
-					margin: 0px;
-					padding: 0px 0px 15px 10px;
-					color: #575757;
-					font-weight: 400;
-					font-size: 12px;
-					text-align: left;
-					strong {
-						color: #a3a3a3;
-						font-weight: 300;
-						padding-left: 5px;
-						text-decoration: line-through;
-						margin-right: 5px;
-					}
-				}
-			}
-		}
-	}
+
+    .nav_header_title{
+      width:calc(100% - 60px) !important;
+    }
+    
+  .profile_wrapper{
+    width:100%;
+    .profile_banner{
+      width:100%;
+      height:200px;
+      background: url('../assets/imgs/header.png');background-size:cover !important;background-position: center !important;
+      padding:20px;
+      .profie_circle{
+        width:100px;
+        height:100px;
+        border-radius:50%;
+        background: #f68020;
+        border-radius:50%;
+        img{
+          width:100%;
+          height:100%;
+          object-fit: cover;
+          object-position: center;
+        }
+      }
+      h5{
+        margin:0px;
+        color: #fff;
+        padding-top: 15px;
+        font-size: 18px;
+      }
+      p{
+        margin:0px;
+        color: #fff;
+        font-size: 14px;
+        font-weight:300;
+      }
+      hr{
+        margin:0px;
+        padding:0px;
+        border:2px solid #ffd200;
+        width:30px;
+        position: relative;
+        height:0px;
+        top: 27px;
+      }
+    }
+    .profile_content{
+      width:100%;
+      ul{
+        margin:0px;
+        padding:0px;
+        padding-top:30px;
+        li{
+          list-style: none;
+          width:100%;
+          color: #8b8b8b;
+          font-size:18px;
+          padding: 10px;
+          padding-left: 65px;
+          background-repeat: no-repeat !important;
+          background-position: 20px !important;
+          background-size: 30px !important;
+        }
+        .menu1{
+          background: url('../assets/imgs/op1.png');
+        }
+        .menu2{
+          background: url('../assets/imgs/op2.png');
+        }
+        .menu3{
+          background: url('../assets/imgs/op3.png');
+        }
+        .menu4{
+          background: url('../assets/imgs/op4.png');
+        }
+        .menu5{
+          background: url('../assets/imgs/op5.png');
+        }
+        .menu6{
+          background: url('../assets/imgs/op6.png');
+        }
+        .menu7{
+          background: url('../assets/imgs/op7.png');
+        }
+      }
+    }
+  }
+  .no-product{
+    color: red;
+    margin-top: 201px;
+    font-size: 28px;
+    text-align: center;
 }
+.wallet_tab_bay{
+    width:100%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    ul{
+      margin:0px;
+      padding:0px;
+      text-align: center;
+      li{
+        list-style: none;
+        display: inline-block;
+        color: #949494;
+        font-size: 18px;
+        padding-left:20px;
+        padding-right: 20px;
+        text-align: left;
+        hr{
+          border:2px solid #fff;
+          width:30%;
+          height:0px;
+          border-radius:20px;
+          margin-left:0px;
+        }
+      }
+      .active{
+        color: #431e5f;
+        font-weight: 600;
+        hr{
+          border:2px solid #3df6ef;
+          width:30%;
+          height:0px;
+          border-radius:20px;
+          margin-left:0px;
+        }
+      }
+    }
+  }
+.result_wrapper {
+    width: 100%;
+    ul {
+        margin: 0px;
+        padding: 0px;
+        li {
+            list-style: none;
+            width: calc(100% - 54%);
+            display: inline-block;
+            box-shadow: 0 0 40px -3px rgba(0,0,0,.15);
+            margin: 6px;
+            .inner_result {
+                position: relative;
+                height: 160px;
+                background: #ffffff;
+                padding: 15px;
+                text-align: center;
+                img {
+                    height: 130px;
+                    width: auto;
+                }
+                .fav_circle {
+                    width: 30px;
+                    height: 30px;
+                    border-radius: 50%;
+                    position: absolute;
+                    top: 10px;
+                    left: 10px;
+                    background: url("../assets/imgs/heart.png");
+                    background-position: center;
+                    background-repeat: no-repeat;
+                    background-size: 12px;
+                }
+                .fav {
+                    background-color: #f68020;
+                }
+                .not_fav {
+                    background-color: #dcdcdc;
+                }
+            }
+            h5 {
+                // text-align: center;
+                margin: 0px;
+                padding: 10px 0px 0px 10px;
+                color: #575757;
+                font-size: 15px;
+                font-weight: 500;
+                text-align: left;
+                
+            }
+            p {
+                text-align: center;
+                margin: 0px;
+                padding: 0px 0px 15px 10px;
+                color: #575757;
+                font-weight: 400;
+                font-size: 12px;
+                text-align: left;
+                strong {
+                    color: #a3a3a3;
+                    font-weight: 300;
+                    padding-left: 5px;
+                    // text-decoration: line-through;
+                    margin-right: 5px;
+                }
+            }
+            
+        }
+    }
+}
+  }
+  

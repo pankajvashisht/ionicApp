@@ -27149,6 +27149,10 @@ page-get-demond .dot-green {
   display: inline-block;
 }
 
+page-home .home-page-header {
+  background: #69c242;
+}
+
 page-home .nav_header_title {
   width: calc(100% - 130px) !important;
   text-align: center;
@@ -27247,7 +27251,8 @@ page-home .fashion_store_wrapper .top_brand_slider .slides .swiper-container .sw
 page-home .fashion_store_wrapper .top_brand_slider .slides .swiper-container .swiper-wrapper .swiper-slide .slide-zoom .top_brand_circle img {
   border-radius: 50%;
   position: relative;
-  width: 100px;
+  width: 100%;
+  height: -webkit-fill-available !important;
 }
 
 page-home .fashion_store_wrapper .top_brand_slider .slides .swiper-container .swiper-wrapper .swiper-slide .slide-zoom h5 {
@@ -27380,16 +27385,16 @@ page-home .home_search_bar .searchbar-input-container .searchbar-search-icon {
 page-home .home_search_bar .searchbar-input-container .searchbar-input {
   padding: 0px;
   height: 35px;
-  background-color: rgba(255, 255, 255, 0.48) !important;
+  background-color: #ffffff !important;
   -webkit-box-shadow: none;
   box-shadow: none;
   border-radius: 10px;
-  background: url("../assets/imgs/search.png");
+  background: url("../assets/imgs/nav_search_dark.png");
   background-position: right 15px top 10px !important;
   background-size: 15px !important;
   background-repeat: no-repeat !important;
-  color: #fff;
-  font-size: 18px;
+  color: #777676;
+  font-size: 14px;
   padding-left: 20px;
   font-weight: 500;
   padding-right: 50px;
@@ -27401,6 +27406,7 @@ page-home .home_search_bar .searchbar-input-container ::-webkit-input-placeholde
 
 page-home .home_content {
   width: 100%;
+  margin-top: 5px !important;
 }
 
 page-home .home_content .home_menu_banner {
@@ -27410,7 +27416,7 @@ page-home .home_content .home_menu_banner {
 page-home .home_content .home_menu_banner ul {
   margin: 0px;
   padding: 0px;
-  padding-top: 10px;
+  padding-top: 5px;
   padding-bottom: 10px;
 }
 
@@ -27421,22 +27427,24 @@ page-home .home_content .home_menu_banner ul li {
   width: calc(100% - 75%);
   height: 80px;
   float: left;
-  padding: 10px;
+  padding-top: 10px;
   padding-left: 0px;
   padding-right: 0px;
+  margin-bottom: 2%;
 }
 
 page-home .home_content .home_menu_banner ul li img {
-  width: 24px;
+  width: 40px;
 }
 
 page-home .home_content .home_menu_banner ul li p {
   padding: 0px;
   margin: 0px;
-  color: #797979;
+  color: #737272;
   text-align: center;
-  padding-top: 7px;
-  font-size: 9px;
+  padding-top: 3px;
+  font-size: 11px;
+  font-weight: 600;
 }
 
 page-home .home_content .home_detail_contents .scroll_section .scroll-x .scroll-content {
@@ -27639,7 +27647,7 @@ page-landing .landing_bg {
 }
 
 page-landing .slides {
-  height: calc(100% - 75px) !important;
+  height: calc(100% - 20%) !important;
 }
 
 page-landing .landing_logo {
@@ -27650,7 +27658,7 @@ page-landing .landing_logo {
 }
 
 page-landing .landing_logo img {
-  width: 100px;
+  width: 65%;
 }
 
 page-landing .landing_wrapper .landing_content {
@@ -28222,7 +28230,7 @@ page-profile .profile_wrapper {
 page-profile .profile_wrapper .profile_banner {
   width: 100%;
   height: 200px;
-  background: #f68020;
+  background: url("../assets/imgs/header.png");
   background-size: cover !important;
   background-position: center !important;
   padding: 20px;
@@ -28385,11 +28393,14 @@ page-shop strong {
 }
 
 page-shop .dot-green {
-  padding: 5px;
+  padding: 5%;
   background-color: #6cbe03;
-  border-radius: 50%;
+  /* border-radius: 50%; */
   color: white;
   display: inline-block;
+  height: auto;
+  width: 60px !important;
+  text-align: center;
 }
 
 page-signup .scroll-content {
@@ -28555,7 +28566,7 @@ page-vendor-profile .profile_wrapper {
 page-vendor-profile .profile_wrapper .profile_banner {
   width: 100%;
   height: 200px;
-  background: #8dc235;
+  background: url("../assets/imgs/header.png");
   background-size: cover !important;
   background-position: center !important;
   padding: 20px;
@@ -28777,7 +28788,6 @@ page-vendor-profile .result_wrapper ul li p strong {
   color: #a3a3a3;
   font-weight: 300;
   padding-left: 5px;
-  text-decoration: line-through;
   margin-right: 5px;
 }
 

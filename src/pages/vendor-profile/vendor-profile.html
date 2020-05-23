@@ -1,30 +1,32 @@
 <ion-header>
-	<div class="nav_header nav_white_header">
-		<button class="nav_btn nav_back_dark floatLeft" (click)="back()"></button>
-		<div class="nav_header_title floatLeft">
-			<h5>{{user_info1.first_name}} {{user_info1.last_name}}</h5>
-		</div>
-		<!-- <button class="nav_btn floatRight nav_cart_dark">
+    <div class="nav_header nav_white_header">
+        <button class="nav_btn nav_back_dark floatLeft" (click)="back()">
+        </button>
+        <div class="nav_header_title floatLeft">
+            <h5>{{user_info1.first_name}} {{user_info1.last_name}}</h5>
+        </div>
+        <!-- <button class="nav_btn floatRight nav_cart_dark">
           </button>
         <button class="nav_btn floatRight nav_search_dark">
             </button> -->
-		<div class="clear"></div>
-	</div>
-</ion-header>
+        <div class="clear"></div>
+    </div>
+  </ion-header>
 <ion-content>
-	<div class="profile_wrapper">
-		<div class="profile_banner">
-			<ion-fab bottom right>
-				<button ion-fab class="theme_light" (click)="map()">
-					<ion-icon name="md-compass"></ion-icon>
-				</button>
-			</ion-fab>
-			<ion-img [src]="user_info1.image" class="profie_circle"> </ion-img>
-			<h5>{{user_info1.first_name}} {{user_info1.last_name}}</h5>
-			<p>{{user_info1.email}}</p>
-			<hr />
-		</div>
-		<!-- <div class="wallet_tab_bay">
+  <div class="profile_wrapper">
+      
+      <div  class="profile_banner">
+          <ion-fab bottom right>
+              <button ion-fab class="theme_light" (click)="map()"><ion-icon name="md-compass"></ion-icon></button>
+          </ion-fab>
+          <ion-img [src]="user_info1.image" class="profie_circle">
+        
+          </ion-img>
+          <h5>{{user_info1.first_name}} {{user_info1.last_name}}</h5>
+          <p>{{user_info1.email}} , <span *ngIf="user_info1.phone>0">{{user_info1.phone}}</span></p>
+          <hr>
+      </div>
+      <!-- <div class="wallet_tab_bay">
             <ul>
                 <li [class.active]="tab == 'all'" (click)="tab_swap('all')">All
                     <hr>
@@ -37,41 +39,32 @@
                 </li>
             </ul>
         </div> -->
-		<div class="result_wrapper">
-			<div *ngIf="products.length==0" class="no-product">
-				No Product found
-			</div>
-			<ul>
-				<li *ngFor="let product of products">
-					<div class="inner_result">
-						<div
-							*ngIf="!product.hasOwnProperty('min')"
-							(click)="do_fav(product)"
-							[class]="(is_login==true && product[0].is_fav==1)? 'fav_circle fav': 'fav_circle not_fav'"
-						></div>
-						<img
-							(click)="details(product)"
-							(load)="loaded = true"
-							[src]="(!loaded)?'assets/imgs/loading.gif':(product.media.length>0)?product.media[0].file:app_statics.defult_product_image"
-						/>
-					</div>
-					<h5>
-						{{(product.name.length>15)?product.name.substring(15,-1)+'..':product.name}}
-					</h5>
-					<p>
-						<span *ngIf="product.international_price>0">
-							Global: $ {{product.international_price}} <br />
-						</span>
-						Local: {{product.price_type}} {{product.price}}
-					</p>
-				</li>
-			</ul>
-			<ion-infinite-scroll
-				*ngIf="total_record>9"
-				(ionInfinite)="pagination($event)"
-			>
-				<ion-infinite-scroll-content></ion-infinite-scroll-content>
-			</ion-infinite-scroll>
-		</div>
-	</div>
+      <div class="result_wrapper">
+
+            <div *ngIf="products.length==0" class="no-product">
+                  No Product found 
+            </div>
+            <ul>
+                <li *ngFor="let product of products" >
+                  <div class="inner_result">
+                    <div *ngIf="!product.hasOwnProperty('min')" (click)="do_fav(product)"  [class]="(is_login==true && product[0].is_fav==1)? 'fav_circle fav': 'fav_circle not_fav'"></div>
+                    <img (click)="details(product)"  (load)="loaded = true" [src]="(!loaded)?'assets/imgs/loading.gif':(product.media.length>0)?product.media[0].file:app_statics.defult_product_image">
+                </div>
+                <h5>{{(product.name.length>15)?product.name.substring(15,-1)+'..':product.name}}</h5>
+                 <p>
+                <span *ngIf="product.international_price>0">
+                    Global: <strong>$ {{product.international_price}} </strong><br />
+                </span>
+                Local:
+                <strong>{{product.price_type}} {{product.price}}</strong>
+            </p>
+                </li>
+                
+            </ul>
+            <ion-infinite-scroll *ngIf="total_record>9" (ionInfinite)="pagination($event)">
+              <ion-infinite-scroll-content></ion-infinite-scroll-content>
+            </ion-infinite-scroll>
+        </div>
+  </div>  
+
 </ion-content>

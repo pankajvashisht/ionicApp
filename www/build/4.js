@@ -1,14 +1,14 @@
 webpackJsonp([4],{
 
-/***/ 301:
+/***/ 300:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ShopPageModule", function() { return ShopPageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SendqueryPageModule", function() { return SendqueryPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(51);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__shop__ = __webpack_require__(321);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__sendquery__ = __webpack_require__(320);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,31 +18,31 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var ShopPageModule = /** @class */ (function () {
-    function ShopPageModule() {
+var SendqueryPageModule = /** @class */ (function () {
+    function SendqueryPageModule() {
     }
-    ShopPageModule = __decorate([
+    SendqueryPageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__shop__["a" /* ShopPage */],
+                __WEBPACK_IMPORTED_MODULE_2__sendquery__["a" /* SendqueryPage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__shop__["a" /* ShopPage */]),
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__sendquery__["a" /* SendqueryPage */]),
             ],
         })
-    ], ShopPageModule);
-    return ShopPageModule;
+    ], SendqueryPageModule);
+    return SendqueryPageModule;
 }());
 
-//# sourceMappingURL=shop.module.js.map
+//# sourceMappingURL=sendquery.module.js.map
 
 /***/ }),
 
-/***/ 321:
+/***/ 320:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ShopPage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SendqueryPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(51);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_providers__ = __webpack_require__(102);
@@ -59,85 +59,74 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 /**
- * Generated class for the ShopPage page.
+ * Generated class for the SendqueryPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
  */
-var ShopPage = /** @class */ (function () {
-    function ShopPage(toast, loadingCtrl, apis, navCtrl, navParams) {
-        this.toast = toast;
+var SendqueryPage = /** @class */ (function () {
+    function SendqueryPage(loadingCtrl, session, toast, user, navCtrl, navParams, viewCtrl) {
         this.loadingCtrl = loadingCtrl;
-        this.apis = apis;
+        this.session = session;
+        this.toast = toast;
+        this.user = user;
         this.navCtrl = navCtrl;
         this.navParams = navParams;
-        this.main_category = [];
-        this.type = 0;
-        this.text = 'Categories';
-        this.step = 0;
-        this.sub_category = [];
-        this.third_category = [];
-        if (this.navParams.get('type')) {
-            this.type = 1;
-            this.text = "Demand Categories";
+        this.viewCtrl = viewCtrl;
+        this.is_login = false;
+        this.user_info = [];
+        this.product_info = [{
+                message: '',
+                auth_key: '',
+                vender_id: '',
+                table_id: 0,
+                table_type: 1
+            }];
+        if (this.session.get_session('user_info')) {
+            this.is_login = true;
+            this.user_info = this.session.get_session('user_info');
+            this.product_info['auth_key'] = this.user_info.auth_key;
+            console.log(this.user_info);
         }
-        console.error(this.type);
+        else {
+            this.viewCtrl.dismiss();
+        }
+        if (!this.navParams.get('vender_id')) {
+            this.viewCtrl.dismiss();
+        }
+        else {
+            this.product_info['vender_id'] = this.navParams.get('vender_id');
+            this.product_info['table_type'] = this.navParams.get('type');
+            this.product_info['table_id'] = this.navParams.get('table_id');
+        }
     }
-    ShopPage.prototype.ionViewDidLoad = function () {
-        console.log('ionViewDidLoad ShopPage');
+    SendqueryPage.prototype.ionViewDidLoad = function () {
+        console.log('ionViewDidLoad SendqueryPage');
     };
-    ShopPage.prototype.ngOnInit = function () {
+    SendqueryPage.prototype.dismiss = function () {
+        this.viewCtrl.dismiss();
+    };
+    SendqueryPage.prototype.change_password = function () {
         var _this = this;
+        if (this.query == '') {
+            this.toast_message("Please Enter Your Query");
+            return false;
+        }
+        this.product_info['message'] = this.query;
         var loading = this.loadingCtrl.create({
-            content: 'Please wait...'
+            content: 'Sending Query'
         });
         loading.present();
-        this.apis.top_ten_category(25).then(function (data) {
-            _this.main_category = data;
+        this.user.send_query(this.product_info).then(function (data) {
+            _this.toast_message("Query send Successfully");
+            _this.viewCtrl.dismiss();
             loading.dismiss();
         }).catch(function (err) {
-            loading.dismiss();
             _this.toast_message(err);
+            loading.dismiss();
         });
     };
-    ShopPage.prototype.product = function (id, type, name) {
-        var _this = this;
-        this.step++;
-        this.last_name = this.text;
-        this.text = name;
-        if (this.step == 1) {
-            this.sub_category = [];
-            var loading_1 = this.loadingCtrl.create({
-                content: 'Please wait...'
-            });
-            loading_1.present();
-            this.apis.sub_category(id).then(function (data) {
-                _this.sub_category = data;
-                loading_1.dismiss();
-            }).catch(function (err) {
-                loading_1.dismiss();
-                _this.toast_message(err);
-            });
-        }
-        else if (this.step == 2) {
-            this.third_category = [];
-            var loading_2 = this.loadingCtrl.create({
-                content: 'Please wait...'
-            });
-            loading_2.present();
-            this.apis.third_category(id).then(function (data) {
-                _this.third_category = data;
-                loading_2.dismiss();
-            }).catch(function (err) {
-                loading_2.dismiss();
-                _this.toast_message(err);
-            });
-        }
-        else if (this.step == 3) {
-            this.navCtrl.push('AllProductsPage', { type: type, id: id, demond: this.type });
-        }
-    };
-    ShopPage.prototype.toast_message = function (message) {
+    SendqueryPage.prototype.toast_message = function (message) {
         var toast = this.toast.create({
             message: message,
             duration: 3000,
@@ -145,25 +134,16 @@ var ShopPage = /** @class */ (function () {
         });
         toast.present();
     };
-    ShopPage.prototype.back = function () {
-        this.step--;
-        if (this.step < 1) {
-            this.text = (this.type == 0) ? "Categories" : "Demond Categories";
-        }
-        else {
-            this.text = this.last_name;
-        }
-    };
-    ShopPage = __decorate([
+    SendqueryPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-shop',template:/*ion-inline-start:"/Users/pankajvashisht/Documents/Projects/ionicApp/src/pages/shop/shop.html"*/'<!--\n  Generated template for the ShopPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header class="theme_background">\n	<div class="nav_header" [ngClass]="(step!=0)?\'nav_white_header\':\'\'">\n		<button\n			*ngIf="step==0"\n			ion-button\n			class="nav_btn floatLeft nav_menu"\n			menuToggle\n		></button>\n		<button\n			*ngIf="step!=0"\n			class="nav_btn nav_back floatLeft"\n			(click)="back()"\n		></button>\n		<div class="nav_header_title floatLeft">\n			<b> {{text}} </b>\n		</div>\n	</div>\n</ion-header>\n\n<ion-content padding>\n	<ion-list *ngIf="step==0">\n		<button\n			ion-item\n			inset\n			*ngFor="let ten_cat of main_category"\n			(click)="product(ten_cat.id,4,ten_cat.name.substring(20,-1))"\n		>\n			<ion-avatar item-start>\n				<img src="{{ten_cat.image}}" />\n			</ion-avatar>\n			<h2>\n				{{(ten_cat.name.length>40)?ten_cat.name.substring(40,-1)+\'..\':ten_cat.name}}\n			</h2>\n			<ion-note item-end="" class="note note-ios">\n				<span class="dot-green">{{ten_cat[0].total_products}}</span>\n			</ion-note>\n		</button>\n	</ion-list>\n	<ion-list *ngIf="step==1">\n		<button\n			ion-item\n			inset\n			*ngFor="let ten_cat of sub_category"\n			(click)="product(ten_cat.id,4,ten_cat.name.substring(20,-1))"\n		>\n			<h2>\n				{{(ten_cat.name.length>70)?ten_cat.name.substring(70,-1)+\'..\':ten_cat.name}}\n			</h2>\n			<ion-note item-end="" class="note note-ios">\n				<span class="dot-green">{{ten_cat[0].total_products}}</span>\n			</ion-note>\n		</button>\n	</ion-list>\n	<ion-list *ngIf="step==2">\n		<button\n			ion-item\n			inset\n			*ngFor="let ten_cat of third_category"\n			(click)="product(ten_cat.id,4,ten_cat.name.substring(20,-1))"\n		>\n			<h2>\n				{{(ten_cat.name.length>70)?ten_cat.name.substring(70,-1)+\'..\':ten_cat.name}}\n			</h2>\n			<ion-note item-end="" class="note note-ios">\n				<span class="dot-green">{{ten_cat[0].total_products}}</span>\n			</ion-note>\n		</button>\n	</ion-list>\n</ion-content>\n'/*ion-inline-end:"/Users/pankajvashisht/Documents/Projects/ionicApp/src/pages/shop/shop.html"*/,
+            selector: 'page-sendquery',template:/*ion-inline-start:"/Users/pankajvashisht/Documents/Projects/ionicApp/src/pages/sendquery/sendquery.html"*/'<ion-content>\n  <div class="nav_header nav_white_header">\n      <button class="nav_btn nav_back_dark floatLeft" (click)="dismiss()">\n      </button>\n      <div class="nav_header_title floatLeft">\n          <h5>Send Query</h5>\n      </div>\n      <div class="clear"></div>\n  </div>\n  <div class="edit_profile_wrapper" padding>\n      <h4>What You want to know?<br></h4><h6>Write Your Query</h6>\n      \n              \n              <ion-list>\n                  \n              </ion-list>\n          <textarea name="" id="myInput" [(ngModel)]="query"  required cols="35" rows="5"></textarea>\n     \n  </div>\n</ion-content>\n<ion-footer padding>\n  <button ion-button class="login_btn" (click)="change_password()" >Send Query</button>\n</ion-footer>'/*ion-inline-end:"/Users/pankajvashisht/Documents/Projects/ionicApp/src/pages/sendquery/sendquery.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["p" /* ToastController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* LoadingController */], __WEBPACK_IMPORTED_MODULE_2__providers_providers__["a" /* ApisProvider */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavParams */]])
-    ], ShopPage);
-    return ShopPage;
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* LoadingController */], __WEBPACK_IMPORTED_MODULE_2__providers_providers__["b" /* SessionProvider */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["p" /* ToastController */], __WEBPACK_IMPORTED_MODULE_2__providers_providers__["c" /* UserProvider */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["q" /* ViewController */]])
+    ], SendqueryPage);
+    return SendqueryPage;
 }());
 
-//# sourceMappingURL=shop.js.map
+//# sourceMappingURL=sendquery.js.map
 
 /***/ })
 

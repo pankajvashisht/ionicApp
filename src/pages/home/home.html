@@ -1,93 +1,61 @@
-<ion-header class="theme_background">
-	<div class="nav_header">
-		<button ion-button class="nav_btn floatLeft nav_menu" menuToggle></button>
-		<div class="nav_header_title floatLeft">
-			<img src="assets/imgs/logo.png" />
-		</div>
-		<button
-			ion-button
-			class="nav_btn floatRight nav_option"
-			(click)="goChat()"
-		></button>
-	</div>
-	<div class="nav_header">
-		<ion-searchbar
-			class="home_search_bar"
-			[(ngModel)]="search_data"
-			(input)="searchdata($event.target.value)"
-			placeholder="Search Product Here"
-		>
-		</ion-searchbar>
-	</div>
+<ion-header class="home-page-header"> 
+  <div class="nav_header">
+      <button ion-button class="nav_btn floatLeft nav_menu" menuToggle></button>
+      <div class="nav_header_title floatLeft">
+          <!-- <img src="assets/imgs/logo-1.png">  -->
+          <img src="assets/imgs/ahm-logo-white-small.jpg"> 
+    </div>
+<button ion-button class="nav_btn floatRight nav_option" (click)="goChat()"></button>
+  </div>
+    <div class="nav_header">
+      <ion-searchbar class="home_search_bar" [(ngModel)]="search_data" (input)="searchdata($event.target.value)"  placeholder="Search Product Here">
+      </ion-searchbar>
+  </div>
 </ion-header>
 <ion-content>
-	<div class="home_content">
-		<div class="home_menu_banner" *ngIf="search_data.length==0">
-			<ul>
-				<li
-					*ngFor="let ten_cat of main_category"
-					(click)="product(ten_cat.id,2)"
-				>
-					<img src="{{ten_cat.image}}" />
-					<p>
-						{{(ten_cat.name.length>40)?ten_cat.name.substring(40,-1)+'':ten_cat.name}}
-					</p>
-				</li>
+  <div class="home_content">
+  <div class="home_menu_banner" *ngIf="search_data.length==0">
+        <ul>
+            <li *ngFor="let ten_cat of main_category" (click)="product(ten_cat.id,2)">
+                <img src="{{ten_cat.image}}">
+                <p>{{(ten_cat.name.length>40)?ten_cat.name.substring(40,-1)+'':ten_cat.name}}</p>
+            </li>
 
-				<div class="clear"></div>
-			</ul>
-		</div>
-	</div>
-	<div class="fashion_store_wrapper">
-		<div
-			class="fashion_banner_slider"
-			*ngIf="main_category.length>0 && search_data.length==0"
-		>
-			<ion-slides
-				loop="true"
-				pager="true"
-				zoom="true"
-				autoplay="2000"
-				effect="coverflow"
-				speed="1000"
-				slidesPerView="1"
-			>
-				<ion-slide
-					*ngFor="let ten_cat of main_category"
-					(click)="product(ten_cat.id,2)"
-				>
-					<img [src]="ten_cat.slider_image" />
-				</ion-slide>
-			</ion-slides>
-		</div>
-		<div class="fashion_header" *ngIf="search_data.length==0">
-			<h6>TOP Vendors</h6>
+            <div class="clear"></div>
+        </ul>
+    </div>
+  </div>
+    <div class="fashion_store_wrapper">
+        <div class="fashion_banner_slider" *ngIf="main_category.length>0 && search_data.length==0">
+            <ion-slides loop="true" pager="true" zoom="true" autoplay="2000" effect="coverflow" speed="1000" slidesPerView="1">
+                <ion-slide  *ngFor="let ten_cat of main_category" (click)="product(ten_cat.id,2)">
+                    <img [src]="ten_cat.slider_image" >
+                </ion-slide>
 
-			<div class="clear"></div>
-		</div>
-		<div
-			class="top_brand_slider"
-			*ngIf="search_data.length==0 && top_vendors.length>0"
-		>
-			<ion-slides loop="true" autoplay="1000" speed="1000" slidesPerView="2.5">
-				<ion-slide *ngFor="let vendor of top_vendors" (click)="Vendors(vendor)">
-					<div class="top_brand_circle">
-						<img
-							(load)="loaded = true"
-							[src]="(!loaded)?'assets/imgs/loading.gif':vendor.image"
-						/>
-					</div>
-					<h5>{{vendor.first_name}} {{vendor.last_name}}</h5>
-					<p>{{vendor.city}}</p>
-				</ion-slide>
-			</ion-slides>
-		</div>
-		<!-- <div class="fashion_header"  *ngIf="search_data.length==0">
+            </ion-slides>
+        </div>
+        <div class="fashion_header"  *ngIf="search_data.length==0">
+            <h6>TOP Vendors</h6>
+          
+            <div class="clear"></div>
+        </div>
+        <div class="top_brand_slider"  *ngIf="search_data.length==0 && top_vendors.length>0">
+            <ion-slides loop="true" autoplay="1000" speed="1000" slidesPerView="2.5">
+                <ion-slide *ngFor="let vendor of top_vendors" (click)="Vendors(vendor)">
+                    <div class="top_brand_circle">
+                        <img  (load)="loaded = true" [src]="(!loaded)?'assets/imgs/loading.gif':vendor.image">
+                    </div>
+                    <h5>{{vendor.first_name}} {{vendor.last_name}}</h5>
+                    <p>{{vendor.city}}</p>
+                </ion-slide>
+            </ion-slides>
+        </div>
+        <!-- <div class="fashion_header"  *ngIf="search_data.length==0">
             <h6>TOP TRENDS</h6>
            
             <div class="clear"></div>
         </div> -->
-		<!-- <div class="fashion_store_slider"  *ngIf="search_data.length==0">
+        <!-- <div class="fashion_store_slider"  *ngIf="search_data.length==0">
             <ion-slides loop="true" pager="false" zoom="true" effect="slide" speed="500" slidesPerView="1.5" spaceBetween="5">
                 <ion-slide (click)="product()">
                     <img src="assets/imgs/poster1.png">
@@ -97,7 +65,7 @@
                 </ion-slide>
             </ion-slides>
         </div> -->
-		<!-- <div class="fashion_store_slider"  *ngIf="search_data.length==0">
+        <!-- <div class="fashion_store_slider"  *ngIf="search_data.length==0">
             <ion-slides loop="true" pager="false" zoom="true" effect="slide" speed="500" slidesPerView="2" spaceBetween="5">
                 <ion-slide (click)="product()">
                     <img src="assets/imgs/poster3.png">
@@ -107,122 +75,69 @@
                 </ion-slide>
             </ion-slides>
         </div> -->
-		<div class="fashion_header" *ngIf="search_data.length==0">
-			<h6>MOST VIEWED</h6>
-			<button ion-button class="seeall seeall_pink" (click)="seemore(6)">
-				See all
-			</button>
-			<div class="clear"></div>
-		</div>
-		<div
-			class="fashion_most_viewed_slider"
-			*ngIf="top_sale.length>0 && search_data.length==0"
-		>
-			<ion-slides
-				loop="true"
-				pager="false"
-				zoom="true"
-				effect="slide"
-				speed="500"
-				slidesPerView="3"
-				spaceBetween="8"
-			>
-				<ion-slide *ngFor="let sale of top_sale">
-					<div
-						(click)="do_fav(sale)"
-						[class]="(is_login && sale[0].is_fav==1)? 'fav_circle fav': 'fav_circle not_fav'"
-					></div>
-					<img
-						(click)="details(sale)"
-						(load)="loaded = true"
-						[src]="(!loaded)?'assets/imgs/loading.gif':(sale.media.length>0)?sale.media[0].file:app_statics.defult_product_image"
-					/>
-					<!-- <h5>{{(sale.name.length>10)?sale.name.substring(10,-1)+'..':sale.name}}</h5> -->
-					<p>Get at<strong>${{sale.price}}</strong></p>
-				</ion-slide>
-			</ion-slides>
-		</div>
-		<div
-			class="fashion_header"
-			*ngIf="featured.length>0 && search_data.length==0"
-		>
-			<h6>Featured</h6>
-			<button ion-button class="seeall seeall_pink" (click)="seemore(5)">
-				See all
-			</button>
-			<div class="clear"></div>
-		</div>
-		<div
-			class="fashion_most_viewed_slider"
-			*ngIf="featured.length>0 && search_data.length==0"
-		>
-			<ion-slides
-				loop="true"
-				pager="false"
-				zoom="true"
-				effect="slide"
-				speed="500"
-				slidesPerView="3"
-				spaceBetween="10"
-			>
-				<ion-slide *ngFor="let feature of featured">
-					<div
-						(click)="do_fav(feature)"
-						[class]="(is_login && feature[0].is_fav==1)? 'fav_circle fav': 'fav_circle not_fav'"
-					></div>
-					<img
-						(click)="details(feature)"
-						(load)="loaded = true"
-						[src]="(!loaded)?'assets/imgs/loading.gif':(feature.media.length>0)?feature.media[0].file:app_statics.defult_product_image"
-					/>
-					<!-- <h5>{{(feature.name.length>10)?feature.name.substring(10,-1)+'..':feature.name}}</h5> -->
-					<p>Get at<strong>${{feature.price}}</strong></p>
-				</ion-slide>
-			</ion-slides>
-		</div>
-		<div class="">
-			<h6>{{(search_data.length==0)?'More Products':'Search Products'}}</h6>
+        <div class="fashion_header"  *ngIf="search_data.length==0">
+            <h6>MOST VIEWED</h6>
+            <button ion-button class="seeall seeall_pink" (click)="seemore(6)">See all</button>
+            <div class="clear"></div>
+        </div>
+        <div class="fashion_most_viewed_slider" *ngIf="top_sale.length>0 && search_data.length==0"  >
+            <ion-slides loop="true" pager="false" zoom="true" effect="slide" speed="500" slidesPerView="3" spaceBetween="8">
+                <ion-slide *ngFor="let sale of top_sale" >
+                    <div (click)="do_fav(sale)" [class]="(is_login && sale[0].is_fav==1)? 'fav_circle fav': 'fav_circle not_fav'"></div>
+                    <img (click)="details(sale)"  (load)="loaded = true" [src]="(!loaded)?'assets/imgs/loading.gif':(sale.media.length>0)?sale.media[0].file:app_statics.defult_product_image">
+                    <!-- <h5>{{(sale.name.length>10)?sale.name.substring(10,-1)+'..':sale.name}}</h5> -->
+                    <p>Get at<strong>${{sale.price}}</strong> </p>
+                </ion-slide>
 
-			<div class="clear"></div>
-		</div>
+            </ion-slides>
+        </div>
+        <div class="fashion_header" *ngIf="featured.length>0 && search_data.length==0">
+            <h6>Featured</h6>
+            <button ion-button class="seeall seeall_pink" (click)="seemore(5)">See all</button>
+            <div class="clear"></div>
+        </div>
+        <div class="fashion_most_viewed_slider" *ngIf="featured.length>0 && search_data.length==0">
+            <ion-slides loop="true" pager="false" zoom="true" effect="slide" speed="500" slidesPerView="3" spaceBetween="10">
+                <ion-slide *ngFor="let feature of featured" >
+                    <div (click)="do_fav(feature)" [class]="(is_login && feature[0].is_fav==1)? 'fav_circle fav': 'fav_circle not_fav'"></div>
+                    <img (click)="details(feature)"  (load)="loaded = true" [src]="(!loaded)?'assets/imgs/loading.gif':(feature.media.length>0)?feature.media[0].file:app_statics.defult_product_image">
+                    <!-- <h5>{{(feature.name.length>10)?feature.name.substring(10,-1)+'..':feature.name}}</h5> -->
+                    <p>Get at<strong>${{feature.price}}</strong> </p>
+                </ion-slide>
+            </ion-slides>
+        </div>
+        <div class="">
+            <h6>{{(search_data.length==0)?'More Products':'Search Products'}}</h6>
 
-		<div class="result_wrapper" *ngIf="all_products.length>0">
-			<ul>
-				<li *ngFor="let product of all_products">
-					<div class="inner_result">
-						<div
-							(click)="do_fav(product)"
-							[class]="(is_login==true && product[0].is_fav==1)? 'fav_circle fav': 'fav_circle not_fav'"
-						></div>
-						<img
-							(click)="details(product)"
-							(load)="loaded = true"
-							[src]="(!loaded)?'assets/imgs/loading.gif':(product.media.length>0)?product.media[0].file:app_statics.defult_product_image"
-						/>
-					</div>
-					<h5>
-						{{(product.name.length>30)?product.name.substring(30,-1)+'':product.name}}
-					</h5>
-					<p>
-						<span *ngIf="product.international_price>0">
-							Global: <strong>$ {{product.international_price}} </strong><br />
-						</span>
-						Local:
-						<strong>{{product.price_type}} {{product.price}}</strong>
-					</p>
-				</li>
-			</ul>
-		</div>
-	</div>
-	<ion-fab *ngIf="is_login" bottom right>
-		<button ion-fab class="theme_light" [navPush]="pushPage">
-			<ion-icon name="md-add"></ion-icon>
-		</button>
-	</ion-fab>
-	<ion-infinite-scroll
-		*ngIf="total_record>9"
-		(ionInfinite)="pagination($event)"
-	>
-		<ion-infinite-scroll-content></ion-infinite-scroll-content>
-	</ion-infinite-scroll>
+            <div class="clear"></div>
+        </div>
+
+          <div class="result_wrapper" *ngIf="all_products.length>0">
+      <ul>
+          <li *ngFor="let product of all_products" >
+              <div class="inner_result">
+                  <div (click)="do_fav(product)" [class]="(is_login==true && product[0].is_fav==1)? 'fav_circle fav': 'fav_circle not_fav'"></div>
+                  <img (click)="details(product)" (load)="loaded = true"  [src]="(!loaded)?'assets/imgs/loading.gif':(product.media.length>0)?product.media[0].file:app_statics.defult_product_image">
+              </div>
+              <h5>{{(product.name.length>30)?product.name.substring(30,-1)+'':product.name}}</h5>
+              <p>
+                <span *ngIf="product.international_price>0">
+                    Global: <strong>$ {{product.international_price}} </strong><br />
+                </span>
+                Local:
+                <strong>{{product.price_type}} {{product.price}}</strong>
+            </p>
+                  </li>
+
+      </ul>
+  </div>
+  
+        </div> 
+        <ion-fab *ngIf="is_login" bottom right>
+            <button ion-fab class="theme_light"  [navPush]="pushPage" ><ion-icon name="md-add"></ion-icon></button>
+              
+        </ion-fab>
+        <ion-infinite-scroll *ngIf="total_record>9" (ionInfinite)="pagination($event)">
+            <ion-infinite-scroll-content></ion-infinite-scroll-content>
+          </ion-infinite-scroll>
 </ion-content>

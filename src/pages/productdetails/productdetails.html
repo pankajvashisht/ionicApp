@@ -60,10 +60,12 @@
 				Global: $ {{product_details.international_price}} <br />
 			</h4>
 			<h4>Local: {{product_details.price_type}} {{product_details.price}}</h4>
-
-			<!-- <div class="product_spec">
-
-        </div> -->
+		
+			<div class="product_spec">
+				<p>Sku: {{product_details.sku}}</p>
+				<p *ngIf="product_details.qty>0">Quantity: {{product_details.qty}} {{product_details.qty_type}}</p>
+			
+        </div>
 			<div class="size_chart" *ngIf="is_login">
 				<h5>Do Have Query ?</h5>
 				<ul>
@@ -77,6 +79,13 @@
 			<div class="description">
 				<h5>DESCRIPTION</h5>
 				<p [innerHTML]="product_details.detail"></p>
+			</div>
+			<div class="other-details">
+				<h5>Other Details</h5>
+				<p>Address: {{product_details.address}}</p>
+				<p>City: {{product_details.city}},{{product_details.country}}</p>
+				<p>Packing Details: {{product_details.packing_detail}}</p>
+			
 			</div>
 		</div>
 	</div>
