@@ -1,14 +1,14 @@
 webpackJsonp([3],{
 
-/***/ 301:
+/***/ 302:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ShopPageModule", function() { return ShopPageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SignupPageModule", function() { return SignupPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(51);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__shop__ = __webpack_require__(321);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__signup__ = __webpack_require__(322);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,34 +18,35 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var ShopPageModule = /** @class */ (function () {
-    function ShopPageModule() {
+var SignupPageModule = /** @class */ (function () {
+    function SignupPageModule() {
     }
-    ShopPageModule = __decorate([
+    SignupPageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__shop__["a" /* ShopPage */],
+                __WEBPACK_IMPORTED_MODULE_2__signup__["a" /* SignupPage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__shop__["a" /* ShopPage */]),
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__signup__["a" /* SignupPage */]),
             ],
         })
-    ], ShopPageModule);
-    return ShopPageModule;
+    ], SignupPageModule);
+    return SignupPageModule;
 }());
 
-//# sourceMappingURL=shop.module.js.map
+//# sourceMappingURL=signup.module.js.map
 
 /***/ }),
 
-/***/ 321:
+/***/ 322:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ShopPage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SignupPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(51);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_providers__ = __webpack_require__(102);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__(15);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_providers__ = __webpack_require__(102);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -58,112 +59,76 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-/**
- * Generated class for the ShopPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
-var ShopPage = /** @class */ (function () {
-    function ShopPage(toast, loadingCtrl, apis, navCtrl, navParams) {
-        this.toast = toast;
+
+var SignupPage = /** @class */ (function () {
+    function SignupPage(toastCtrl, loadingCtrl, user_session, users, UsersignUp, navCtrl, navParams, modalCtrl) {
+        this.toastCtrl = toastCtrl;
         this.loadingCtrl = loadingCtrl;
-        this.apis = apis;
+        this.user_session = user_session;
+        this.users = users;
+        this.UsersignUp = UsersignUp;
         this.navCtrl = navCtrl;
         this.navParams = navParams;
-        this.main_category = [];
-        this.type = 0;
-        this.text = 'Categories';
-        this.step = 0;
-        this.sub_category = [];
-        this.third_category = [];
-        if (this.navParams.get('type')) {
-            this.type = 1;
-            this.text = "Demand Categories";
-        }
-        console.error(this.type);
+        this.modalCtrl = modalCtrl;
+        this.all_country = [];
+        this.signupForm = this.UsersignUp.group({
+            email: new __WEBPACK_IMPORTED_MODULE_2__angular_forms__["b" /* FormControl */]('', [__WEBPACK_IMPORTED_MODULE_2__angular_forms__["g" /* Validators */].required, __WEBPACK_IMPORTED_MODULE_2__angular_forms__["g" /* Validators */].pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$')]),
+            password: new __WEBPACK_IMPORTED_MODULE_2__angular_forms__["b" /* FormControl */]('', [__WEBPACK_IMPORTED_MODULE_2__angular_forms__["g" /* Validators */].required]),
+            phone: new __WEBPACK_IMPORTED_MODULE_2__angular_forms__["b" /* FormControl */]('', [__WEBPACK_IMPORTED_MODULE_2__angular_forms__["g" /* Validators */].required]),
+            first_name: new __WEBPACK_IMPORTED_MODULE_2__angular_forms__["b" /* FormControl */]('', [__WEBPACK_IMPORTED_MODULE_2__angular_forms__["g" /* Validators */].required]),
+            last_name: new __WEBPACK_IMPORTED_MODULE_2__angular_forms__["b" /* FormControl */]('', [__WEBPACK_IMPORTED_MODULE_2__angular_forms__["g" /* Validators */].required]),
+            country_code: new __WEBPACK_IMPORTED_MODULE_2__angular_forms__["b" /* FormControl */]('93', [__WEBPACK_IMPORTED_MODULE_2__angular_forms__["g" /* Validators */].required]),
+        });
+        this.get_country();
     }
-    ShopPage.prototype.ionViewDidLoad = function () {
-        console.log('ionViewDidLoad ShopPage');
+    SignupPage.prototype.ionViewDidLoad = function () {
+        console.log('ionViewDidLoad SignupPage');
     };
-    ShopPage.prototype.ngOnInit = function () {
+    SignupPage.prototype.get_country = function () {
+        var _this = this;
+        this.users.all_country().then(function (data) {
+            _this.all_country = data;
+        }).catch(function (error) {
+            _this.toast_message(error);
+        });
+    };
+    SignupPage.prototype.submitSignup = function () {
         var _this = this;
         var loading = this.loadingCtrl.create({
             content: 'Please wait...'
         });
         loading.present();
-        this.apis.top_ten_category(25).then(function (data) {
-            _this.main_category = data;
+        this.users.signup(this.signupForm).then(function (data) {
+            _this.user_session.set_session('user_info', data);
+            _this.navCtrl.push('VerifyPage');
+            _this.toast_message('Signup successfully');
             loading.dismiss();
-        }).catch(function (err) {
+        }).catch(function (error) {
+            _this.toast_message(error);
             loading.dismiss();
-            _this.toast_message(err);
         });
     };
-    ShopPage.prototype.product = function (id, type, name) {
-        var _this = this;
-        this.step++;
-        this.last_name = this.text;
-        this.text = name;
-        if (this.step == 1) {
-            this.sub_category = [];
-            var loading_1 = this.loadingCtrl.create({
-                content: 'Please wait...'
-            });
-            loading_1.present();
-            this.apis.sub_category(id).then(function (data) {
-                _this.sub_category = data;
-                loading_1.dismiss();
-            }).catch(function (err) {
-                loading_1.dismiss();
-                _this.toast_message(err);
-            });
-        }
-        else if (this.step == 2) {
-            this.third_category = [];
-            var loading_2 = this.loadingCtrl.create({
-                content: 'Please wait...'
-            });
-            loading_2.present();
-            this.apis.third_category(id).then(function (data) {
-                _this.third_category = data;
-                loading_2.dismiss();
-            }).catch(function (err) {
-                loading_2.dismiss();
-                _this.toast_message(err);
-            });
-        }
-        else if (this.step == 3) {
-            this.navCtrl.push('AllProductsPage', { type: type, id: id, demond: this.type });
-        }
-    };
-    ShopPage.prototype.toast_message = function (message) {
-        var toast = this.toast.create({
+    SignupPage.prototype.toast_message = function (message) {
+        var toast = this.toastCtrl.create({
             message: message,
             duration: 3000,
             position: 'buttom'
         });
         toast.present();
     };
-    ShopPage.prototype.back = function () {
-        this.step--;
-        if (this.step < 1) {
-            this.text = (this.type == 0) ? "Categories" : "Demand Categories";
-        }
-        else {
-            this.text = this.last_name;
-        }
+    SignupPage.prototype.login = function () {
+        this.navCtrl.push('LoginPage');
     };
-    ShopPage = __decorate([
+    SignupPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-shop',template:/*ion-inline-start:"/Users/pankajvashisht/Documents/Projects/ionicApp/src/pages/shop/shop.html"*/'<!--\n  Generated template for the ShopPage page.\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header class="theme_background">\n	<div class="nav_header" [ngClass]="(step!=0)?\'nav_white_header\':\'\'">\n		<button\n			*ngIf="step==0"\n			ion-button\n			class="nav_btn floatLeft nav_menu"\n			menuToggle\n		></button>\n		<button\n			*ngIf="step!=0"\n			class="nav_btn nav_back floatLeft"\n			(click)="back()"\n		></button>\n		<div class="nav_header_title floatLeft">\n			<b> {{text}} </b>\n		</div>\n	</div>\n</ion-header>\n\n<ion-content padding>\n	<ion-list *ngIf="step==0">\n		<button\n			ion-item\n			inset\n			*ngFor="let ten_cat of main_category"\n			(click)="product(ten_cat.id,4,ten_cat.name.substring(20,-1))"\n		>\n			<ion-avatar item-start>\n				<img src="{{ten_cat.image}}" />\n			</ion-avatar>\n			<h2>\n				{{(ten_cat.name.length>40)?ten_cat.name.substring(40,-1)+\'..\':ten_cat.name}}\n			</h2>\n			<ion-note item-end="" class="note note-ios">\n				<span class="dot-green">{{ten_cat[0].total_products}}</span>\n			</ion-note>\n		</button>\n	</ion-list>\n	<ion-list *ngIf="step==1">\n		<button\n			ion-item\n			inset\n			*ngFor="let ten_cat of sub_category"\n			(click)="product(ten_cat.id,4,ten_cat.name.substring(20,-1))"\n		>\n			<h2>\n				{{(ten_cat.name.length>70)?ten_cat.name.substring(70,-1)+\'..\':ten_cat.name}}\n			</h2>\n			<ion-note item-end="" class="note note-ios">\n				<span class="dot-green">{{ten_cat[0].total_products}}</span>\n			</ion-note>\n		</button>\n	</ion-list>\n	<ion-list *ngIf="step==2">\n		<button\n			ion-item\n			inset\n			*ngFor="let ten_cat of third_category"\n			(click)="product(ten_cat.id,4,ten_cat.name.substring(20,-1))"\n		>\n			<h2>\n				{{(ten_cat.name.length>70)?ten_cat.name.substring(70,-1)+\'..\':ten_cat.name}}\n			</h2>\n			<ion-note item-end="" class="note note-ios">\n				<span class="dot-green">{{ten_cat[0].total_products}}</span>\n			</ion-note>\n		</button>\n	</ion-list>\n</ion-content>'/*ion-inline-end:"/Users/pankajvashisht/Documents/Projects/ionicApp/src/pages/shop/shop.html"*/,
+            selector: 'page-signup',template:/*ion-inline-start:"/Users/pankajvashisht/Documents/Projects/ionicApp/src/pages/signup/signup.html"*/'<ion-content padding class="login_bg">\n  <div class="login_content">\n    <h5>Sign up form</h5>\n    <hr>\n    <form [formGroup]="signupForm" (ngSubmit)="submitSignup()">\n    <ion-list>\n        <ion-item>\n            <ion-input [(ngModel)]="signupForm.first_name" formControlName="first_name" required  placeholder=" First Name"></ion-input>\n        </ion-item>\n        <ion-item>\n          <ion-input [(ngModel)]="signupForm.last_name" formControlName="last_name" required placeholder="Last Name"></ion-input>\n        </ion-item>\n        <ion-row>\n            <ion-col col-3>\n        <ion-item>\n           \n            <ion-select   [(ngModel)]="signupForm.country_code" formControlName="country_code"  required>\n                <ion-option *ngFor="let country of all_country"  [value]="country.phonecode">+{{country.phonecode}}</ion-option> \n</ion-select>\n                  </ion-item>   \n                  </ion-col>\n                        \n                <ion-col col-9>\n                    <ion-item>\n            <ion-input  [(ngModel)]="signupForm.phone" formControlName="phone" required placeholder="Phone no"></ion-input>\n          </ion-item>   \n          </ion-col>\n          </ion-row>\n          \n        <ion-item>\n            <ion-input  [(ngModel)]="signupForm.email" formControlName="email" required placeholder="Email"></ion-input>\n        </ion-item>\n        <ion-item>\n            <ion-input [(ngModel)]="signupForm.password" formControlName="password" required placeholder="Password" type="password"></ion-input>\n      </ion-item>\n    </ion-list>\n    <button [disabled]="!signupForm.valid" ion-button class="login_btn"  >\n      Sign Up Now\n    </button>\n    </form>\n    <p>Already have an account? Simply login below by<br>\n      <br>\n      <strong (click)="login()" >Back to login</strong>\n    </p>\n\n  </div>\n\n</ion-content>\n\n'/*ion-inline-end:"/Users/pankajvashisht/Documents/Projects/ionicApp/src/pages/signup/signup.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["p" /* ToastController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* LoadingController */], __WEBPACK_IMPORTED_MODULE_2__providers_providers__["a" /* ApisProvider */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavParams */]])
-    ], ShopPage);
-    return ShopPage;
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["p" /* ToastController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* LoadingController */], __WEBPACK_IMPORTED_MODULE_3__providers_providers__["b" /* SessionProvider */], __WEBPACK_IMPORTED_MODULE_3__providers_providers__["c" /* UserProvider */], __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormBuilder */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* ModalController */]])
+    ], SignupPage);
+    return SignupPage;
 }());
 
-//# sourceMappingURL=shop.js.map
+//# sourceMappingURL=signup.js.map
 
 /***/ })
 

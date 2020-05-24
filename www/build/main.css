@@ -25722,6 +25722,7 @@ ion-navbar.toolbar {
 --------------------------------*/
 * {
   font-family: 'Roboto', sans-serif;
+  -webkit-font-smoothing: antialiased;
 }
 
 *::-webkit-scrollbar {
@@ -26112,9 +26113,9 @@ a {
 
 --------------------------------*/
 .header-md::after,
-.tabs-md[tabsPlacement="top"] > .tabbar::after,
+.tabs-md[tabsPlacement='top'] > .tabbar::after,
 .footer-md::before,
-.tabs-md[tabsPlacement="bottom"] > .tabbar::before {
+.tabs-md[tabsPlacement='bottom'] > .tabbar::before {
   background: none !important;
 }
 
@@ -26319,7 +26320,7 @@ button {
 .sidemenu_wrapper ul li {
   list-style: none;
   font-size: 15px;
-  font-weight: 200;
+  font-weight: 300;
   color: #fff;
   text-align: left;
   padding-bottom: 15px;

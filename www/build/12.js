@@ -1,14 +1,14 @@
 webpackJsonp([12],{
 
-/***/ 294:
+/***/ 293:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "GetDemondPageModule", function() { return GetDemondPageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ForgotPageModule", function() { return ForgotPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(51);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__get_demond__ = __webpack_require__(314);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__forgot__ = __webpack_require__(313);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,34 +18,35 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var GetDemondPageModule = /** @class */ (function () {
-    function GetDemondPageModule() {
+var ForgotPageModule = /** @class */ (function () {
+    function ForgotPageModule() {
     }
-    GetDemondPageModule = __decorate([
+    ForgotPageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__get_demond__["a" /* GetDemondPage */],
+                __WEBPACK_IMPORTED_MODULE_2__forgot__["a" /* ForgotPage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__get_demond__["a" /* GetDemondPage */]),
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__forgot__["a" /* ForgotPage */]),
             ],
         })
-    ], GetDemondPageModule);
-    return GetDemondPageModule;
+    ], ForgotPageModule);
+    return ForgotPageModule;
 }());
 
-//# sourceMappingURL=get-demond.module.js.map
+//# sourceMappingURL=forgot.module.js.map
 
 /***/ }),
 
-/***/ 314:
+/***/ 313:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return GetDemondPage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ForgotPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(51);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_providers__ = __webpack_require__(102);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_forms__ = __webpack_require__(15);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -58,99 +59,63 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-/**
- * Generated class for the GetDemondPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
-var GetDemondPage = /** @class */ (function () {
-    function GetDemondPage(session, apis, loadingCtrl, toast, navCtrl, navParams) {
-        this.session = session;
-        this.apis = apis;
+
+var ForgotPage = /** @class */ (function () {
+    function ForgotPage(toastCtrl, loadingCtrl, users, fogotpassword, navCtrl, navParams, viewCtrl) {
+        this.toastCtrl = toastCtrl;
         this.loadingCtrl = loadingCtrl;
-        this.toast = toast;
+        this.users = users;
+        this.fogotpassword = fogotpassword;
         this.navCtrl = navCtrl;
         this.navParams = navParams;
-        this.products = [];
-        this.total_record = 0;
-        this.product_by = {
-            page: 1,
-            auth_key: '',
-            is_my: '1'
-        };
-        if (this.session.get_session('user_info')) {
-            this.user_info = this.session.get_session('user_info');
-            this.product_by.auth_key = "?auth_key=" + this.user_info.auth_key;
-        }
+        this.viewCtrl = viewCtrl;
+        this.ForGot = this.fogotpassword.group({
+            email: new __WEBPACK_IMPORTED_MODULE_3__angular_forms__["b" /* FormControl */]('', [__WEBPACK_IMPORTED_MODULE_3__angular_forms__["g" /* Validators */].required, __WEBPACK_IMPORTED_MODULE_3__angular_forms__["g" /* Validators */].pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$')]),
+        });
     }
-    GetDemondPage.prototype.ionViewDidLoad = function () {
-        console.log('ionViewDidLoad GetDemondPage');
+    ForgotPage.prototype.ionViewDidLoad = function () {
+        console.log('ionViewDidLoad ForgotPage');
     };
-    GetDemondPage.prototype.ngOnInit = function () {
+    ForgotPage.prototype.dismiss = function () {
+        this.viewCtrl.dismiss();
+    };
+    ForgotPage.prototype.submitforgot = function () {
         var _this = this;
         var loading = this.loadingCtrl.create({
             content: 'Please wait...'
         });
         loading.present();
-        this.apis.demond_product(this.product_by).then(function (data) {
-            _this.products = data;
-            _this.total_record = _this.products.length;
+        this.users.forgot_password(this.ForGot).then(function (data) {
+            _this.viewCtrl.dismiss();
+            _this.toast_message('Email sent successfully');
             loading.dismiss();
-        }).catch(function (err) {
-            _this.toast_message(err);
+        }).catch(function (error) {
+            _this.toast_message(error);
             loading.dismiss();
         });
     };
-    GetDemondPage.prototype.toast_message = function (message) {
-        var toast = this.toast.create({
+    ForgotPage.prototype.toast_message = function (message) {
+        var toast = this.toastCtrl.create({
             message: message,
             duration: 3000,
             position: 'buttom'
         });
         toast.present();
     };
-    GetDemondPage.prototype.pagination = function (infiniteScroll) {
-        var _this = this;
-        this.product_by.page++;
-        this.apis.demond_product(this.product_by).then(function (data) {
-            _this.total_record = data.length;
-            for (var i = 0; i < data.length; i++) {
-                _this.products.push(data[i]);
-            }
-            infiniteScroll.complete();
-        }).catch(function (error) {
-            _this.toast_message("No For Product");
-            _this.total_record = 0;
-        });
+    ForgotPage.prototype.login = function () {
+        this.navCtrl.push('LoginPage');
+        this.viewCtrl.dismiss();
     };
-    GetDemondPage.prototype.details = function (product_details) {
-        this.navCtrl.push('ProductdetailsPage', { details: product_details });
-    };
-    GetDemondPage.prototype.back = function () {
-        this.navCtrl.push("HomePage");
-    };
-    GetDemondPage.prototype.doRefresh = function (refresher) {
-        var _this = this;
-        this.apis.demond_product(this.product_by).then(function (data) {
-            _this.products = data;
-            refresher.complete();
-            _this.total_record = _this.products.length;
-        }).catch(function (err) {
-            _this.toast_message(err);
-            refresher.complete();
-        });
-    };
-    GetDemondPage = __decorate([
+    ForgotPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-get-demond',template:/*ion-inline-start:"/Users/pankajvashisht/Documents/Projects/ionicApp/src/pages/get-demond/get-demond.html"*/'<!--\n  Generated template for the GetDemondPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header class="theme_background header header-md">\n    <div class="nav_header">\n        <button class="nav_btn nav_back floatLeft" (click)="back()">\n      </button>\n        <div class="nav_header_title floatLeft">\n            <h5>My Demands</h5>\n        </div>\n        \n        <div class="clear"></div>\n    </div>\n  </ion-header>\n\n\n<ion-content padding>\n    <ion-list-header>\n      List of Your Created Demands\n      </ion-list-header>\n      <ion-refresher (ionRefresh)="doRefresh($event)">\n          <ion-refresher-content></ion-refresher-content>\n        </ion-refresher>\n    <ion-list>\n        <ion-item  *ngFor="let ten_cat of products" (click)="details(ten_cat)" >\n          <ion-avatar item-start>\n            <img (load)="loaded = true" [src]="(!loaded)?\'assets/imgs/loading.gif\':ten_cat.image" >\n          </ion-avatar>\n          <ion-label>\n          <h2>{{(ten_cat.name.length>20)?ten_cat.name.substring(20,-1)+\'..\':ten_cat.name}}</h2> \n          <p>{{ten_cat.price}}</p>\n        </ion-label>\n          <ion-note item-end="" class="note note-ios">\n              <span class="{{(ten_cat.status==0)?\'dot\':\'dot-green\'}}"></span>\n            </ion-note>\n        </ion-item>\n       \n      </ion-list>\n\n</ion-content>\n'/*ion-inline-end:"/Users/pankajvashisht/Documents/Projects/ionicApp/src/pages/get-demond/get-demond.html"*/,
+            selector: 'page-forgot',template:/*ion-inline-start:"/Users/pankajvashisht/Documents/Projects/ionicApp/src/pages/forgot/forgot.html"*/'<ion-content class="forgot_bg">\n    <div class="nav_header nav_white_header">\n        <button class="nav_btn floatLeft" (click)="dismiss()">\n            <ion-icon name="ios-arrow-back-outline"></ion-icon>\n        </button>\n        <div class="nav_header_title floatLeft">\n            <h5>Forgot Password</h5>\n          </div>\n        <button class="nav_btn floatRight" (click)="dismiss()">\n            <ion-icon name="close"></ion-icon>\n        </button>\n        <div class="clear"></div>\n    </div>\n    <div class="forgot_wrapper">\n      <img src="assets/imgs/forgot.png">\n      <h5>Forgot Password?</h5>\n      <p>We will be send a password reset link<br>\n          to your gmail account</p>\n          <form [formGroup]="ForGot" (ngSubmit)="submitforgot()">\n          <ion-item>\n            <ion-input [(ngModel)]="ForGot.email"  formControlName="email" placeholder="Enter your email id"></ion-input>\n          </ion-item>\n          <button [disabled]="!ForGot.valid" ion-button class="login_btn">Reset</button>\n        </form>\n    </div>\n</ion-content>\n<ion-footer padding>\n  <h6>Back to <a (click)="login()">Login</a></h6>\n</ion-footer>\n'/*ion-inline-end:"/Users/pankajvashisht/Documents/Projects/ionicApp/src/pages/forgot/forgot.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__providers_providers__["b" /* SessionProvider */], __WEBPACK_IMPORTED_MODULE_2__providers_providers__["a" /* ApisProvider */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* LoadingController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["p" /* ToastController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavParams */]])
-    ], GetDemondPage);
-    return GetDemondPage;
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["p" /* ToastController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* LoadingController */], __WEBPACK_IMPORTED_MODULE_2__providers_providers__["c" /* UserProvider */], __WEBPACK_IMPORTED_MODULE_3__angular_forms__["a" /* FormBuilder */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["q" /* ViewController */]])
+    ], ForgotPage);
+    return ForgotPage;
 }());
 
-//# sourceMappingURL=get-demond.js.map
+//# sourceMappingURL=forgot.js.map
 
 /***/ })
 

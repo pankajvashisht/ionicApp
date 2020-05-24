@@ -45,15 +45,15 @@ var map = {
 	],
 	"../pages/all-products/all-products.module": [
 		287,
-		10
+		18
 	],
 	"../pages/allchat/allchat.module": [
 		288,
-		14
+		17
 	],
 	"../pages/changepassword/changepassword.module": [
 		289,
-		11
+		16
 	],
 	"../pages/chatlist/chatlist.module": [
 		290,
@@ -61,31 +61,31 @@ var map = {
 	],
 	"../pages/editprofile/editprofile.module": [
 		291,
-		18
+		14
 	],
 	"../pages/fav-list/fav-list.module": [
 		292,
-		9
+		13
 	],
 	"../pages/forgot/forgot.module": [
 		293,
-		8
+		12
 	],
 	"../pages/get-demond/get-demond.module": [
 		294,
-		12
+		11
 	],
 	"../pages/home/home.module": [
 		295,
-		17
+		10
 	],
 	"../pages/landing/landing.module": [
 		296,
-		16
+		9
 	],
 	"../pages/login/login.module": [
 		297,
-		6
+		8
 	],
 	"../pages/productdetails/productdetails.module": [
 		299,
@@ -93,31 +93,31 @@ var map = {
 	],
 	"../pages/profile/profile.module": [
 		298,
-		5
+		6
 	],
 	"../pages/sendquery/sendquery.module": [
+		301,
+		5
+	],
+	"../pages/shop/shop.module": [
 		300,
 		4
 	],
-	"../pages/shop/shop.module": [
-		301,
-		3
-	],
 	"../pages/signup/signup.module": [
 		302,
-		2
+		3
 	],
 	"../pages/vendor-profile/vendor-profile.module": [
 		303,
-		0
+		2
 	],
 	"../pages/verified/verified.module": [
-		305,
-		13
-	],
-	"../pages/verify/verify.module": [
 		304,
 		1
+	],
+	"../pages/verify/verify.module": [
+		305,
+		0
 	]
 };
 function webpackAsyncContext(req) {
@@ -256,24 +256,24 @@ var AppModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["g" /* IonicModule */].forRoot(__WEBPACK_IMPORTED_MODULE_3__app_component__["a" /* MyApp */], {}, {
                     links: [
                         { loadChildren: '../pages/add-demond/add-demond.module#AddDemondPageModule', name: 'AddDemondPage', segment: 'add-demond', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/editprofile/editprofile.module#EditprofilePageModule', name: 'EditprofilePage', segment: 'editprofile', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/home/home.module#HomePageModule', name: 'HomePage', segment: 'home', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/landing/landing.module#LandingPageModule', name: 'LandingPage', segment: 'landing', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/chatlist/chatlist.module#ChatlistPageModule', name: 'ChatlistPage', segment: 'chatlist', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/allchat/allchat.module#AllchatPageModule', name: 'AllchatPage', segment: 'allchat', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/verified/verified.module#VerifiedPageModule', name: 'VerifiedPage', segment: 'verified', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/get-demond/get-demond.module#GetDemondPageModule', name: 'GetDemondPage', segment: 'get-demond', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/changepassword/changepassword.module#ChangepasswordPageModule', name: 'ChangepasswordPage', segment: 'changepassword', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/all-products/all-products.module#AllProductsPageModule', name: 'AllProductsPage', segment: 'all-products', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/allchat/allchat.module#AllchatPageModule', name: 'AllchatPage', segment: 'allchat', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/changepassword/changepassword.module#ChangepasswordPageModule', name: 'ChangepasswordPage', segment: 'changepassword', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/chatlist/chatlist.module#ChatlistPageModule', name: 'ChatlistPage', segment: 'chatlist', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/editprofile/editprofile.module#EditprofilePageModule', name: 'EditprofilePage', segment: 'editprofile', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/fav-list/fav-list.module#FavListPageModule', name: 'FavListPage', segment: 'fav-list', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/forgot/forgot.module#ForgotPageModule', name: 'ForgotPage', segment: 'forgot', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/get-demond/get-demond.module#GetDemondPageModule', name: 'GetDemondPage', segment: 'get-demond', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/home/home.module#HomePageModule', name: 'HomePage', segment: 'home', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/landing/landing.module#LandingPageModule', name: 'LandingPage', segment: 'landing', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/login/login.module#LoginPageModule', name: 'LoginPage', segment: 'login', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/productdetails/productdetails.module#ProductdetailsPageModule', name: 'ProductdetailsPage', segment: 'productdetails', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/profile/profile.module#ProfilePageModule', name: 'ProfilePage', segment: 'profile', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/sendquery/sendquery.module#SendqueryPageModule', name: 'SendqueryPage', segment: 'sendquery', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/productdetails/productdetails.module#ProductdetailsPageModule', name: 'ProductdetailsPage', segment: 'productdetails', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/shop/shop.module#ShopPageModule', name: 'ShopPage', segment: 'shop', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/sendquery/sendquery.module#SendqueryPageModule', name: 'SendqueryPage', segment: 'sendquery', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/signup/signup.module#SignupPageModule', name: 'SignupPage', segment: 'signup', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/vendor-profile/vendor-profile.module#VendorProfilePageModule', name: 'VendorProfilePage', segment: 'vendor-profile', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/verified/verified.module#VerifiedPageModule', name: 'VerifiedPage', segment: 'verified', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/verify/verify.module#VerifyPageModule', name: 'VerifyPage', segment: 'verify', priority: 'low', defaultHistory: [] }
                     ]
                 }),

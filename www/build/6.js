@@ -1,14 +1,14 @@
 webpackJsonp([6],{
 
-/***/ 297:
+/***/ 298:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LoginPageModule", function() { return LoginPageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ProfilePageModule", function() { return ProfilePageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(51);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__login__ = __webpack_require__(317);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__profile__ = __webpack_require__(318);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,36 +18,34 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var LoginPageModule = /** @class */ (function () {
-    function LoginPageModule() {
+var ProfilePageModule = /** @class */ (function () {
+    function ProfilePageModule() {
     }
-    LoginPageModule = __decorate([
+    ProfilePageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__login__["a" /* LoginPage */],
+                __WEBPACK_IMPORTED_MODULE_2__profile__["a" /* ProfilePage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__login__["a" /* LoginPage */]),
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__profile__["a" /* ProfilePage */]),
             ],
         })
-    ], LoginPageModule);
-    return LoginPageModule;
+    ], ProfilePageModule);
+    return ProfilePageModule;
 }());
 
-//# sourceMappingURL=login.module.js.map
+//# sourceMappingURL=profile.module.js.map
 
 /***/ }),
 
-/***/ 317:
+/***/ 318:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LoginPage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ProfilePage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(51);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__(15);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_providers__ = __webpack_require__(102);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_push__ = __webpack_require__(201);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_providers__ = __webpack_require__(102);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -60,101 +58,86 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-
-
-var LoginPage = /** @class */ (function () {
-    function LoginPage(push, platform, event, toastCtrl, loadingCtrl, user_session, users, login, navCtrl, navParams, modalCtrl) {
-        this.push = push;
-        this.platform = platform;
+/**
+ * Generated class for the ProfilePage page.
+ *
+ * See https://ionicframework.com/docs/components/#navigation for more info on
+ * Ionic pages and navigation.
+ */
+var ProfilePage = /** @class */ (function () {
+    function ProfilePage(event, alertctrl, session, modalCtrl, navCtrl, navParams, viewCtrl, app) {
+        var _this = this;
         this.event = event;
-        this.toastCtrl = toastCtrl;
-        this.loadingCtrl = loadingCtrl;
-        this.user_session = user_session;
-        this.users = users;
-        this.login = login;
+        this.alertctrl = alertctrl;
+        this.session = session;
+        this.modalCtrl = modalCtrl;
         this.navCtrl = navCtrl;
         this.navParams = navParams;
-        this.modalCtrl = modalCtrl;
-        this.loginForm = this.login.group({
-            email: new __WEBPACK_IMPORTED_MODULE_2__angular_forms__["b" /* FormControl */]('', [__WEBPACK_IMPORTED_MODULE_2__angular_forms__["g" /* Validators */].required, __WEBPACK_IMPORTED_MODULE_2__angular_forms__["g" /* Validators */].pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$')]),
-            password: new __WEBPACK_IMPORTED_MODULE_2__angular_forms__["b" /* FormControl */]('', [__WEBPACK_IMPORTED_MODULE_2__angular_forms__["g" /* Validators */].required]),
-            device_token: new __WEBPACK_IMPORTED_MODULE_2__angular_forms__["b" /* FormControl */]('no token', [__WEBPACK_IMPORTED_MODULE_2__angular_forms__["g" /* Validators */].required]),
-        });
-        if (this.platform.is('cordova')) {
-            this.init_push();
+        this.viewCtrl = viewCtrl;
+        this.app = app;
+        this.is_login = false;
+        this.user_info = [];
+        if (this.session.get_session('user_info')) {
+            this.is_login = true;
+            this.user_info = this.session.get_session('user_info');
+            console.log(this.user_info);
         }
+        else {
+            this.navCtrl.push('HomePage');
+        }
+        this.event.subscribe('information', function (data) {
+            _this.user_info = JSON.parse(data);
+        });
     }
-    LoginPage.prototype.ionViewDidLoad = function () {
-        console.log('ionViewDidLoad LoginPage');
-    };
-    LoginPage.prototype.init_push = function () {
-        var _this = this;
-        var options = {
-            android: {},
-            ios: {
-                alert: 'true',
-                badge: true,
-                sound: 'false'
-            },
-            windows: {},
-            browser: {
-                pushServiceURL: 'http://push.api.phonegap.com/v1/push'
+    ProfilePage.prototype.ionViewDidLoad = function () {
+        console.log('ionViewDidLoad ProfilePage');
+        for (var i = 0; i <= 100; i++) {
+            if (2 % i == 0) {
+                console.log(i);
             }
-        };
-        var pushObject = this.push.init(options);
-        pushObject.on('registration').subscribe(function (registration) { return _this.device_token = registration.registrationId; });
-        pushObject.on('notification').subscribe(function (notification) { return console.log('Received a notification', notification); });
+            // a++;
+        }
     };
-    LoginPage.prototype.verify = function () {
-        this.navCtrl.push('VerifyPage');
-    };
-    LoginPage.prototype.submitLogin = function () {
-        var _this = this;
-        var loading = this.loadingCtrl.create({
-            content: 'Please wait...'
-        });
-        loading.present();
-        this.users.login(this.loginForm, this.device_token).then(function (data) {
-            console.log(data);
-            _this.user_session.set_session('user_info', data);
-            _this.event.publish('is_login', true);
-            _this.event.publish('information', JSON.stringify(data));
-            _this.navCtrl.push('HomePage');
-            _this.toast_message('Login successfully');
-            loading.dismiss();
-        }).catch(function (error) {
-            _this.toast_message(error);
-            loading.dismiss();
-        });
-    };
-    LoginPage.prototype.signup = function () {
-        this.navCtrl.push('SignupPage');
-    };
-    LoginPage.prototype.forgot = function () {
-        var modal = this.modalCtrl.create('ForgotPage');
+    ProfilePage.prototype.editprofile = function () {
+        var modal = this.modalCtrl.create('EditprofilePage');
         modal.present();
     };
-    LoginPage.prototype.toast_message = function (message) {
-        var toast = this.toastCtrl.create({
-            message: message,
-            duration: 3000,
-            position: 'buttom'
+    ProfilePage.prototype.logout = function () {
+        var _this = this;
+        var confirm = this.alertctrl.create({
+            title: 'Are you sure you want to logout?',
+            buttons: [
+                {
+                    text: 'Yes, Log Out',
+                    handler: function () {
+                        localStorage.clear();
+                        _this.session.delete_session();
+                        _this.rootPage = 'LoginPage';
+                    }
+                },
+                {
+                    text: 'Cancel',
+                    handler: function () {
+                        console.log('Agree clicked');
+                    }
+                }
+            ]
         });
-        toast.present();
+        confirm.present();
     };
-    LoginPage.prototype.skip = function () {
-        this.navCtrl.push('HomePage');
+    ProfilePage.prototype.changepass = function () {
+        this.navCtrl.push('ChangepasswordPage');
     };
-    LoginPage = __decorate([
+    ProfilePage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-login',template:/*ion-inline-start:"/Users/pankajvashisht/Documents/Projects/ionicApp/src/pages/login/login.html"*/'\n<ion-content padding class="login_bg">\n    <div class="login_logo">\n        <img src="assets/imgs/logo.png">\n    </div>\n    <div class="login_content">\n      <h5>Login</h5>\n      <hr>\n      <form [formGroup]="loginForm" (ngSubmit)="submitLogin()">\n      <ion-list>\n          <ion-item>\n              <ion-input [(ngModel)]="loginForm.email"  formControlName="email" autocomplete="off" type="email" required placeholder="Email"></ion-input>\n          </ion-item>\n          <ion-item>\n              <ion-input [(ngModel)]="loginForm.password" formControlName="password"  required autocomplete="off" placeholder="Password" type="password"></ion-input>\n          </ion-item>\n      </ion-list>\n      <button  [disabled]="!loginForm.valid"  ion-button class="login_btn" >\n        Login Now\n      </button>\n    </form>\n      <p (click)="forgot()">Forgot Password?</p>\n      <p class="pt0">New user? Simply create a new account by<br>\n        <br>\n        <strong (click)="signup()">Register</strong> \n        <strong style="float:right;" (click)="skip()">Skip</strong> \n      </p>\n     \n    </div>\n\n</ion-content>\n'/*ion-inline-end:"/Users/pankajvashisht/Documents/Projects/ionicApp/src/pages/login/login.html"*/,
+            selector: 'page-profile',template:/*ion-inline-start:"/Users/pankajvashisht/Documents/Projects/ionicApp/src/pages/profile/profile.html"*/'<ion-header class="theme_background">\n  <div class="nav_header">\n      <button ion-button class="nav_btn floatLeft nav_menu" menuToggle></button>\n      <div class="nav_header_title floatLeft">\n         \n      </div>\n      <div class="clear"></div>\n  </div>\n</ion-header>\n<ion-content>\n  <div class="profile_wrapper">\n      <div class="profile_banner">\n          <ion-fab bottom right>\n              <button ion-fab class="theme_light" (click)="editprofile()"><ion-icon name="md-create"></ion-icon></button>\n          </ion-fab>\n          <ion-img [src]="user_info.image" class="profie_circle">\n        \n          </ion-img>\n          <h5>{{user_info.first_name}} {{user_info.last_name}}</h5>\n          <p>{{user_info.email}}</p>\n          <hr>\n      </div>\n      <div class="profile_content">\n          <ul>\n              <li class="menu1" (click)="changepass()">Change Password</li>\n             \n              <li class="menu2" (click)="logout()">Logout</li>\n          </ul>\n      </div>\n  </div>\n</ion-content>\n'/*ion-inline-end:"/Users/pankajvashisht/Documents/Projects/ionicApp/src/pages/profile/profile.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_4__ionic_native_push__["a" /* Push */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* Platform */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* Events */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["p" /* ToastController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* LoadingController */], __WEBPACK_IMPORTED_MODULE_3__providers_providers__["b" /* SessionProvider */], __WEBPACK_IMPORTED_MODULE_3__providers_providers__["c" /* UserProvider */], __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormBuilder */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* ModalController */]])
-    ], LoginPage);
-    return LoginPage;
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* Events */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */], __WEBPACK_IMPORTED_MODULE_2__providers_providers__["b" /* SessionProvider */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* ModalController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["q" /* ViewController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* App */]])
+    ], ProfilePage);
+    return ProfilePage;
 }());
 
-//# sourceMappingURL=login.js.map
+//# sourceMappingURL=profile.js.map
 
 /***/ })
 

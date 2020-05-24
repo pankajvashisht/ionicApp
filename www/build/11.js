@@ -1,14 +1,14 @@
 webpackJsonp([11],{
 
-/***/ 289:
+/***/ 294:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ChangepasswordPageModule", function() { return ChangepasswordPageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "GetDemondPageModule", function() { return GetDemondPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(51);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__changepassword__ = __webpack_require__(309);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__get_demond__ = __webpack_require__(314);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,31 +18,31 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var ChangepasswordPageModule = /** @class */ (function () {
-    function ChangepasswordPageModule() {
+var GetDemondPageModule = /** @class */ (function () {
+    function GetDemondPageModule() {
     }
-    ChangepasswordPageModule = __decorate([
+    GetDemondPageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__changepassword__["a" /* ChangepasswordPage */],
+                __WEBPACK_IMPORTED_MODULE_2__get_demond__["a" /* GetDemondPage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__changepassword__["a" /* ChangepasswordPage */]),
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__get_demond__["a" /* GetDemondPage */]),
             ],
         })
-    ], ChangepasswordPageModule);
-    return ChangepasswordPageModule;
+    ], GetDemondPageModule);
+    return GetDemondPageModule;
 }());
 
-//# sourceMappingURL=changepassword.module.js.map
+//# sourceMappingURL=get-demond.module.js.map
 
 /***/ }),
 
-/***/ 309:
+/***/ 314:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ChangepasswordPage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return GetDemondPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(51);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_providers__ = __webpack_require__(102);
@@ -58,59 +58,51 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-var ChangepasswordPage = /** @class */ (function () {
-    function ChangepasswordPage(loadingCtrl, session, toast, user, navCtrl, navParams, viewCtrl) {
-        this.loadingCtrl = loadingCtrl;
+/**
+ * Generated class for the GetDemondPage page.
+ *
+ * See https://ionicframework.com/docs/components/#navigation for more info on
+ * Ionic pages and navigation.
+ */
+var GetDemondPage = /** @class */ (function () {
+    function GetDemondPage(session, apis, loadingCtrl, toast, navCtrl, navParams) {
         this.session = session;
+        this.apis = apis;
+        this.loadingCtrl = loadingCtrl;
         this.toast = toast;
-        this.user = user;
         this.navCtrl = navCtrl;
         this.navParams = navParams;
-        this.viewCtrl = viewCtrl;
-        this.old_password = '';
-        this.new_password = '';
-        this.confirm_password = '';
-        this.is_login = false;
-        this.user_info = [];
+        this.products = [];
+        this.total_record = 0;
+        this.product_by = {
+            page: 1,
+            auth_key: '',
+            is_my: '1'
+        };
         if (this.session.get_session('user_info')) {
-            this.is_login = true;
             this.user_info = this.session.get_session('user_info');
-            console.log(this.user_info);
-        }
-        else {
-            this.navCtrl.push('HomePage');
+            this.product_by.auth_key = "?auth_key=" + this.user_info.auth_key;
         }
     }
-    ChangepasswordPage.prototype.ionViewDidLoad = function () {
-        console.log('ionViewDidLoad ChangepasswordPage');
+    GetDemondPage.prototype.ionViewDidLoad = function () {
+        console.log('ionViewDidLoad GetDemondPage');
     };
-    ChangepasswordPage.prototype.dismiss = function () {
-        this.viewCtrl.dismiss();
-    };
-    ChangepasswordPage.prototype.change_password = function () {
+    GetDemondPage.prototype.ngOnInit = function () {
         var _this = this;
-        if (this.old_password == '') {
-            this.toast_message("Old Password field is required");
-            return false;
-        }
-        if (this.new_password == '' || this.new_password != this.confirm_password) {
-            this.toast_message("New Password Not Match with Confirm Password");
-            return false;
-        }
         var loading = this.loadingCtrl.create({
-            content: 'Changing Password..'
+            content: 'Please wait...'
         });
         loading.present();
-        this.user.changepassword(this.old_password, this.new_password, this.user_info.auth_key).then(function (data) {
-            _this.toast_message("Password Change Successfully");
-            _this.viewCtrl.dismiss();
+        this.apis.demond_product(this.product_by).then(function (data) {
+            _this.products = data;
+            _this.total_record = _this.products.length;
             loading.dismiss();
         }).catch(function (err) {
             _this.toast_message(err);
             loading.dismiss();
         });
     };
-    ChangepasswordPage.prototype.toast_message = function (message) {
+    GetDemondPage.prototype.toast_message = function (message) {
         var toast = this.toast.create({
             message: message,
             duration: 3000,
@@ -118,16 +110,47 @@ var ChangepasswordPage = /** @class */ (function () {
         });
         toast.present();
     };
-    ChangepasswordPage = __decorate([
+    GetDemondPage.prototype.pagination = function (infiniteScroll) {
+        var _this = this;
+        this.product_by.page++;
+        this.apis.demond_product(this.product_by).then(function (data) {
+            _this.total_record = data.length;
+            for (var i = 0; i < data.length; i++) {
+                _this.products.push(data[i]);
+            }
+            infiniteScroll.complete();
+        }).catch(function (error) {
+            _this.toast_message("No For Product");
+            _this.total_record = 0;
+        });
+    };
+    GetDemondPage.prototype.details = function (product_details) {
+        this.navCtrl.push('ProductdetailsPage', { details: product_details });
+    };
+    GetDemondPage.prototype.back = function () {
+        this.navCtrl.push("HomePage");
+    };
+    GetDemondPage.prototype.doRefresh = function (refresher) {
+        var _this = this;
+        this.apis.demond_product(this.product_by).then(function (data) {
+            _this.products = data;
+            refresher.complete();
+            _this.total_record = _this.products.length;
+        }).catch(function (err) {
+            _this.toast_message(err);
+            refresher.complete();
+        });
+    };
+    GetDemondPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-changepassword',template:/*ion-inline-start:"/Users/pankajvashisht/Documents/Projects/ionicApp/src/pages/changepassword/changepassword.html"*/'<ion-content>\n\n    <div class="nav_header nav_white_header">\n\n        <button class="nav_btn nav_back_dark floatLeft" (click)="dismiss()">\n\n        </button>\n\n        <div class="nav_header_title floatLeft">\n\n            <h5>Update Password</h5>\n\n        </div>\n\n        <div class="clear"></div>\n\n    </div>\n\n    <div class="edit_profile_wrapper" padding>\n\n        <h4>Change Password</h4>\n\n        <ion-list>\n\n            <ion-item>\n\n                <ion-input placeholder="Current Password" [(ngModel)]="old_password" type="passsword"></ion-input>\n\n            </ion-item>\n\n            <ion-item>\n\n                <ion-input placeholder="New Password" [(ngModel)]="new_password" type="passsword"></ion-input>\n\n            </ion-item>\n\n            <ion-item>\n\n                <ion-input placeholder="Confirm New Password" [(ngModel)]="confirm_password" type="passsword"></ion-input>\n\n            </ion-item>\n\n        </ion-list>\n\n    </div>\n\n</ion-content>\n\n<ion-footer padding>\n\n    <button ion-button class="login_btn" (click)="change_password()" >UPDATE SAVE</button>\n\n</ion-footer>'/*ion-inline-end:"/Users/pankajvashisht/Documents/Projects/ionicApp/src/pages/changepassword/changepassword.html"*/,
+            selector: 'page-get-demond',template:/*ion-inline-start:"/Users/pankajvashisht/Documents/Projects/ionicApp/src/pages/get-demond/get-demond.html"*/'<!--\n  Generated template for the GetDemondPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header class="theme_background header header-md">\n    <div class="nav_header">\n        <button class="nav_btn nav_back floatLeft" (click)="back()">\n      </button>\n        <div class="nav_header_title floatLeft">\n            <h5>My Demands</h5>\n        </div>\n        \n        <div class="clear"></div>\n    </div>\n  </ion-header>\n\n\n<ion-content padding>\n    <ion-list-header>\n      List of Your Created Demands\n      </ion-list-header>\n      <ion-refresher (ionRefresh)="doRefresh($event)">\n          <ion-refresher-content></ion-refresher-content>\n        </ion-refresher>\n    <ion-list>\n        <ion-item  *ngFor="let ten_cat of products" (click)="details(ten_cat)" >\n          <ion-avatar item-start>\n            <img (load)="loaded = true" [src]="(!loaded)?\'assets/imgs/loading.gif\':ten_cat.image" >\n          </ion-avatar>\n          <ion-label>\n          <h2>{{(ten_cat.name.length>20)?ten_cat.name.substring(20,-1)+\'..\':ten_cat.name}}</h2> \n          <p>{{ten_cat.price}}</p>\n        </ion-label>\n          <ion-note item-end="" class="note note-ios">\n              <span class="{{(ten_cat.status==0)?\'dot\':\'dot-green\'}}"></span>\n            </ion-note>\n        </ion-item>\n       \n      </ion-list>\n\n</ion-content>\n'/*ion-inline-end:"/Users/pankajvashisht/Documents/Projects/ionicApp/src/pages/get-demond/get-demond.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* LoadingController */], __WEBPACK_IMPORTED_MODULE_2__providers_providers__["b" /* SessionProvider */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["p" /* ToastController */], __WEBPACK_IMPORTED_MODULE_2__providers_providers__["c" /* UserProvider */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["q" /* ViewController */]])
-    ], ChangepasswordPage);
-    return ChangepasswordPage;
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__providers_providers__["b" /* SessionProvider */], __WEBPACK_IMPORTED_MODULE_2__providers_providers__["a" /* ApisProvider */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* LoadingController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["p" /* ToastController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavParams */]])
+    ], GetDemondPage);
+    return GetDemondPage;
 }());
 
-//# sourceMappingURL=changepassword.js.map
+//# sourceMappingURL=get-demond.js.map
 
 /***/ })
 

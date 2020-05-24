@@ -1,14 +1,14 @@
 webpackJsonp([5],{
 
-/***/ 298:
+/***/ 301:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ProfilePageModule", function() { return ProfilePageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SendqueryPageModule", function() { return SendqueryPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(51);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__profile__ = __webpack_require__(318);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__sendquery__ = __webpack_require__(321);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,31 +18,31 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var ProfilePageModule = /** @class */ (function () {
-    function ProfilePageModule() {
+var SendqueryPageModule = /** @class */ (function () {
+    function SendqueryPageModule() {
     }
-    ProfilePageModule = __decorate([
+    SendqueryPageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__profile__["a" /* ProfilePage */],
+                __WEBPACK_IMPORTED_MODULE_2__sendquery__["a" /* SendqueryPage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__profile__["a" /* ProfilePage */]),
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__sendquery__["a" /* SendqueryPage */]),
             ],
         })
-    ], ProfilePageModule);
-    return ProfilePageModule;
+    ], SendqueryPageModule);
+    return SendqueryPageModule;
 }());
 
-//# sourceMappingURL=profile.module.js.map
+//# sourceMappingURL=sendquery.module.js.map
 
 /***/ }),
 
-/***/ 318:
+/***/ 321:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ProfilePage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SendqueryPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(51);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_providers__ = __webpack_require__(102);
@@ -59,85 +59,91 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 /**
- * Generated class for the ProfilePage page.
+ * Generated class for the SendqueryPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
  */
-var ProfilePage = /** @class */ (function () {
-    function ProfilePage(event, alertctrl, session, modalCtrl, navCtrl, navParams, viewCtrl, app) {
-        var _this = this;
-        this.event = event;
-        this.alertctrl = alertctrl;
+var SendqueryPage = /** @class */ (function () {
+    function SendqueryPage(loadingCtrl, session, toast, user, navCtrl, navParams, viewCtrl) {
+        this.loadingCtrl = loadingCtrl;
         this.session = session;
-        this.modalCtrl = modalCtrl;
+        this.toast = toast;
+        this.user = user;
         this.navCtrl = navCtrl;
         this.navParams = navParams;
         this.viewCtrl = viewCtrl;
-        this.app = app;
         this.is_login = false;
         this.user_info = [];
+        this.product_info = [{
+                message: '',
+                auth_key: '',
+                vender_id: '',
+                table_id: 0,
+                table_type: 1
+            }];
         if (this.session.get_session('user_info')) {
             this.is_login = true;
             this.user_info = this.session.get_session('user_info');
+            this.product_info['auth_key'] = this.user_info.auth_key;
             console.log(this.user_info);
         }
         else {
-            this.navCtrl.push('HomePage');
+            this.viewCtrl.dismiss();
         }
-        this.event.subscribe('information', function (data) {
-            _this.user_info = JSON.parse(data);
-        });
+        if (!this.navParams.get('vender_id')) {
+            this.viewCtrl.dismiss();
+        }
+        else {
+            this.product_info['vender_id'] = this.navParams.get('vender_id');
+            this.product_info['table_type'] = this.navParams.get('type');
+            this.product_info['table_id'] = this.navParams.get('table_id');
+        }
     }
-    ProfilePage.prototype.ionViewDidLoad = function () {
-        console.log('ionViewDidLoad ProfilePage');
-        for (var i = 0; i <= 100; i++) {
-            if (2 % i == 0) {
-                console.log(i);
-            }
-            // a++;
-        }
+    SendqueryPage.prototype.ionViewDidLoad = function () {
+        console.log('ionViewDidLoad SendqueryPage');
     };
-    ProfilePage.prototype.editprofile = function () {
-        var modal = this.modalCtrl.create('EditprofilePage');
-        modal.present();
+    SendqueryPage.prototype.dismiss = function () {
+        this.viewCtrl.dismiss();
     };
-    ProfilePage.prototype.logout = function () {
+    SendqueryPage.prototype.change_password = function () {
         var _this = this;
-        var confirm = this.alertctrl.create({
-            title: 'Are you sure you want to logout?',
-            buttons: [
-                {
-                    text: 'Yes, Log Out',
-                    handler: function () {
-                        localStorage.clear();
-                        _this.session.delete_session();
-                        _this.rootPage = 'LoginPage';
-                    }
-                },
-                {
-                    text: 'Cancel',
-                    handler: function () {
-                        console.log('Agree clicked');
-                    }
-                }
-            ]
+        if (this.query == '') {
+            this.toast_message("Please Enter Your Query");
+            return false;
+        }
+        this.product_info['message'] = this.query;
+        var loading = this.loadingCtrl.create({
+            content: 'Sending Query'
         });
-        confirm.present();
+        loading.present();
+        this.user.send_query(this.product_info).then(function (data) {
+            _this.toast_message("Query send Successfully");
+            _this.viewCtrl.dismiss();
+            loading.dismiss();
+        }).catch(function (err) {
+            _this.toast_message(err);
+            loading.dismiss();
+        });
     };
-    ProfilePage.prototype.changepass = function () {
-        this.navCtrl.push('ChangepasswordPage');
+    SendqueryPage.prototype.toast_message = function (message) {
+        var toast = this.toast.create({
+            message: message,
+            duration: 3000,
+            position: 'buttom'
+        });
+        toast.present();
     };
-    ProfilePage = __decorate([
+    SendqueryPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-profile',template:/*ion-inline-start:"/Users/pankajvashisht/Documents/Projects/ionicApp/src/pages/profile/profile.html"*/'<ion-header class="theme_background">\n  <div class="nav_header">\n      <button ion-button class="nav_btn floatLeft nav_menu" menuToggle></button>\n      <div class="nav_header_title floatLeft">\n         \n      </div>\n      <div class="clear"></div>\n  </div>\n</ion-header>\n<ion-content>\n  <div class="profile_wrapper">\n      <div class="profile_banner">\n          <ion-fab bottom right>\n              <button ion-fab class="theme_light" (click)="editprofile()"><ion-icon name="md-create"></ion-icon></button>\n          </ion-fab>\n          <ion-img [src]="user_info.image" class="profie_circle">\n        \n          </ion-img>\n          <h5>{{user_info.first_name}} {{user_info.last_name}}</h5>\n          <p>{{user_info.email}}</p>\n          <hr>\n      </div>\n      <div class="profile_content">\n          <ul>\n              <li class="menu1" (click)="changepass()">Change Password</li>\n             \n              <li class="menu2" (click)="logout()">Logout</li>\n          </ul>\n      </div>\n  </div>\n</ion-content>\n'/*ion-inline-end:"/Users/pankajvashisht/Documents/Projects/ionicApp/src/pages/profile/profile.html"*/,
+            selector: 'page-sendquery',template:/*ion-inline-start:"/Users/pankajvashisht/Documents/Projects/ionicApp/src/pages/sendquery/sendquery.html"*/'<ion-content>\n  <div class="nav_header nav_white_header">\n      <button class="nav_btn nav_back_dark floatLeft" (click)="dismiss()">\n      </button>\n      <div class="nav_header_title floatLeft">\n          <h5>Send Query</h5>\n      </div>\n      <div class="clear"></div>\n  </div>\n  <div class="edit_profile_wrapper" padding>\n      <h4>What You want to know?<br></h4><h6>Write Your Query</h6>\n      \n              \n              <ion-list>\n                  \n              </ion-list>\n          <textarea name="" id="myInput" [(ngModel)]="query"  required cols="35" rows="5"></textarea>\n     \n  </div>\n</ion-content>\n<ion-footer padding>\n  <button ion-button class="login_btn" (click)="change_password()" >Send Query</button>\n</ion-footer>'/*ion-inline-end:"/Users/pankajvashisht/Documents/Projects/ionicApp/src/pages/sendquery/sendquery.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* Events */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */], __WEBPACK_IMPORTED_MODULE_2__providers_providers__["b" /* SessionProvider */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* ModalController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["q" /* ViewController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* App */]])
-    ], ProfilePage);
-    return ProfilePage;
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* LoadingController */], __WEBPACK_IMPORTED_MODULE_2__providers_providers__["b" /* SessionProvider */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["p" /* ToastController */], __WEBPACK_IMPORTED_MODULE_2__providers_providers__["c" /* UserProvider */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["q" /* ViewController */]])
+    ], SendqueryPage);
+    return SendqueryPage;
 }());
 
-//# sourceMappingURL=profile.js.map
+//# sourceMappingURL=sendquery.js.map
 
 /***/ })
 

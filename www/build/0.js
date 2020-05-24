@@ -1,14 +1,14 @@
 webpackJsonp([0],{
 
-/***/ 303:
+/***/ 305:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "VendorProfilePageModule", function() { return VendorProfilePageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "VerifyPageModule", function() { return VerifyPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(51);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__vendor_profile__ = __webpack_require__(323);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__verify__ = __webpack_require__(325);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,35 +18,36 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var VendorProfilePageModule = /** @class */ (function () {
-    function VendorProfilePageModule() {
+var VerifyPageModule = /** @class */ (function () {
+    function VerifyPageModule() {
     }
-    VendorProfilePageModule = __decorate([
+    VerifyPageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__vendor_profile__["a" /* VendorProfilePage */],
+                __WEBPACK_IMPORTED_MODULE_2__verify__["a" /* VerifyPage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__vendor_profile__["a" /* VendorProfilePage */]),
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__verify__["a" /* VerifyPage */]),
             ],
         })
-    ], VendorProfilePageModule);
-    return VendorProfilePageModule;
+    ], VerifyPageModule);
+    return VerifyPageModule;
 }());
 
-//# sourceMappingURL=vendor-profile.module.js.map
+//# sourceMappingURL=verify.module.js.map
 
 /***/ }),
 
-/***/ 323:
+/***/ 325:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return VendorProfilePage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return VerifyPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(51);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_providers__ = __webpack_require__(102);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_app_global__ = __webpack_require__(52);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__(15);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_providers__ = __webpack_require__(102);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_push__ = __webpack_require__(201);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -60,147 +61,102 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-/**
- * Generated class for the VendorProfilePage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
-var VendorProfilePage = /** @class */ (function () {
-    function VendorProfilePage(session, loadingCtrl, alterctrl, toast, apis, navCtrl, navParams) {
-        this.session = session;
+
+var VerifyPage = /** @class */ (function () {
+    function VerifyPage(push, platform, event, toastCtrl, loadingCtrl, user_session, users, verifiy, navCtrl, navParams, modalCtrl) {
+        this.push = push;
+        this.platform = platform;
+        this.event = event;
+        this.toastCtrl = toastCtrl;
         this.loadingCtrl = loadingCtrl;
-        this.alterctrl = alterctrl;
-        this.toast = toast;
-        this.apis = apis;
+        this.user_session = user_session;
+        this.users = users;
+        this.verifiy = verifiy;
         this.navCtrl = navCtrl;
         this.navParams = navParams;
-        this.product_by = {
-            id: 0,
-            type: 1,
-            page: 1,
-            is_my: 0,
-            auth_key: '?auth_key='
-        };
-        this.app_statics = __WEBPACK_IMPORTED_MODULE_3__app_app_global__["a" /* AppCon */];
-        this.tab = 'all';
-        this.position = { lat: -25.363, lng: 131.044 };
-        this.products = [];
-        this.is_login = false;
-        if (this.session.get_session('user_info')) {
-            this.is_login = true;
-            this.user_info = this.session.get_session('user_info');
-            this.product_by.auth_key = "?auth_key=" + this.user_info.auth_key;
-        }
-        if (!this.navParams.get('user_info')) {
-            this.navCtrl.pop();
+        this.modalCtrl = modalCtrl;
+        this.disable = false;
+        this.verifiyForm = this.verifiy.group({
+            otp: new __WEBPACK_IMPORTED_MODULE_2__angular_forms__["b" /* FormControl */]('', [__WEBPACK_IMPORTED_MODULE_2__angular_forms__["g" /* Validators */].required])
+        });
+        if (this.user_session.get_session('user_info')) {
+            this.user_info = this.user_session.get_session('user_info');
+            this.auth_key = this.user_info.auth_key;
         }
         else {
-            this.user_info1 = this.navParams.get('user_info');
-            this.product_by.id = this.user_info1.id;
-            this.position['lat'] = parseFloat(this.user_info1['latitude']);
-            this.position['lng'] = parseFloat(this.user_info1['longitude']);
+            this.navCtrl.push('LoginPage');
         }
-        this.get_products(this.product_by);
     }
-    VendorProfilePage.prototype.ionViewDidLoad = function () {
-        console.log('ionViewDidLoad VendorProfilePage');
-        //used setTimeout google map is delayed in loading, in stackBlitz
-        // setTimeout(() => {
-        //   this.map = new google.maps.Map(this.mapRef.nativeElement, {
-        //     zoom: 4,
-        //     center: this.position
-        //   });
-        //   this.marker = new google.maps.Marker({
-        //     position: this.position,
-        //     map: this.map
-        //   });
-        // // }, 2000)
-        //console.log(this.map.getZoom())
+    VerifyPage.prototype.ionViewDidLoad = function () {
+        console.log('ionViewDidLoad VerifyPage');
     };
-    VendorProfilePage.prototype.get_products = function (filter) {
+    VerifyPage.prototype.back = function () {
+        //this.navCtrl.pop();
+    };
+    VerifyPage.prototype.init_push = function () {
+        var _this = this;
+        var options = {
+            android: {},
+            ios: {
+                alert: 'true',
+                badge: true,
+                sound: 'false'
+            },
+            windows: {},
+            browser: {
+                pushServiceURL: 'http://push.api.phonegap.com/v1/push'
+            }
+        };
+        var pushObject = this.push.init(options);
+        pushObject.on('registration').subscribe(function (registration) { return _this.device_token = registration.registrationId; });
+        pushObject.on('notification').subscribe(function (notification) { return console.log('Received a notification', notification); });
+    };
+    VerifyPage.prototype.success = function () {
         var _this = this;
         var loading = this.loadingCtrl.create({
             content: 'Please wait...'
         });
         loading.present();
-        this.apis.page_product(filter).then(function (data) {
-            _this.products = data;
-            _this.total_record = _this.products.length;
+        this.users.verifiy_otp(this.verifiyForm, this.auth_key, this.device_token).then(function (data) {
+            _this.user_session.set_session('user_info', data);
+            _this.event.publish('is_login', true);
+            _this.event.publish('information', JSON.stringify(data));
+            _this.navCtrl.push('VerifiedPage');
+            _this.toast_message('Otp Verified Successfully');
             loading.dismiss();
-        }).catch(function (err) {
-            _this.toast_message(err);
-        });
-    };
-    VendorProfilePage.prototype.pagination = function (infiniteScroll) {
-        var _this = this;
-        this.product_by.page++;
-        this.apis.page_product(this.product_by).then(function (data) {
-            _this.total_record = data.length;
-            for (var i = 0; i < data.length; i++) {
-                _this.products.push(data[i]);
-            }
-            infiniteScroll.complete();
         }).catch(function (error) {
-            _this.toast_message("No For Product");
-            _this.total_record = 0;
+            _this.toast_message(error);
+            loading.dismiss();
         });
     };
-    VendorProfilePage.prototype.details = function (product_details) {
-        this.navCtrl.push('ProductdetailsPage', { details: product_details });
-    };
-    VendorProfilePage.prototype.tab_swap = function (type) {
-        this.tab = type;
-    };
-    VendorProfilePage.prototype.do_fav = function (object) {
+    VerifyPage.prototype.resend = function () {
         var _this = this;
-        if (object[0].is_fav == 1) {
-            object[0].is_fav = 0;
-        }
-        else {
-            object[0].is_fav = 1;
-        }
-        if (this.is_login) {
-            this.apis.do_fav(object.id).then(function (data) {
-                _this.toast_message(data);
-            });
-        }
-        else {
-            var alert_1 = this.alterctrl.create({
-                title: 'Login Alert',
-                subTitle: 'Please Login First',
-                buttons: ['ok']
-            });
-            alert_1.present();
-        }
+        this.disable = true;
+        this.users.resend(this.auth_key).then(function (data) {
+            _this.toast_message('Otp send');
+            _this.disable = false;
+        }).catch(function (error) {
+            _this.toast_message(error);
+        });
     };
-    VendorProfilePage.prototype.toast_message = function (message) {
-        var toast = this.toast.create({
+    VerifyPage.prototype.toast_message = function (message) {
+        var toast = this.toastCtrl.create({
             message: message,
             duration: 3000,
             position: 'buttom'
         });
         toast.present();
     };
-    VendorProfilePage.prototype.back = function () {
-        this.navCtrl.pop();
-    };
-    VendorProfilePage.prototype.maps = function () {
-    };
-    __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_8" /* ViewChild */])('map'),
-        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_0__angular_core__["t" /* ElementRef */])
-    ], VendorProfilePage.prototype, "mapRef", void 0);
-    VendorProfilePage = __decorate([
+    VerifyPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-vendor-profile',template:/*ion-inline-start:"/Users/pankajvashisht/Documents/Projects/ionicApp/src/pages/vendor-profile/vendor-profile.html"*/'<ion-header>\n    <div class="nav_header nav_white_header">\n        <button class="nav_btn nav_back_dark floatLeft" (click)="back()">\n        </button>\n        <div class="nav_header_title floatLeft">\n            <h5>{{user_info1.first_name}} {{user_info1.last_name}}</h5>\n        </div>\n        <!-- <button class="nav_btn floatRight nav_cart_dark">\n          </button>\n        <button class="nav_btn floatRight nav_search_dark">\n            </button> -->\n        <div class="clear"></div>\n    </div>\n  </ion-header>\n<ion-content>\n  <div class="profile_wrapper">\n      \n      <div  class="profile_banner">\n          <ion-fab bottom right>\n              <button ion-fab class="theme_light" (click)="map()"><ion-icon name="md-compass"></ion-icon></button>\n          </ion-fab>\n          <ion-img [src]="user_info1.image" class="profie_circle">\n        \n          </ion-img>\n          <h5>{{user_info1.first_name}} {{user_info1.last_name}}</h5>\n          <p>{{user_info1.email}} , <span *ngIf="user_info1.phone>0">{{user_info1.phone}}</span></p>\n          <hr>\n      </div>\n      <!-- <div class="wallet_tab_bay">\n            <ul>\n                <li [class.active]="tab == \'all\'" (click)="tab_swap(\'all\')">All\n                    <hr>\n                </li>\n                <li [class.active]="tab == \'receive\'" (click)="tab_swap(\'receive\')">Received\n                    <hr>\n                </li>\n                <li [class.active]="tab == \'sent\'" (click)="tab_swap(\'sent\')">Sent\n                    <hr>\n                </li>\n            </ul>\n        </div> -->\n      <div class="result_wrapper">\n\n            <div *ngIf="products.length==0" class="no-product">\n                  No Product found \n            </div>\n            <ul>\n                <li *ngFor="let product of products" >\n                  <div class="inner_result">\n                    <div *ngIf="!product.hasOwnProperty(\'min\')" (click)="do_fav(product)"  [class]="(is_login==true && product[0].is_fav==1)? \'fav_circle fav\': \'fav_circle not_fav\'"></div>\n                    <img (click)="details(product)"  (load)="loaded = true" [src]="(!loaded)?\'assets/imgs/loading.gif\':(product.media.length>0)?product.media[0].file:app_statics.defult_product_image">\n                </div>\n                <h5>{{(product.name.length>15)?product.name.substring(15,-1)+\'..\':product.name}}</h5>\n                 <p>\n                <span *ngIf="product.international_price>0">\n                    Global: <strong>$ {{product.international_price}} </strong><br />\n                </span>\n                Local:\n                <strong>{{product.price_type}} {{product.price}}</strong>\n            </p>\n                </li>\n                \n            </ul>\n            <ion-infinite-scroll *ngIf="total_record>9" (ionInfinite)="pagination($event)">\n              <ion-infinite-scroll-content></ion-infinite-scroll-content>\n            </ion-infinite-scroll>\n        </div>\n  </div>  \n\n</ion-content>\n'/*ion-inline-end:"/Users/pankajvashisht/Documents/Projects/ionicApp/src/pages/vendor-profile/vendor-profile.html"*/,
+            selector: 'page-verify',template:/*ion-inline-start:"/Users/pankajvashisht/Documents/Projects/ionicApp/src/pages/verify/verify.html"*/'\n<ion-content padding class="login_bg">\n  <div class="login_content">\n    <div class="textCenter arrow_back">\n      <button ion-button class="" (click)="back()">\n          <ion-icon name="ios-arrow-back"></ion-icon>\n      </button>\n    </div>\n    <h5>Verify</h5>\n    <h4>Sit back and relax! </h4>\n    <h6>while we verify your mobile number</h6>\n    <hr>\n    <form [formGroup]="verifiyForm" (ngSubmit)="success()">\n    <ion-list>\n        <ion-item>\n            <ion-input [(ngModel)]="verifiyForm.otp" formControlName="otp"   required autocomplete="off" type="nuumber" placeholder="code here"></ion-input>\n        </ion-item>\n    </ion-list>\n    <button [disabled]="!verifiyForm.valid" ion-button class="login_btn" >\n      Verify Now\n    </button>\n  </form>\n    <p   class="textCenter">haven\'t received a code yet?<br>\n      <strong  (click)="resend()">Resend</strong>\n    </p>\n  </div>\n</ion-content>\n'/*ion-inline-end:"/Users/pankajvashisht/Documents/Projects/ionicApp/src/pages/verify/verify.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__providers_providers__["b" /* SessionProvider */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* LoadingController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["p" /* ToastController */], __WEBPACK_IMPORTED_MODULE_2__providers_providers__["a" /* ApisProvider */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavParams */]])
-    ], VendorProfilePage);
-    return VendorProfilePage;
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_4__ionic_native_push__["a" /* Push */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* Platform */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* Events */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["p" /* ToastController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* LoadingController */], __WEBPACK_IMPORTED_MODULE_3__providers_providers__["b" /* SessionProvider */], __WEBPACK_IMPORTED_MODULE_3__providers_providers__["c" /* UserProvider */], __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormBuilder */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* ModalController */]])
+    ], VerifyPage);
+    return VerifyPage;
 }());
 
-//# sourceMappingURL=vendor-profile.js.map
+//# sourceMappingURL=verify.js.map
 
 /***/ })
 

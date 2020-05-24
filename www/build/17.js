@@ -1,14 +1,14 @@
 webpackJsonp([17],{
 
-/***/ 295:
+/***/ 288:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HomePageModule", function() { return HomePageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AllchatPageModule", function() { return AllchatPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(51);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__home__ = __webpack_require__(315);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__allchat__ = __webpack_require__(308);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,35 +18,35 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var HomePageModule = /** @class */ (function () {
-    function HomePageModule() {
+var AllchatPageModule = /** @class */ (function () {
+    function AllchatPageModule() {
     }
-    HomePageModule = __decorate([
+    AllchatPageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__home__["a" /* HomePage */],
+                __WEBPACK_IMPORTED_MODULE_2__allchat__["a" /* AllchatPage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__home__["a" /* HomePage */]),
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__allchat__["a" /* AllchatPage */]),
             ],
         })
-    ], HomePageModule);
-    return HomePageModule;
+    ], AllchatPageModule);
+    return AllchatPageModule;
 }());
 
-//# sourceMappingURL=home.module.js.map
+//# sourceMappingURL=allchat.module.js.map
 
 /***/ }),
 
-/***/ 315:
+/***/ 308:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HomePage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AllchatPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(51);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_providers__ = __webpack_require__(102);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_app_global__ = __webpack_require__(52);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular_index__ = __webpack_require__(51);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_providers__ = __webpack_require__(102);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -60,181 +60,166 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-var HomePage = /** @class */ (function () {
-    function HomePage(event, toast, apis, alterctrl, session, loadingCtrl, navCtrl, navParams) {
-        var _this = this;
-        this.event = event;
-        this.toast = toast;
-        this.apis = apis;
-        this.alterctrl = alterctrl;
+/**
+ * Generated class for the AllchatPage page.
+ *
+ * See https://ionicframework.com/docs/components/#navigation for more info on
+ * Ionic pages and navigation.
+ */
+var AllchatPage = /** @class */ (function () {
+    function AllchatPage(api, toastCtrl, session, navCtrl, navParams) {
+        this.api = api;
+        this.toastCtrl = toastCtrl;
         this.session = session;
-        this.loadingCtrl = loadingCtrl;
         this.navCtrl = navCtrl;
         this.navParams = navParams;
-        this.main_category = [];
-        this.top_vendors = [];
-        this.featured = [];
-        this.top_sale = [];
-        this.all_products = [];
-        this.app_statics = __WEBPACK_IMPORTED_MODULE_3__app_app_global__["a" /* AppCon */];
-        this.is_login = false;
-        this.pushPage = 'AddDemondPage';
+        this.all_message = [];
+        this.type = '0';
         this.user_info = [];
         this.page = 1;
-        this.search_data = '';
-        this.search_page = 1;
+        this.displaychat = 'chat';
+        if (this.navParams.get('product_id')) {
+            this.product_id = this.navParams.get('product_id');
+            this.friend_id = this.navParams.get('user_id');
+        }
+        else {
+            this.navCtrl.push('HomePage');
+        }
         if (this.session.get_session('user_info')) {
-            this.is_login = true;
             this.user_info = this.session.get_session('user_info');
-            this.auth_key = this.user_info.auth_key;
-            console.log(this.user_info);
         }
-        this.event.subscribe('information', function (data) {
-            _this.user_info = data;
-        });
-        this.event.subscribe('is_login', function (data) {
-            _this.is_login = data;
-        });
-        this.top_category();
-        this.get_vendor();
-        this.get_feature_product();
-        this.get_all_product();
-        this.top_sales();
+        else {
+            this.navCtrl.push('HomePage');
+        }
+        if (this.navParams.get('message')) {
+            //message
+            console.log(this.navParams.get('message'));
+            this.all_message = this.navParams.get('message');
+            this.total_record = this.all_message.length;
+        }
+        else {
+            this.get_message();
+        }
+        if (this.navParams.get('product_name')) {
+            console.log(this.navParams.get('product_name'));
+            this.displaychat = this.navParams.get('product_name');
+        }
+        //this.get_message();
     }
-    // get all category
-    HomePage.prototype.top_category = function () {
+    AllchatPage.prototype.ionViewDidLoad = function () {
+        console.log('ionViewDidLoad AllchatPage');
+    };
+    AllchatPage.prototype.ngAfterViewChecked = function () {
+        //this.scrollBottom();
+    };
+    AllchatPage.prototype.get_message = function () {
         var _this = this;
-        var loading = this.loadingCtrl.create({
-            content: 'Please wait...'
-        });
-        loading.present();
-        this.apis.top_ten_category().then(function (data) {
-            _this.main_category = data;
-            loading.dismiss();
+        this.api.get_message(this.friend_id, this.product_id, this.page, this.user_info['auth_key']).then(function (data) {
+            _this.all_message = data;
+            console.log(_this.all_message);
+            _this.is_show = false;
+            _this.total_record = _this.all_message.length;
+            console.log(_this.total_record);
         }).catch(function (err) {
-            loading.dismiss();
-            _this.toast_message(err);
+            var toast = _this.toastCtrl.create({
+                message: err,
+                duration: 3000,
+                position: 'buttom'
+            });
+            toast.present();
         });
     };
-    // get all vendors 
-    HomePage.prototype.get_vendor = function () {
-        var _this = this;
-        this.apis.top_ten_vendor().then(function (data) {
-            _this.top_vendors = data;
-        }).catch(function (err) {
-            _this.toast_message(err);
-        });
-        ;
+    AllchatPage.prototype.scrollBottom = function () {
+        this.content.resize();
+        this.content.scrollTo(0, this.content.scrollHeight, 350);
     };
-    // get the feature products
-    HomePage.prototype.get_feature_product = function () {
-        var _this = this;
-        this.apis.top_ten_feature().then(function (data) {
-            _this.featured = data;
-        }).catch(function (err) {
-            _this.toast_message(err);
-        });
-        ;
+    AllchatPage.prototype.send_message = function () {
+        if (this.message == '' || this.message == undefined) {
+            var toast = this.toastCtrl.create({
+                message: "Please Enter the Message",
+                duration: 3000,
+                position: 'buttom'
+            });
+            toast.present();
+            return;
+        }
+        var object = {
+            'is_send': 1,
+            'message': this.message,
+            'type': 0,
+            'created': new Date().getTime() / 1000,
+            'sender_id': this.user_info.id,
+            'product_id': this.product_id,
+            'receiver_id': this.friend_id,
+            'another_user': ''
+        };
+        this.all_message.push(object);
+        this.scrollBottom();
+        this.message = '';
+        this.api.send_message(this.friend_id, this.product_id, this.type, object.message, this.user_info['auth_key']);
     };
-    // top sale product
-    HomePage.prototype.top_sales = function () {
-        var _this = this;
-        this.apis.top_ten_sale().then(function (data) {
-            _this.top_sale = data;
-        }).catch(function (err) {
-            _this.toast_message(err);
-        });
-        ;
-    };
-    HomePage.prototype.get_all_product = function () {
-        var _this = this;
-        this.apis.all_product(1, this.auth_key).then(function (data) {
-            _this.all_products = data;
-            _this.total_record = _this.all_products.length;
-        }).catch(function (err) {
-            _this.toast_message(err);
-        });
-    };
-    HomePage.prototype.product = function (id, type) {
-        this.navCtrl.push('AllProductsPage', { type: type, id: id });
-    };
-    HomePage.prototype.details = function (product_details) {
-        this.navCtrl.push('ProductdetailsPage', { details: product_details });
-    };
-    HomePage.prototype.seemore = function (type) {
-        this.navCtrl.push('AllProductsPage', { type: type, id: 123 });
-    };
-    //for fav
-    HomePage.prototype.do_fav = function (object) {
-        var _this = this;
-        if (object[0].is_fav == 1) {
-            object[0].is_fav = 0;
+    AllchatPage.prototype.time_ago = function (previous) {
+        var current = new Date().getTime();
+        previous = previous * 1000;
+        var msPerMinute = 60 * 1000;
+        var msPerHour = msPerMinute * 60;
+        var msPerDay = msPerHour * 24;
+        var msPerMonth = msPerDay * 30;
+        var msPerYear = msPerDay * 365;
+        var elapsed = current - previous;
+        if (elapsed < msPerMinute) {
+            return Math.round(elapsed / 1000) + ' seconds ago';
+        }
+        else if (elapsed < msPerHour) {
+            return Math.round(elapsed / msPerMinute) + ' minutes ago';
+        }
+        else if (elapsed < msPerDay) {
+            return Math.round(elapsed / msPerHour) + ' hours ago';
+        }
+        else if (elapsed < msPerMonth) {
+            return Math.round(elapsed / msPerDay) + ' days ago';
+        }
+        else if (elapsed < msPerYear) {
+            return Math.round(elapsed / msPerMonth) + ' months ago';
         }
         else {
-            object[0].is_fav = 1;
-        }
-        if (this.is_login) {
-            this.apis.do_fav(object.id).then(function (data) {
-                _this.toast_message(data);
-            });
-        }
-        else {
-            var alert_1 = this.alterctrl.create({
-                title: 'Login Alert',
-                subTitle: 'Please Login First',
-                buttons: ['ok']
-            });
-            alert_1.present();
+            return Math.round(elapsed / msPerYear) + ' years ago';
         }
     };
-    HomePage.prototype.toast_message = function (message) {
-        var toast = this.toast.create({
-            message: message,
-            duration: 3000,
-            position: 'buttom'
-        });
-        toast.present();
+    AllchatPage.prototype.string_message = function (message) {
+        return atob(message);
     };
-    HomePage.prototype.searchdata = function (data) {
-        var _this = this;
-        this.page = 1;
-        this.apis.all_product(1, this.auth_key, data).then(function (data) {
-            _this.all_products = data;
-            _this.total_record = _this.all_products.length;
-        }).catch(function (err) {
-            _this.toast_message(err);
-        });
+    AllchatPage.prototype.back = function () {
+        this.navCtrl.pop();
     };
-    HomePage.prototype.pagination = function (infiniteScroll) {
+    AllchatPage.prototype.pagination = function (infiniteScroll) {
         var _this = this;
         this.page++;
-        this.apis.all_product(this.page, this.auth_key, this.search_data).then(function (data) {
+        this.api.get_message(this.friend_id, this.product_id, this.page, this.user_info['auth_key']).then(function (data) {
             _this.total_record = data.length;
             for (var i = 0; i < data.length; i++) {
-                _this.all_products.push(data[i]);
+                _this.all_message.unshift(data[i]);
             }
             infiniteScroll.complete();
         }).catch(function (error) {
-            _this.toast_message("No For Product");
+            // this.toast_message("No For Product");
             _this.total_record = 0;
         });
     };
-    HomePage.prototype.goChat = function () {
-        this.navCtrl.push('ChatlistPage');
-    };
-    HomePage.prototype.Vendors = function (data) {
-        this.navCtrl.push('VendorProfilePage', { user_info: data });
-    };
-    HomePage = __decorate([
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_8" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_2_ionic_angular_index__["c" /* Content */]),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_2_ionic_angular_index__["c" /* Content */])
+    ], AllchatPage.prototype, "content", void 0);
+    AllchatPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-home',template:/*ion-inline-start:"/Users/pankajvashisht/Documents/Projects/ionicApp/src/pages/home/home.html"*/'<ion-header class="home-page-header"> \n  <div class="nav_header">\n      <button ion-button class="nav_btn floatLeft nav_menu" menuToggle></button>\n      <div class="nav_header_title floatLeft">\n          <!-- <img src="assets/imgs/logo-1.png">  -->\n          <img src="assets/imgs/ahm-logo-white-small.jpg"> \n    </div>\n<button ion-button class="nav_btn floatRight nav_option" (click)="goChat()"></button>\n  </div>\n    <div class="nav_header">\n      <ion-searchbar class="home_search_bar" [(ngModel)]="search_data" (input)="searchdata($event.target.value)"  placeholder="Search Product Here">\n      </ion-searchbar>\n  </div>\n</ion-header>\n<ion-content>\n  <div class="home_content">\n  <div class="home_menu_banner" *ngIf="search_data.length==0">\n        <ul>\n            <li *ngFor="let ten_cat of main_category" (click)="product(ten_cat.id,2)">\n                <img src="{{ten_cat.image}}">\n                <p>{{(ten_cat.name.length>40)?ten_cat.name.substring(40,-1)+\'\':ten_cat.name}}</p>\n            </li>\n\n            <div class="clear"></div>\n        </ul>\n    </div>\n  </div>\n    <div class="fashion_store_wrapper">\n        <div class="fashion_banner_slider" *ngIf="main_category.length>0 && search_data.length==0">\n            <ion-slides loop="true" pager="true" zoom="true" autoplay="2000" effect="coverflow" speed="1000" slidesPerView="1">\n                <ion-slide  *ngFor="let ten_cat of main_category" (click)="product(ten_cat.id,2)">\n                    <img [src]="ten_cat.slider_image" >\n                </ion-slide>\n\n            </ion-slides>\n        </div>\n        <div class="fashion_header"  *ngIf="search_data.length==0">\n            <h6>TOP Vendors</h6>\n          \n            <div class="clear"></div>\n        </div>\n        <div class="top_brand_slider"  *ngIf="search_data.length==0 && top_vendors.length>0">\n            <ion-slides loop="true" autoplay="1000" speed="1000" slidesPerView="2.5">\n                <ion-slide *ngFor="let vendor of top_vendors" (click)="Vendors(vendor)">\n                    <div class="top_brand_circle">\n                        <img  (load)="loaded = true" [src]="(!loaded)?\'assets/imgs/loading.gif\':vendor.image">\n                    </div>\n                    <h5>{{vendor.first_name}} {{vendor.last_name}}</h5>\n                    <p>{{vendor.city}}</p>\n                </ion-slide>\n            </ion-slides>\n        </div>\n        <!-- <div class="fashion_header"  *ngIf="search_data.length==0">\n            <h6>TOP TRENDS</h6>\n           \n            <div class="clear"></div>\n        </div> -->\n        <!-- <div class="fashion_store_slider"  *ngIf="search_data.length==0">\n            <ion-slides loop="true" pager="false" zoom="true" effect="slide" speed="500" slidesPerView="1.5" spaceBetween="5">\n                <ion-slide (click)="product()">\n                    <img src="assets/imgs/poster1.png">\n                </ion-slide>\n                <ion-slide (click)="product()">\n                    <img src="assets/imgs/poster2.png">\n                </ion-slide>\n            </ion-slides>\n        </div> -->\n        <!-- <div class="fashion_store_slider"  *ngIf="search_data.length==0">\n            <ion-slides loop="true" pager="false" zoom="true" effect="slide" speed="500" slidesPerView="2" spaceBetween="5">\n                <ion-slide (click)="product()">\n                    <img src="assets/imgs/poster3.png">\n                </ion-slide>\n                <ion-slide (click)="product()">\n                    <img src="assets/imgs/fashion_poster3.png">\n                </ion-slide>\n            </ion-slides>\n        </div> -->\n        <div class="fashion_header"  *ngIf="search_data.length==0">\n            <h6>MOST VIEWED</h6>\n            <button ion-button class="seeall seeall_pink" (click)="seemore(6)">See all</button>\n            <div class="clear"></div>\n        </div>\n        <div class="fashion_most_viewed_slider" *ngIf="top_sale.length>0 && search_data.length==0"  >\n            <ion-slides loop="true" pager="false" zoom="true" effect="slide" speed="500" slidesPerView="3" spaceBetween="8">\n                <ion-slide *ngFor="let sale of top_sale" >\n                    <div (click)="do_fav(sale)" [class]="(is_login && sale[0].is_fav==1)? \'fav_circle fav\': \'fav_circle not_fav\'"></div>\n                    <img (click)="details(sale)"  (load)="loaded = true" [src]="(!loaded)?\'assets/imgs/loading.gif\':(sale.media.length>0)?sale.media[0].file:app_statics.defult_product_image">\n                    <!-- <h5>{{(sale.name.length>10)?sale.name.substring(10,-1)+\'..\':sale.name}}</h5> -->\n                    <p>Get at<strong>${{sale.price}}</strong> </p>\n                </ion-slide>\n\n            </ion-slides>\n        </div>\n        <div class="fashion_header" *ngIf="featured.length>0 && search_data.length==0">\n            <h6>Featured</h6>\n            <button ion-button class="seeall seeall_pink" (click)="seemore(5)">See all</button>\n            <div class="clear"></div>\n        </div>\n        <div class="fashion_most_viewed_slider" *ngIf="featured.length>0 && search_data.length==0">\n            <ion-slides loop="true" pager="false" zoom="true" effect="slide" speed="500" slidesPerView="3" spaceBetween="10">\n                <ion-slide *ngFor="let feature of featured" >\n                    <div (click)="do_fav(feature)" [class]="(is_login && feature[0].is_fav==1)? \'fav_circle fav\': \'fav_circle not_fav\'"></div>\n                    <img (click)="details(feature)"  (load)="loaded = true" [src]="(!loaded)?\'assets/imgs/loading.gif\':(feature.media.length>0)?feature.media[0].file:app_statics.defult_product_image">\n                    <!-- <h5>{{(feature.name.length>10)?feature.name.substring(10,-1)+\'..\':feature.name}}</h5> -->\n                    <p>Get at<strong>${{feature.price}}</strong> </p>\n                </ion-slide>\n            </ion-slides>\n        </div>\n        <div class="">\n            <h6>{{(search_data.length==0)?\'More Products\':\'Search Products\'}}</h6>\n\n            <div class="clear"></div>\n        </div>\n\n          <div class="result_wrapper" *ngIf="all_products.length>0">\n      <ul>\n          <li *ngFor="let product of all_products" >\n              <div class="inner_result">\n                  <div (click)="do_fav(product)" [class]="(is_login==true && product[0].is_fav==1)? \'fav_circle fav\': \'fav_circle not_fav\'"></div>\n                  <img (click)="details(product)" (load)="loaded = true"  [src]="(!loaded)?\'assets/imgs/loading.gif\':(product.media.length>0)?product.media[0].file:app_statics.defult_product_image">\n              </div>\n              <h5>{{(product.name.length>30)?product.name.substring(30,-1)+\'\':product.name}}</h5>\n              <p>\n                <span *ngIf="product.international_price>0">\n                    Global: <strong>$ {{product.international_price}} </strong><br />\n                </span>\n                Local:\n                <strong>{{product.price_type}} {{product.price}}</strong>\n            </p>\n                  </li>\n\n      </ul>\n  </div>\n  \n        </div> \n        <ion-fab *ngIf="is_login" bottom right>\n            <button ion-fab class="theme_light"  [navPush]="pushPage" ><ion-icon name="md-add"></ion-icon></button>\n              \n        </ion-fab>\n        <ion-infinite-scroll *ngIf="total_record>9" (ionInfinite)="pagination($event)">\n            <ion-infinite-scroll-content></ion-infinite-scroll-content>\n          </ion-infinite-scroll>\n</ion-content>\n'/*ion-inline-end:"/Users/pankajvashisht/Documents/Projects/ionicApp/src/pages/home/home.html"*/
+            selector: 'page-allchat',template:/*ion-inline-start:"/Users/pankajvashisht/Documents/Projects/ionicApp/src/pages/allchat/allchat.html"*/'\n<ion-header>\n  <div class="nav_header nav_white_header">\n      <button class="nav_btn nav_back_dark floatLeft" (click)="back()">\n    </button>\n      <div class="nav_header_title floatLeft">\n          <h5>{{(displaychat.length>15)?displaychat.substring(0,15)+\'....\':displaychat}}</h5>\n      </div>\n      \n      <div class="clear"></div>\n  </div>\n</ion-header>\n\n\n<ion-content>\n  <ion-infinite-scroll *ngIf="total_record>8" (ionInfinite)="pagination($event)" position="top">\n    <ion-infinite-scroll-content></ion-infinite-scroll-content>\n  </ion-infinite-scroll>\n    <div class="wrapper text-center h-full" layout vertical center center-center *ngIf="all_message.length == 0">\n      <div>\n        <div class="m-b">\n\n          <div class="text-lg no-product">  <ion-icon class="nochaticon" name="chatbubbles"></ion-icon> <br><p>No Chat Yet</p></div>\n          \n        </div>\n      \n       \n      </div>\n    </div>\n  \n    <div class="chat-list" *ngIf="all_message.length">\n      <div class="chat-item" *ngFor="let singel of all_message" [ngClass]="{\'me\': singel.sender_id==user_info.id}">\n        <div class="chat-timestamp">\n          {{time_ago(singel.created)}}\n        </div>\n  \n        <div class="chat-item-content">\n        \n          \n          \n          <div class="chat-item-bubble" [ngClass]="{\'bubble-image\': singel.type == \'1\'}">\n            <i class="icon-tail"></i>\n            <div class="chat-body" *ngIf="singel.type == \'0\'" [innerHtml]="singel.message "></div>\n             <img [src]="singel.message" *ngIf="singel.type == \'1\'"> \n          </div>\n        \n        </div>\n  \n        \n      </div>\n    </div>\n    \n</ion-content>\n\n<ion-footer no-border >\n  \n\n  <ion-toolbar class="has-elastic-input giphy-input" >\n    <ion-buttons left align-self-bottom class="stick-bottom">\n      <!-- <button ion-button small class="button-gif" (click)="toggleGiphy()">\n        <ion-icon ios="ios-attach" md="md-attach"></ion-icon>\n      </button> -->\n    </ion-buttons>\n    <ion-textarea  fz-elastic [(ngModel)]="message" placeholder="Type a message.." style="border-color: black !important;"></ion-textarea>\n    <ion-buttons right align-self-bottom class="stick-bottom">\n      \n      <button ion-button small class="" style="font-size: 30px;"  (tap)="send_message()">\n        <ion-icon  class=""  name="send" color="primary"></ion-icon>\n      </button>\n    </ion-buttons>\n  </ion-toolbar>\n</ion-footer>\n'/*ion-inline-end:"/Users/pankajvashisht/Documents/Projects/ionicApp/src/pages/allchat/allchat.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* Events */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["p" /* ToastController */], __WEBPACK_IMPORTED_MODULE_2__providers_providers__["a" /* ApisProvider */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */], __WEBPACK_IMPORTED_MODULE_2__providers_providers__["b" /* SessionProvider */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* LoadingController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavParams */]])
-    ], HomePage);
-    return HomePage;
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_3__providers_providers__["a" /* ApisProvider */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["p" /* ToastController */], __WEBPACK_IMPORTED_MODULE_3__providers_providers__["b" /* SessionProvider */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavParams */]])
+    ], AllchatPage);
+    return AllchatPage;
 }());
 
-//# sourceMappingURL=home.js.map
+//# sourceMappingURL=allchat.js.map
 
 /***/ })
 
